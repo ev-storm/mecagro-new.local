@@ -1,0 +1,845 @@
+[
+  {
+    "categories": {
+      "ru": {
+        "Техника для садоводства": {
+          "subCategories": {
+            "Садовые тракторы и культиваторы": {
+              "object": [
+                {
+                  "name": "Опрыскиватель вентиляторный",
+                  "cod": "SLV 1000",
+                  "description": "Для химической защиты от вредителей и болезней многолетних насаждений садов высотой до 5 м, с шириной междурядий до 6 м и виноградников с шириной междурядий 2,5 м и более",
+                  "specifications": {
+                    "площадь": "1 - 3 га/ч",
+                    "Рабочая скорость движения": "3 - 6 км/ч"
+                  },
+                  "subCategories": [
+                    "Сажалка для рассады",
+                    "Сеялка для овощей",
+                    "Автоматическая сажалка",
+                    "Пневматическая сеялка для сада",
+                    "Сеялка для моркови"
+                  ],
+                  "brand": ["MECARGO", "BARGAM", "MOSH"],
+                  "filter": ["Новинка", "Популярное"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Плуг стальной",
+                  "cod": "PG 400",
+                  "description": "Предназначен для вспашки почвы и её подготовки к посеву. Отличается высокой прочностью и долговечностью.",
+                  "specifications": {
+                    "площадь": "1 - 4 га/ч",
+                    "Рабочая скорость движения": "4 - 7 км/ч"
+                  },
+                  "subCategories": [
+                    "Сажалка для рассады",
+                    "Сеялка для овощей",
+                    "Автоматическая сажалка",
+                    "Пневматическая сеялка для сада",
+                    "Сеялка для моркови"
+                  ],
+                  "brand": ["MECARGO", "BARGAM", "MOSH"],
+                  "filter": ["Популярное"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            },
+            "Сеялки и сажалки для овощей": {
+              "object": [
+                {
+                  "name": "Автоматическая сеялка",
+                  "cod": "ASE 200",
+                  "description": "Эта сеялка подходит для ровного и быстрого высевания семян. Идеальна для больших полей.",
+                  "specifications": {
+                    "площадь": "2 - 5 га/ч",
+                    "Рабочая скорость движения": "5 - 8 км/ч",
+                    "Длина хвоста": "5 м"
+                  },
+                  "subCategories": [
+                    "Сажалка для рассады",
+                    "Сеялка для овощей",
+                    "Автоматическая сажалка",
+                    "Пневматическая сеялка для сада",
+                    "Сеялка для моркови"
+                  ],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Новинка"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Сеялка для моркови",
+                  "cod": "CMR 150",
+                  "description": "Специально разработана для точного высевания семян моркови на подготавливаемых участках.",
+                  "specifications": {
+                    "площадь": "1 - 4 га/ч",
+                    "Рабочая скорость движения": "3 - 6 км/ч",
+                    "Рукукукукукукук": "0020202020 км/ч"
+                  },
+                  "subCategories": [
+                    "Сажалка для рассады",
+                    "Сеялка для овощей",
+                    "Автоматическая сажалка",
+                    "Пневматическая сеялка для сада",
+                    "Сеялка для моркови"
+                  ],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Популярное"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            },
+            "Уборочная техника для ягод": {
+              "object": [
+                {
+                  "name": "Сборщик ягод",
+                  "cod": "BY 500",
+                  "description": "Эта машина эффективно собирает ягоды и позволяет минимизировать потери во время уборки.",
+                  "specifications": {
+                    "площадь": "0.5 - 2 га/ч",
+                    "Рабочая скорость движения": "2 - 5 км/ч"
+                  },
+                  "subCategories": [
+                    "Сбор ягод",
+                    "Погрузчик для ягод",
+                    "Смывка ягод",
+                    "Система орошения"
+                  ],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Новинка"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Погрузчик для ягод",
+                  "cod": "BYL 300",
+                  "description": "Позволяет эффективно перевозить собранные ягоды к месту переработки.",
+                  "specifications": {
+                    "площадь": "1 - 3 га/ч",
+                    "Рабочая скорость движения": "3 - 6 км/ч"
+                  },
+                  "subCategories": [
+                    "Сбор ягод",
+                    "Погрузчик для ягод",
+                    "Смывка ягод",
+                    "Система орошения"
+                  ],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Популярное"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            },
+            "Почвообрабатывающее оборудование для сада": {
+              "object": [
+                {
+                  "name": "Фреза садовая",
+                  "cod": "FS 600",
+                  "description": "Идеальна для рыхления и обработки садовых участков, обеспечивает хорошую аэрацию почвы.",
+                  "specifications": {
+                    "площадь": "1 - 3 га/ч",
+                    "Рабочая скорость движения": "3 - 5 км/ч"
+                  },
+                  "subCategories": [
+                    "Культиватор",
+                    "Мотоблок",
+                    "Оборудование для рыхления"
+                  ],
+                  "brand": ["MECARGO", "BARGAM", "MOSH"],
+                  "filter": ["Новинка"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Садовый культиватор",
+                  "cod": "GC 400",
+                  "description": "Используется для слеживания культуры и ее защиты от сорняков.",
+                  "specifications": {
+                    "площадь": "1 - 2 га/ч",
+                    "Рабочая скорость движения": "4 - 6 км/ч"
+                  },
+                  "subCategories": [
+                    "Культиватор",
+                    "Мотоблок",
+                    "Оборудование для рыхления"
+                  ],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Популярное"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "Опрыскиватели для обработки полевых культур": {
+          "subCategories": {
+            "Оборудование для кормления животных": {
+              "object": [
+                {
+                  "name": "Кормораздатчик",
+                  "cod": "KF 300",
+                  "description": "Предназначен для равномерного распределения кормов среди животных на ферме.",
+                  "specifications": {
+                    "площадь": "0.5 - 2 га/ч",
+                    "Рабочая скорость движения": "3 - 5 км/ч"
+                  },
+                  "subCategories": [],
+                  "brand": ["MECARGO"],
+                  "filter": ["Новинка"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Поилка автоматическая",
+                  "cod": "PA 150",
+                  "description": "Обеспечивает постоянный доступ к воде для животных на ферме.",
+                  "specifications": {
+                    "площадь": "Н/Д",
+                    "Рабочая скорость движения": "Н/Д",
+                    "Длина хвоста": "5 м"
+                  },
+                  "subCategories": [],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Популярное"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            },
+            "Оборудование для доения": {
+              "object": [
+                {
+                  "name": "Аппарат для доения",
+                  "cod": "AD 500",
+                  "description": "Система для автоматического доения коров с высокой производительностью и низким энергопотреблением.",
+                  "specifications": {
+                    "площадь": "Н/Д",
+                    "Рабочая скорость движения": "Н/Д"
+                  },
+                  "subCategories": [],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Новинка"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Загон для доения",
+                  "cod": "ZD 400",
+                  "description": "Удобное решение для организации процесса доения, минимизирует стресс для животных.",
+                  "specifications": {
+                    "площадь": "Н/Д",
+                    "Рабочая скорость движения": "Н/Д"
+                  },
+                  "subCategories": [],
+                  "brand": ["MECARGO"],
+                  "filter": ["Популярное"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "Машины для приготовления и транспортировки рабочей жидкости": {
+          "subCategories": {
+            "Оборудование для кормления животных": {
+              "object": [
+                {
+                  "name": "Кормораздатчик",
+                  "cod": "KF 300",
+                  "description": "Предназначен для равномерного распределения кормов среди животных на ферме.",
+                  "specifications": {
+                    "площадь": "0.5 - 2 га/ч",
+                    "Рабочая скорость движения": "3 - 5 км/ч"
+                  },
+                  "subCategories": [],
+                  "brand": ["MECARGO"],
+                  "filter": ["Новинка"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Поилка автоматическая",
+                  "cod": "PA 150",
+                  "description": "Обеспечивает постоянный доступ к воде для животных на ферме.",
+                  "specifications": {
+                    "площадь": "Н/Д",
+                    "Рабочая скорость движения": "Н/Д"
+                  },
+                  "subCategories": [],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Популярное"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            },
+            "Оборудование для доения": {
+              "object": [
+                {
+                  "name": "Аппарат для доения",
+                  "cod": "AD 500",
+                  "description": "Система для автоматического доения коров с высокой производительностью и низким энергопотреблением.",
+                  "specifications": {
+                    "площадь": "Н/Д",
+                    "Рабочая скорость движения": "Н/Д"
+                  },
+                  "subCategories": [],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Новинка"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Загон для доения",
+                  "cod": "ZD 400",
+                  "description": "Удобное решение для организации процесса доения, минимизирует стресс для животных.",
+                  "specifications": {
+                    "площадь": "Н/Д",
+                    "Рабочая скорость движения": "Н/Д"
+                  },
+                  "subCategories": [],
+                  "brand": ["MECARGO"],
+                  "filter": ["Популярное"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "Приспособления для внесения гербицидов в садах и виноградниках": {
+          "subCategories": {
+            "Оборудование для кормления животных": {
+              "object": [
+                {
+                  "name": "Кормораздатчик",
+                  "cod": "KF 300",
+                  "description": "Предназначен для равномерного распределения кормов среди животных на ферме.",
+                  "specifications": {
+                    "площадь": "0.5 - 2 га/ч",
+                    "Рабочая скорость движения": "3 - 5 км/ч"
+                  },
+                  "subCategories": [],
+                  "brand": ["MECARGO"],
+                  "filter": ["Новинка"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Поилка автоматическая",
+                  "cod": "PA 150",
+                  "description": "Обеспечивает постоянный доступ к воде для животных на ферме.",
+                  "specifications": {
+                    "площадь": "Н/Д",
+                    "Рабочая скорость движения": "Н/Д"
+                  },
+                  "subCategories": [],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Популярное"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            },
+            "Оборудование для доения": {
+              "object": [
+                {
+                  "name": "Аппарат для доения",
+                  "cod": "AD 500",
+                  "description": "Система для автоматического доения коров с высокой производительностью и низким энергопотреблением.",
+                  "specifications": {
+                    "площадь": "Н/Д",
+                    "Рабочая скорость движения": "Н/Д"
+                  },
+                  "subCategories": [],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Новинка"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Загон для доения",
+                  "cod": "ZD 400",
+                  "description": "Удобное решение для организации процесса доения, минимизирует стресс для животных.",
+                  "specifications": {
+                    "площадь": "Н/Д",
+                    "Рабочая скорость движения": "Н/Д"
+                  },
+                  "subCategories": [],
+                  "brand": ["MECARGO"],
+                  "filter": ["Популярное"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      },
+      "en": {
+        "Horticultural Equipment": {
+          "subCategories": {
+            "Garden Tractors and Cultivators": {
+              "object": [
+                {
+                  "name": "Plow",
+                  "cod": "PG 300",
+                  "description": "For plowing land, preparing soil for sowing",
+                  "specifications": {
+                    "area": "1 - 3 ha/h",
+                    "Working speed of movement": "3 - 6 km/h"
+                  },
+                  "subCategories": [
+                    "Seedling Planter",
+                    "Vegetable Seeder",
+                    "Automatic Planter",
+                    "Pneumatic Seeder for Gardens",
+                    "Carrot Planter"
+                  ],
+                  "brand": ["MECARGO", "BARGAM", "MOSH"],
+                  "filter": ["New", "Popular"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Cultivator",
+                  "cod": "GYC 500",
+                  "description": "Designed for deep cultivation of the soil, ensuring optimal grain growth.",
+                  "specifications": {
+                    "area": "1 - 4 ha/h",
+                    "Working speed of movement": "4 - 7 km/h"
+                  },
+                  "subCategories": [
+                    "Seedling Planter",
+                    "Vegetable Seeder",
+                    "Automatic Planter",
+                    "Pneumatic Seeder for Gardens",
+                    "Carrot Planter"
+                  ],
+                  "brand": ["MECARGO", "BARGAM", "MOSH"],
+                  "filter": ["New"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            },
+            "Seeders and Planters for Vegetables": {
+              "object": [
+                {
+                  "name": "Vegetable Seeder",
+                  "cod": "VS 200",
+                  "description": "Efficient for sowing various vegetable seeds evenly.",
+                  "specifications": {
+                    "area": "2 - 5 ha/h",
+                    "Working speed of movement": "5 - 8 km/h"
+                  },
+                  "subCategories": [
+                    "Seedling Planter",
+                    "Automatic Planter",
+                    "Pneumatic Seeder for Gardens",
+                    "Carrot Planter"
+                  ],
+                  "brand": ["MECARGO", "BARGAM", "MOSH"],
+                  "filter": ["New"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Automatic Seeder",
+                  "cod": "AS 400",
+                  "description": "Ensures precise seed placement and optimal spacing.",
+                  "specifications": {
+                    "area": "1 - 4 ha/h",
+                    "Working speed of movement": "3 - 6 km/h"
+                  },
+                  "subCategories": [
+                    "Seedling Planter",
+                    "Vegetable Seeder",
+                    "Pneumatic Seeder for Gardens",
+                    "Carrot Planter"
+                  ],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Popular"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            },
+            "Harvesting Equipment for Berries": {
+              "object": [
+                {
+                  "name": "Berry Harvester",
+                  "cod": "BH 350",
+                  "description": "Designed to harvest berries with minimal loss.",
+                  "specifications": {
+                    "area": "0.5 - 2 ha/h",
+                    "Working speed of movement": "2 - 5 km/h"
+                  },
+                  "subCategories": [
+                    "Berry Collectors",
+                    "Berry Processing Equipment"
+                  ],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["New"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Berry Collector",
+                  "cod": "BC 400",
+                  "description": "Efficiently collects berries and reduces harvesting time.",
+                  "specifications": {
+                    "area": "1 - 3 ha/h",
+                    "Working speed of movement": "3 - 6 km/h"
+                  },
+                  "subCategories": [
+                    "Berry Collectors",
+                    "Berry Processing Equipment"
+                  ],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Popular"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            },
+            "Soil Processing Equipment for Gardens": {
+              "object": [
+                {
+                  "name": "Garden Tiller",
+                  "cod": "GT 600",
+                  "description": "Perfect for soil loosening and aeration, promoting healthy plant growth.",
+                  "specifications": {
+                    "area": "1 - 3 ha/h",
+                    "Working speed of movement": "3 - 5 km/h"
+                  },
+                  "subCategories": [
+                    "Cultivators",
+                    "Mini Tractors",
+                    "Soil Loosening Equipment"
+                  ],
+                  "brand": ["MECARGO", "BARGAM", "MOSH"],
+                  "filter": ["New"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Rotary Cultivator",
+                  "cod": "RC 500",
+                  "description": "Designed for soil preparation, enabling effective weed control.",
+                  "specifications": {
+                    "area": "1 - 2 ha/h",
+                    "Working speed of movement": "4 - 6 km/h"
+                  },
+                  "subCategories": [
+                    "Cultivators",
+                    "Mini Tractors",
+                    "Soil Loosening Equipment"
+                  ],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Popular"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "Grapevine Equipment": {
+          "subCategories": {
+            "Grape Harvesting Equipment": {
+              "object": [
+                {
+                  "name": "Grape Harvester",
+                  "cod": "GH 700",
+                  "description": "Designed for efficient and automated grape harvesting.",
+                  "specifications": {
+                    "area": "1 - 4 ha/h",
+                    "Working speed of movement": "2 - 4 km/h"
+                  },
+                  "subCategories": [
+                    "Grape Collectors",
+                    "Grape Processing Equipment"
+                  ],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["New"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Grape Press",
+                  "cod": "GP 400",
+                  "description": "Used for pressing grapes and extracting juice, known for its high efficiency.",
+                  "specifications": {
+                    "area": "1 - 5 ha/h",
+                    "Working speed of movement": "3 - 6 km/h"
+                  },
+                  "subCategories": [
+                    "Grape Collectors",
+                    "Grape Processing Equipment"
+                  ],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Popular"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            },
+            "Equipment for Grape Processing": {
+              "object": [
+                {
+                  "name": "Grape Seeder",
+                  "cod": "GS 100",
+                  "description": "Effectively sows cover crops between grape rows.",
+                  "specifications": {
+                    "area": "1 - 2 ha/h",
+                    "Working speed of movement": "2 - 5 km/h"
+                  },
+                  "subCategories": ["Fertilizers", "Pest Control"],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["New"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Grape Sprayer",
+                  "cod": "GS 200",
+                  "description": "Provides even distribution of protective agents on grape plants.",
+                  "specifications": {
+                    "area": "1 - 3 ha/h",
+                    "Working speed of movement": "3 - 6 km/h"
+                  },
+                  "subCategories": ["Fertilizers", "Pest Control"],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Popular"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "Livestock Equipment": {
+          "subCategories": {
+            "Animal Feeding Equipment": {
+              "object": [
+                {
+                  "name": "Feed Mixer",
+                  "cod": "FM 300",
+                  "description": "Designed for blending feed efficiently among farm animals.",
+                  "specifications": {
+                    "area": "0.5 - 2 ha/h",
+                    "Working speed of movement": "3 - 5 km/h"
+                  },
+                  "subCategories": [],
+                  "brand": ["MECARGO"],
+                  "filter": ["New"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Automatic Waterer",
+                  "cod": "AW 150",
+                  "description": "Provides continuous access to water for livestock on the farm.",
+                  "specifications": {
+                    "area": "N/A",
+                    "Working speed of movement": "N/A"
+                  },
+                  "subCategories": [],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["Popular"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            },
+            "Milking Equipment": {
+              "object": [
+                {
+                  "name": "Milking Machine",
+                  "cod": "MM 500",
+                  "description": "A system for automatic milking of cows, providing high efficiency and low energy consumption.",
+                  "specifications": {
+                    "area": "N/A",
+                    "Working speed of movement": "N/A"
+                  },
+                  "subCategories": [],
+                  "brand": ["MECARGO", "BARGAM"],
+                  "filter": ["New"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                },
+                {
+                  "name": "Milking Parlor",
+                  "cod": "MP 400",
+                  "description": "Convenient solution for organizing the milking process, minimizing stress for animals.",
+                  "specifications": {
+                    "area": "N/A",
+                    "Working speed of movement": "N/A"
+                  },
+                  "subCategories": [],
+                  "brand": ["MECARGO"],
+                  "filter": ["Popular"],
+                  "photo": [
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png",
+                    "/assets/img/avto/1.png"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+]

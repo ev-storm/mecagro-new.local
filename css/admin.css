@@ -1,0 +1,243 @@
+.login-container-con {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.login-container-con.hide {
+  display: none;
+}
+.login-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.error {
+  color: rgb(255, 109, 109);
+  margin-top: 10px;
+}
+.success {
+  color: var(--main);
+  margin-top: 10px;
+}
+
+.content {
+  display: flex;
+  width: 500px;
+  height: 500px;
+  background: #000;
+}
+.admin-input {
+  background-color: #00000010 !important;
+  width: 100% !important;
+  margin: 10px 0 0 0 !important;
+  color: var(--black) !important;
+  font-weight: 500 !important;
+}
+.admin-input:hover {
+  background-color: #00000010 !important;
+}
+.admin-btn {
+  width: 100% !important;
+  margin: 0 !important;
+  margin: 15px 0 0 0 !important;
+}
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 50px 30px 50px;
+}
+#loginForm {
+  margin: 25px 0 0 0 !important;
+}
+
+.content-con {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  padding-top: 100px;
+}
+.admin-bar {
+  width: 20%;
+  height: 100%;
+  overflow: scroll;
+}
+.admin-bar ul {
+  display: flex;
+  flex-direction: column;
+}
+.admin-bar ul li {
+  display: flex;
+  align-items: start;
+  width: 100%;
+  padding: 5px 0px 5px 60px;
+  transition: var(--tran-03);
+  border-radius: 5px;
+  margin: 1px 0;
+}
+.admin-bar ul li:hover {
+  background: #00000008;
+  transition: var(--tran-03);
+}
+.admin-bar ul li a h2 {
+  transition: var(--tran-03);
+}
+.admin-bar ul li:hover a h2 {
+  transform: translateX(20%);
+  color: var(--main);
+  transition: var(--tran-03);
+}
+.obj-cart-con {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: center;
+  align-content: flex-start;
+  width: 80%;
+  height: 100vh;
+  padding: 100px 20px;
+}
+.obj-cart {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  height: fit-content;
+  max-height: 300px;
+  box-shadow: #00000020 0 0 20px;
+  border-radius: 10px;
+  margin: 10px;
+  transition: var(--tran-03);
+  cursor: pointer;
+}
+.obj-cart-main {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.mini-photo-con {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  height: 100%;
+}
+.mini-photo-con img {
+  width: 70%;
+}
+.obj-cart-title {
+  width: 55%;
+  padding: 10px 0;
+}
+.obj-cart-title h1 {
+  font-size: 24px;
+}
+.obj-cart-title h2 {
+  color: var(--main);
+}
+.trash {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 20%;
+  cursor: pointer;
+  transition: var(--tran-03);
+}
+.trash img {
+  width: 40%;
+}
+
+.trash-tip {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  color: var(--main);
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+}
+.trash:hover {
+  scale: 0.95;
+}
+.trash:hover .trash-tip {
+  display: block;
+}
+.obj-cart:hover .obj-cart-down {
+  transform: translateY(0%);
+  opacity: 1;
+}
+.obj-cart-down {
+  width: 100%;
+  transform: translateY(-30%);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--tran-03);
+}
+.obj-cart:hover .obj-cart-down img {
+  width: 15px;
+  transition: var(--tran-03);
+}
+.obj-cart-down img {
+  width: 0px;
+  rotate: 90deg;
+  cursor: pointer;
+  transition: var(--tran-03);
+}
+.cart-photo {
+  width: 40%;
+}
+.cart-photo img {
+  width: 80%;
+}
+.cart-descript-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
+  height: 100%;
+  width: 60%;
+}
+.cart-specifications {
+  width: 100%;
+  margin: 10px 0;
+}
+.obj-cart-dop.show {
+  display: flex;
+}
+.obj-cart-dop {
+  display: none;
+  width: 100%;
+  padding: 10px;
+}
+.cart-brend,
+.cart-filter {
+  color: var(--main);
+  font-weight: 500;
+}
+.open-all,
+.close-all {
+  color: var(--main);
+  transition: var(--tran-03);
+  font-weight: 600;
+  cursor: pointer;
+  margin: 10px 50px;
+}
+.open-all:hover,
+.close-all:hover {
+  color: var(--dark);
+}
+.cart-margin {
+  width: 80%;
+  height: 2px;
+  background: #00000020;
+  margin: 30px 0 50px 0;
+}
