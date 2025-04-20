@@ -4,7 +4,10 @@ const copyElements = document.querySelectorAll(".copy");
 copyElements.forEach((element) => {
   element.addEventListener("click", function () {
     // Находим текст внутри элемента h3 рядом с элементом h2
-    const copyText = this.nextElementSibling.textContent;
+    const copyText = this.nextElementSibling
+      ? this.nextElementSibling.textContent
+      : this.textContent;
+
     const copyTitleText = this.textContent;
     // Копируем номер телефона в буфер обмена
     navigator.clipboard

@@ -113,14 +113,14 @@
   border-radius: 10px;
   padding: 0 10px;
   overflow: hidden;
-  transition: box-shadow, background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
 }
 
 .link-slide:hover {
-  box-shadow: inset #00000040 0 0 20px;
+  box-shadow: #00000040 0 0 20px;
   background: var(--main);
   /* transition: var(--tran-03); */
-  transition: box-shadow, background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
 }
 
 .link-slide img {
@@ -410,7 +410,7 @@
   max-height: 100px;
   margin: auto;
 }
-.anim-left {
+/* .anim-left {
   transform: translateX(20%);
   opacity: 0;
   transition: var(--tran-05);
@@ -429,4 +429,4 @@
   opacity: 1;
   transform: translateY(0);
   transition: var(--tran-05);
-}
+} */

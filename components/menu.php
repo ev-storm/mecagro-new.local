@@ -24,16 +24,24 @@
 					<li>|</li>
 					<li><a href="/pages/about.php#delivry">Доставка</a></li>
 					<li>|</li>
-					<li><a href="/pages/about.php#news">Новости</a></li>
+					<li ><a class="news-btn" href="/pages/news.php">Новости</a></li>
 				</ul>
 				<div class="link-con">
 					<button class="btn btn-modal-call">Связаться</button>
 					<div class="link">
 						<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
 						<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
-						<a href="#"><img src="/assets/svg/link/ml.svg" alt=""></a>
+						<a class="mail-btn"><img src="/assets/svg/link/ml.svg" alt="">
+							<div class="mail-drop-btn">
+									<h2 class="copy">mekagrogrup@mail.ru</h2>
+							</div>
+						</a>
 						<a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
-						<a href="#"><img src="/assets/svg/link/tel.svg" alt=""></a>
+						<a class="mail-btn"><img src="/assets/svg/link/tel.svg" alt="">
+							<div class="mail-drop-btn">
+									<h2 class="copy">+7 (989) 807-00-15</h2>
+							</div>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -47,13 +55,15 @@
 						<li>|</li>
 						<li><a href="#">Новинки</a></li>
 						<li>|</li>
-						<li class="pdf-down pdf-white"><a href="">Скачать каталог</a></li>
+						<li class="download-cat pdf-down arrow"><a href="">Скачать каталог</a>
+							<ul>
+								<li><a target="_blanc" href="/assets/img/brend/Mecagro.pdf"><h2>MECARGO PDF</h2></a></li>
+								<li><a target="_blanc" href="/assets/img/brend/BARGAM.pdf"><h2>BARGAM PDF</h2></a></li>
+								<li><a target="_blanc" href="/assets/img/brend/Mosh.pdf"><h2>MOSH PDF</h2></a></li>
+							</ul>
+						</li>
 					</ul>
-						<!-- <ul class="pdf-down-drop">
-							<li><a target="_blanc" href="/assets/img/brend/Mecagro.pdf"><h2>MECARGO PDF</h2></a></li>
-							<li><a target="_blanc" href="/assets/img/brend/BARGAM.pdf"><h2>BARGAM PDF</h2></a></li>
-							<li><a target="_blanc" href="/assets/img/brend/Mosh.pdf"><h2>MOSH PDF</h2></a></li>
-						</ul> -->
+				
 					
 					<div class="sub-menu-comp">
 						<div class="search-container">
@@ -71,10 +81,105 @@
 		</div>
 </div>
 
-
-		<span class="tip">Подсказка</span>
+<span class="tip">Подсказка</span>
 		
 
+
+	<div class="header-mob-con">
+		<div class="mob-logo-con">
+				<a href="/"><img src="/assets/svg/logo.svg" alt=""></a>
+		</div>
+		<div class="mob-btn-con">
+				<img class="open-menu" src="/assets/svg/open-mob-menu.svg" alt="">
+		</div>
+
+	</div>
+
+	<div class="main-mob-menu">
+
+			<div class="logo-main-mob-menu">
+				<a href="/"><img src="/assets/svg/logo.svg" alt=""></a>
+			</div>
+
+			<ul>
+				<li>
+					<a class="home-btn" href="/">Главная</a>
+				</li>
+				<li>
+					<a class="mob-catalog-btn" href="/pages/about.php">Каталог</a>
+				</li>
+				<li>
+					<a class="mob-about-btn" href="/pages/catalog.php">О компании</a>
+				</li>
+				<li>
+					<a  href="/pages/about.php#contact">Контакты</a>
+				</li>
+					<li>
+					<a  href="/pages/about.php#delivry">Доставка</a>
+				</li>
+					<li>
+					<a class="news-btn" href="/pages/news.php">Новости</a>
+				</li>
+			</ul>
+
+			<div class="mob-link-con">
+				<button class="btn btn-modal-call">Получить консультацию</button>
+				<div class="link">
+					<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
+					<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
+					<a class="mail-btn"><img src="/assets/svg/link/ml.svg" alt="">
+						<div class="mail-drop-btn">
+								<h2 class="copy">mekagrogrup@mail.ru</h2>
+						</div>
+					</a>
+					<a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
+					<a class="mail-btn"><img src="/assets/svg/link/tel.svg" alt="">
+						<div class="mail-drop-btn">
+								<h2 class="copy">+7 (989) 807-00-15</h2>
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="company-mob-con">
+				<h2>ООО «МЕКАГРО ГРУП» ©</h2>  
+				<h3>Все права защищены | 2025</h3>
+				<div>
+					<button id="languageRu" value="ru" class="lang-switch active btn">RU</button>
+					<button id="languageEn" value="en" class="lang-switch btn">EN</button>
+				</div>
+			</div>
+			<img class="close-menu hide" src="/assets/svg/close-mob-menu.svg" alt="">
+
+
+
+	</div>
+
+	<div class="catalog-mob-menu">
+		
+		<div class="mob-cat-btn-con">
+			<img class="open-cat-menu" src="/assets/svg/catalog-open-mob.svg" alt="">
+			<img class="close-cat-menu hide" src="/assets/svg/catalog-close-mob.svg" alt="">
+		</div>
+		
+		<div class="cataog-main-title">
+			<h1>Каталог</h1>
+		</div>
+
+		<ul class="main-categories"></ul>
+		<div class="download-cat-mob">
+			<button class="btn-light download-cat">Скачать каталог
+				<ul>
+					<li><a target="_blanc" href="/assets/img/brend/Mecagro.pdf"><h2>MECARGO PDF</h2></a></li>
+					<li><a target="_blanc" href="/assets/img/brend/BARGAM.pdf"><h2>BARGAM PDF</h2></a></li>
+					<li><a target="_blanc" href="/assets/img/brend/Mosh.pdf"><h2>MOSH PDF</h2></a></li>
+				</ul>
+			</button>
+		</div>
+
+
+
+	</div>
 
 
 

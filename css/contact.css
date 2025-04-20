@@ -99,7 +99,32 @@
   border-radius: 0 10px 10px 0;
   overflow: hidden;
 }
-
+.link {
+  position: relative;
+  z-index: 999;
+}
+.mail-drop-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: fit-content;
+  height: 0;
+  overflow: hidden;
+  background: #fff;
+  padding: 0px 30px;
+  box-shadow: #00000020 0 10px 20px;
+  border-radius: 2px;
+  transition: var(--tran-03);
+}
+.mail-btn:hover .mail-drop-btn {
+  height: 100%;
+  padding: 10px 30px;
+  transition: var(--tran-03);
+}
 .cont {
   display: flex;
   flex-direction: column;
@@ -107,6 +132,11 @@
   justify-content: center;
   width: 50%;
   padding: 0% 5%;
+}
+.tg-btn:hover {
+  color: var(--main);
+  cursor: pointer;
+  transition: var(--tran-03);
 }
 .cont-title div {
   height: 2px;

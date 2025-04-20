@@ -281,7 +281,7 @@ const expandActiveParents = (objectItems) => {
 /////////////////////////---------MENU--------///////////////////////////////////
 const createListMenu = async () => {
   const dataCategoriesMenu = await fetchDataCategories();
-  const menuContainer = document.querySelector(".menu-categories");
+  const menuContainer = document.querySelectorAll(".menu-categories");
   menuContainer.innerHTML = "";
 
   // Готовим HTML для меню
@@ -712,3 +712,59 @@ function setupLanguageSwitch() {
 }
 setupLanguageSwitch();
 //////////////////////////---------LANG-SWICH--------///////////////////////////////////()
+//////////////////////-------MENU-------//////////////////////////////
+const openMenu = document.querySelector(".open-menu");
+const closeMenu = document.querySelector(".close-menu");
+const mainMobMenu = document.querySelector(".main-mob-menu");
+
+const openCatMenu = document.querySelector(".open-cat-menu");
+const closeCatMenu = document.querySelector(".close-cat-menu");
+const catalogMobMenu = document.querySelector(".catalog-mob-menu");
+
+openMenu.addEventListener("click", () => {
+  mainMobMenu.classList.add("active");
+  closeMenu.classList.remove("hide");
+  catalogMobMenu.classList.remove("active");
+  closeCatMenu.classList.add("hide");
+  openCatMenu.classList.add("hide");
+});
+
+closeMenu.addEventListener("click", () => {
+  mainMobMenu.classList.remove("active");
+  closeMenu.classList.add("hide");
+  openCatMenu.classList.remove("hide");
+  openCatMenu.classList.remove("hide");
+});
+
+openCatMenu.addEventListener("click", () => {
+  catalogMobMenu.classList.add("active");
+  closeCatMenu.classList.remove("hide");
+  openCatMenu.classList.add("hide");
+});
+
+closeCatMenu.addEventListener("click", () => {
+  catalogMobMenu.classList.remove("active");
+  closeCatMenu.classList.add("hide");
+  openCatMenu.classList.remove("hide");
+});
+
+var hammertime = new Hammer(document.body, {
+  enable: true,
+  recognizers: [[Hammer.Swipe, { direction: Hammer.DIRECTION_HORIZONTAL }]],
+});
+
+hammertime.on("swipeleft", function (ev) {
+  mainMobMenu.classList.add("active");
+  closeMenu.classList.remove("hide");
+  catalogMobMenu.classList.remove("active");
+  closeCatMenu.classList.add("hide");
+  openCatMenu.classList.add("hide");
+});
+
+hammertime.on("swiperight", function (ev) {
+  mainMobMenu.classList.remove("active");
+  closeMenu.classList.add("hide");
+  openCatMenu.classList.remove("hide");
+});
+
+//////////////////////-------MENU-------//////////////////////////////

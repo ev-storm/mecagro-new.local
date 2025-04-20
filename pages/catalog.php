@@ -5,6 +5,9 @@
 			.catalog-btn{
 				color: #ffffff99!important;
 			}
+			.mob-catalog-btn{
+				color: #58c88a!important;
+			}
 	</style>
 
 <body>
@@ -89,13 +92,14 @@
 								<button class="btn">Получить консультацию</button>
 								<button class="btn-light">Лизинг</button>
 							</div>
-								<button class="btn-light download-cat pdf-down pdf-green">Скачать каталог
+								<button class="btn-light download-cat">Скачать каталог
 									<ul>
 										<li><a target="_blanc" href="/assets/img/brend/Mecagro.pdf"><h2>MECARGO PDF</h2></a></li>
 										<li><a target="_blanc" href="/assets/img/brend/BARGAM.pdf"><h2>BARGAM PDF</h2></a></li>
 										<li><a target="_blanc" href="/assets/img/brend/Mosh.pdf"><h2>MOSH PDF</h2></a></li>
 									</ul>
 								</button>
+									
 						</div>
 					</div>
 					<div class="object-descripcion-con">
@@ -168,6 +172,8 @@
 					</div>
 			</div>
 		</div>
+
+
 	</div>
 
 
@@ -175,7 +181,7 @@
 
 
 
-
+			<?php include "../components/footer.php"?>
 
 </body>
 </html>

@@ -1,106 +1,110 @@
-// function totalSvg() {
-//   const paths = document.querySelectorAll("svg path");
-//   const btns = document.querySelectorAll(".btn-svg");
+function totalSvg() {
+  const paths = document.querySelectorAll("svg path");
+  const btns = document.querySelectorAll(".btn-svg");
 
-//   paths.forEach(function (path) {
-//     let len = Math.round(path.getTotalLength());
+  paths.forEach(function (path) {
+    let len = Math.round(path.getTotalLength());
 
-//     path.setAttribute("stroke-dasharray", len);
-//     path.setAttribute("stroke-dashoffset", len);
+    path.setAttribute("stroke-dasharray", len);
+    path.setAttribute("stroke-dashoffset", len);
 
-//     // Добавляем анимацию для проигрывания один раз
-//     const animate = document.createElementNS(
-//       "http://www.w3.org/2000/svg",
-//       "animate"
-//     );
-//     animate.setAttribute("attributeName", "stroke-dashoffset");
-//     animate.setAttribute("values", `${len}; 0`);
-//     animate.setAttribute("dur", `${len / 100}`);
-//     animate.setAttribute("fill", "freeze");
+    // Добавляем анимацию для проигрывания один раз
+    const animate = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "animate"
+    );
+    animate.setAttribute("attributeName", "stroke-dashoffset");
+    animate.setAttribute("values", `${len}; 0`);
+    animate.setAttribute("dur", `${len / 100}`);
+    animate.setAttribute("fill", "freeze");
 
-//     path.appendChild(animate);
-//     animate.beginElement();
-//   });
+    path.appendChild(animate);
+    animate.beginElement();
+  });
 
-//   btns.forEach((btn) => {
-//     let isAnimating = false;
+  btns.forEach((btn) => {
+    let isAnimating = false;
 
-//     btn.addEventListener("mouseenter", function () {
-//       if (isAnimating) return;
+    btn.addEventListener("mouseenter", function () {
+      if (isAnimating) return;
 
-//       const path = this.querySelector("svg > path");
+      const path = this.querySelector("svg > path");
 
-//       let len = Math.round(path.getTotalLength());
+      let len = Math.round(path.getTotalLength());
 
-//       const animate = document.createElementNS(
-//         "http://www.w3.org/2000/svg",
-//         "animate"
-//       );
-//       animate.setAttribute("attributeName", "stroke-dashoffset");
-//       animate.setAttribute("values", `${len}; 0`);
-//       animate.setAttribute("dur", `${len / 80}`);
-//       animate.setAttribute("fill", "freeze");
+      const animate = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "animate"
+      );
+      animate.setAttribute("attributeName", "stroke-dashoffset");
+      animate.setAttribute("values", `${len}; 0`);
+      animate.setAttribute("dur", `${len / 80}`);
+      animate.setAttribute("fill", "freeze");
 
-//       path.appendChild(animate);
-//       animate.beginElement();
-//       isAnimating = true; // Устанавливаем флаг в состояние "занято"
+      path.appendChild(animate);
+      animate.beginElement();
+      isAnimating = true; // Устанавливаем флаг в состояние "занято"
 
-//       setTimeout(() => {
-//         isAnimating = false;
-//       }, 5000);
-//     });
+      setTimeout(() => {
+        isAnimating = false;
+      }, 5000);
+    });
 
-//     btn.addEventListener("mouseleave", function () {
-//       const path = this.querySelector("svg > path");
-//     });
-//   });
-// }
+    btn.addEventListener("mouseleave", function () {
+      const path = this.querySelector("svg > path");
+    });
+  });
+}
 
-// // function totalSvg_2() {
-// //   const paths = document.querySelectorAll("svg path");
-// //   const btns = document.querySelectorAll(".btn-svg-2");
+if (document.querySelector(".btn-svg")) {
+  totalSvg();
+}
 
-// //   paths.forEach(function (path) {
-// //     let len = Math.round(path.getTotalLength());
+function totalSvg2() {
+  const paths = document.querySelectorAll("svg path");
+  const btns = document.querySelectorAll(".btn-svg-2");
 
-// //     path.setAttribute("stroke-dasharray", len);
-// //     path.setAttribute("stroke-dashoffset", len);
+  paths.forEach(function (path) {
+    let len = Math.round(path.getTotalLength());
 
-// //     // Добавляем анимацию для проигрывания один раз
-// //     const animate = document.createElementNS(
-// //       "http://www.w3.org/2000/svg",
-// //       "animate"
-// //     );
-// //     animate.setAttribute("attributeName", "stroke-dashoffset");
-// //     animate.setAttribute("values", `${len}; 0`);
-// //     animate.setAttribute("dur", `${len / 100}`);
-// //     animate.setAttribute("fill", "freeze");
+    path.setAttribute("stroke-dasharray", len);
+    path.setAttribute("stroke-dashoffset", len);
 
-// //     path.appendChild(animate);
-// //     animate.beginElement();
-// //   });
+    // Добавляем анимацию для проигрывания один раз
+    const animate = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "animate"
+    );
+    animate.setAttribute("attributeName", "stroke-dashoffset");
+    animate.setAttribute("values", `${len}; 0`);
+    animate.setAttribute("dur", `${len / 100}`);
+    animate.setAttribute("fill", "freeze");
 
-// //   btns.forEach((btn) => {
-// //     btn.addEventListener("mouseenter", function () {
-// //       const path = this.querySelector("svg > path");
+    path.appendChild(animate);
+    animate.beginElement();
+  });
+}
 
-// //       let len = Math.round(path.getTotalLength());
+if (document.querySelector(".btn-svg")) {
+  totalSvg();
+}
 
-// //       const animate = document.createElementNS(
-// //         "http://www.w3.org/2000/svg",
-// //         "animate"
-// //       );
-// //       animate.setAttribute("attributeName", "stroke-dashoffset");
-// //       animate.setAttribute("values", `${len}; 0`);
-// //       animate.setAttribute("dur", `${len / 100}`);
-// //       animate.setAttribute("fill", "freeze");
+const target = document.querySelector(".btn-svg-2");
 
-// //       path.appendChild(animate);
-// //       animate.beginElement();
-// //     });
-// //   });
-// // }
+if (target) {
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          totalSvg(); // вызываем вашу функцию
+          observer.unobserve(target); // если нужно вызвать только 1 раз
+        }
+      });
+    },
+    {
+      threshold: 0.5, // 0.5 означает, что элемент виден на 50%, можно поменять
+    }
+  );
 
-// // Вызываем totalSvg при загрузке страницы
-// document.addEventListener("DOMContentLoaded", totalSvg);
-// document.addEventListener("DOMContentLoaded", totalSvg_2);
+  observer.observe(target);
+}

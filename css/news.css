@@ -65,20 +65,16 @@
 .news-text h1 {
   color: var(--main);
 }
-/* .news-text h2 {
-  width: 90%;
-  overflow: scroll;
-  height: 300px;
-} */
+
 .news-text h2 {
   width: 100%;
-  max-height: 300px; /* Ограничиваем высоту блока, чтобы контент не выходил за границы */
-  overflow-y: auto; /* Включаем вертикальную прокрутку */
+  max-height: 300px;
+  overflow-y: hidden;
   padding-right: 10%;
 }
 
 .news-text h2::-webkit-scrollbar {
-  width: 3px; /* Ширина скроллбара */
+  width: 3px;
 }
 
 .news-text h2::-webkit-scrollbar-thumb {
@@ -88,11 +84,9 @@
 }
 
 .news-text::-webkit-scrollbar-track {
-  background: transparent; /* Фон полосы прокрутки */
+  background: transparent;
 }
-/* .news-text h2::-webkit-scrollbar {
-  width: 5px !important;
-} */
+
 .news-text h2 span {
   color: var(--main);
   opacity: 0.7;
@@ -124,14 +118,7 @@
   overflow: hidden;
   padding: 10px;
 }
-/* 
 
-.news-swiper-mini .swiper-wrapper {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
- */
 .news-swiper-mini .news-slide img {
   width: 100%;
   height: 100%;
@@ -173,4 +160,12 @@
   width: 15px;
   z-index: 99;
   cursor: pointer;
+}
+
+/* ------------------------------------------------------------ */
+/* ------------------------------------------------------------ */
+/* ------------------------------------------------------------ */
+/* ------------------------------------------------------------ */
+.container-news {
+  height: 100vh;
 }

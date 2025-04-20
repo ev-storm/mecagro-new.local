@@ -24,6 +24,7 @@ const progressContent = document.querySelector(".autoplay-progress span");
 
 var titleSwiper = new Swiper(".title-swiper", {
   loop: true,
+  speed: 1500,
   spaceBetween: 30,
   centeredSlides: true,
   autoplay: {
