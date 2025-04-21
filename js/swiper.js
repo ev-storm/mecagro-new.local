@@ -29,7 +29,7 @@ var titleSwiper = new Swiper(".title-swiper", {
   centeredSlides: true,
   autoplay: {
     delay: 4500,
-    disableOnInteraction: false,
+    disableOnInteraction: true,
   },
   pagination: {
     el: ".swiper-pagination",
@@ -47,12 +47,23 @@ var titleSwiper = new Swiper(".title-swiper", {
   },
 });
 
-// Инициализация Swiper
+// // Инициализация Swiper
 var linkSwiper = new Swiper(".linkSwiper", {
   loop: true,
+  direction: "vertical",
   spaceBetween: 30,
-  slidesPerView: 5,
+  slidesPerView: 3,
   centeredSlides: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    600: {
+      direction: "horizontal",
+      slidesPerView: 5,
+    },
+  },
   navigation: {
     nextEl: ".title-arow-R",
     prevEl: ".title-arow-L",
@@ -63,7 +74,13 @@ var linkSwiper = new Swiper(".linkSwiper", {
 var brendMainSwiper = new Swiper(".brendMainSwiper", {
   loop: true,
   spaceBetween: 0,
-  slidesPerView: 4,
+  slidesPerView: 1,
+  breakpoints: {
+    600: {
+      direction: "horizontal",
+      slidesPerView: 4,
+    },
+  },
   autoplay: {
     delay: 0,
     disableOnInteraction: false,
@@ -87,9 +104,11 @@ var newsSwiper = new Swiper(".news-swiper", {
 var newsSwiperMini = new Swiper(".news-swiper-mini", {
   loop: true,
   spaceBetween: 20,
-  slidesPerView: 6,
+  slidesPerView: 5,
   navigation: {
     nextEl: ".mini-news-arrow_R",
     prevEl: ".mini-news-arrow_L",
   },
 });
+
+/////////////////////////////////////////////////////////

@@ -106,10 +106,10 @@
 					<a class="home-btn" href="/">Главная</a>
 				</li>
 				<li>
-					<a class="mob-catalog-btn" href="/pages/about.php">Каталог</a>
+					<a class="mob-catalog-btn" href="/pages/catalog.php">Каталог</a>
 				</li>
 				<li>
-					<a class="mob-about-btn" href="/pages/catalog.php">О компании</a>
+					<a class="mob-about-btn" href="/pages/about.php">О компании</a>
 				</li>
 				<li>
 					<a  href="/pages/about.php#contact">Контакты</a>
@@ -165,6 +165,18 @@
 		<div class="cataog-main-title">
 			<h1>Каталог</h1>
 		</div>
+
+		<!-- <ul class="filter-categories">
+			<li><h2>Бренды</span></h2>
+				<ul>
+					<li class="categories-brand active"><h2>MECARGO</h2></li>
+					<li class="categories-brand active"><h2>BARGAM</h2></li>
+					<li class="categories-brand active"><h2>MOSH</h2></li>
+				</ul>
+			</li>
+			<li><h2>Популярные</h2></li>
+			<li><h2>Новинки</h2></li>
+		</ul> -->
 
 		<ul class="main-categories"></ul>
 		<div class="download-cat-mob">

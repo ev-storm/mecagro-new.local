@@ -11,7 +11,7 @@
   flex-direction: column !important;
   width: 90% !important;
   max-width: 1800px;
-  height: 600px !important;
+  height: fit-content !important;
   border-radius: 10px !important;
   box-shadow: #00000020 0 0 20px !important;
   position: relative;
@@ -110,7 +110,7 @@
   flex-direction: column !important;
   align-items: end !important;
   justify-content: end !important;
-  width: 15.5% !important;
+  width: 13.5% !important;
   height: 150px;
   cursor: pointer;
   border-radius: 5px;

@@ -55,47 +55,51 @@ const renderCategories = async () => {
   const data = await fetchDataCategories();
   const categories = data[0].categories[langToggle];
 
-  const mainCategoriesContainer = document.querySelector(".main-categories");
-  mainCategoriesContainer.innerHTML = "";
+  const mainCategoriesContainer = document.querySelectorAll(".main-categories");
+  mainCategoriesContainer.forEach((container) => {
+    container.innerHTML = "";
 
-  for (const categoryName in categories) {
-    const categoryItem = document.createElement("li");
+    for (const categoryName in categories) {
+      const categoryItem = document.createElement("li");
 
-    categoryItem.innerHTML = `
+      categoryItem.innerHTML = `
       <h2 class="open-img">${categoryName}</h2>
       <ul class="main-sub_categories main-items close">
       </ul>
     `;
-    const subCategoriesContainer = categoryItem.querySelector(
-      ".main-sub_categories"
-    );
+      const subCategoriesContainer = categoryItem.querySelector(
+        ".main-sub_categories"
+      );
 
-    const subCategories = categories[categoryName].subCategories;
-    for (const subCategoryName in subCategories) {
-      const subCategoryItem = document.createElement("li");
-      subCategoryItem.innerHTML = `
+      const subCategories = categories[categoryName].subCategories;
+      for (const subCategoryName in subCategories) {
+        const subCategoryItem = document.createElement("li");
+        subCategoryItem.innerHTML = `
         <h2 class="open-img">${subCategoryName}</h2>
         <ul class="main-items close">
         </ul>
       `;
 
-      const objectsContainer = subCategoryItem.querySelector(".main-items");
+        const objectsContainer = subCategoryItem.querySelector(".main-items");
 
-      const objects = subCategories[subCategoryName].object || [];
-      objects.forEach((obj) => {
-        const objectItem = document.createElement("li");
-        objectItem.classList.add("object-item", "object-click");
-        objectItem.innerHTML = `<h2 class="obj-btn">${
-          obj.name + " " + obj.cod
-        }</h2>`;
-        objectsContainer.appendChild(objectItem);
-      });
-      subCategoriesContainer.appendChild(subCategoryItem);
+        const objects = subCategories[subCategoryName].object || [];
+        objects.forEach((obj) => {
+          const objectItem = document.createElement("li");
+          objectItem.classList.add("object-item", "object-click");
+          objectItem.innerHTML = `<h2 class="obj-btn">${
+            obj.name + " " + obj.cod
+          }</h2>`;
+          objectsContainer.appendChild(objectItem);
+        });
+        subCategoriesContainer.appendChild(subCategoryItem);
+      }
+
+      container.appendChild(categoryItem);
     }
-    mainCategoriesContainer.appendChild(categoryItem);
-  }
+  });
   setupToggleCategories();
 };
+
 renderCategories();
 /////////////////////////---------LEFT-MENU--------///////////////////////////////////
 
@@ -476,6 +480,10 @@ const objClick = async () => {
   objClickElements.forEach((item) => {
     item.addEventListener("click", async () => {
       const objectName = item.innerText.trim();
+
+      catalogMobMenu.classList.remove("active");
+      closeCatMenu.classList.add("hide");
+      openCatMenu.classList.remove("hide");
       // Если не на catalog.php, сохранить состояние и редирект
       if (window.location.pathname !== "/pages/catalog.php") {
         localStorage.setItem("objectToFind", objectName);
@@ -721,6 +729,16 @@ const openCatMenu = document.querySelector(".open-cat-menu");
 const closeCatMenu = document.querySelector(".close-cat-menu");
 const catalogMobMenu = document.querySelector(".catalog-mob-menu");
 
+const objBtn = document.querySelector(".obj-btn");
+
+// objBtn.forEach((item) => {
+//   item.addEventListener("click", () => {
+//     catalogMobMenu.classList.remove("active");
+//     closeCatMenu.classList.add("hide");
+//     openCatMenu.classList.remove("hide");
+//   });
+// });
+
 openMenu.addEventListener("click", () => {
   mainMobMenu.classList.add("active");
   closeMenu.classList.remove("hide");
@@ -754,11 +772,14 @@ var hammertime = new Hammer(document.body, {
 });
 
 hammertime.on("swipeleft", function (ev) {
-  mainMobMenu.classList.add("active");
-  closeMenu.classList.remove("hide");
+  // mainMobMenu.classList.add("active");
+  // closeMenu.classList.remove("hide");
+  // catalogMobMenu.classList.remove("active");
+  //closeCatMenu.classList.add("hide");
+  //openCatMenu.classList.add("hide");
   catalogMobMenu.classList.remove("active");
   closeCatMenu.classList.add("hide");
-  openCatMenu.classList.add("hide");
+  openCatMenu.classList.remove("hide");
 });
 
 hammertime.on("swiperight", function (ev) {

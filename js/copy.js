@@ -1,28 +1,60 @@
+// const copyElements = document.querySelectorAll(".copy");
+
+// // Добавляем обработчик клика к каждому элементу с классом "copy"
+// copyElements.forEach((element) => {
+//   element.addEventListener("click", function () {
+//     // Находим текст внутри элемента h3 рядом с элементом h2
+//     const copyText = this.nextElementSibling
+//       ? this.nextElementSibling.textContent
+//       : this.textContent;
+
+//     const copyTitleText = this.textContent;
+//     // Копируем номер телефона в буфер обмена
+//     navigator.clipboard
+//       .writeText(copyText)
+//       .then(() => {
+//         // Выводим значение текста элемента в алерте
+//         const tip = document.querySelector(".tip");
+
+//         tip.classList.add("active");
+//         tip.innerHTML = `${copyTitleText} скопирован</h3>`;
+//       })
+//       .catch((err) => {
+//         // Если возникла ошибка, выводим сообщение в консоль
+//         console.error("Ошибка при копировании: ", err);
+//       });
+//   });
+// });
 const copyElements = document.querySelectorAll(".copy");
 
-// Добавляем обработчик клика к каждому элементу с классом "copy"
 copyElements.forEach((element) => {
-  element.addEventListener("click", function () {
-    // Находим текст внутри элемента h3 рядом с элементом h2
-    const copyText = this.nextElementSibling
-      ? this.nextElementSibling.textContent
-      : this.textContent;
+  ["click", "touchstart"].forEach((evt) => {
+    element.addEventListener(evt, function (event) {
+      // Если это ссылка, отменяем действие по умолчанию
+      if (element.tagName.toLowerCase() === "a") {
+        event.preventDefault();
+      }
 
-    const copyTitleText = this.textContent;
-    // Копируем номер телефона в буфер обмена
-    navigator.clipboard
-      .writeText(copyText)
-      .then(() => {
-        // Выводим значение текста элемента в алерте
-        const tip = document.querySelector(".tip");
+      // Копируем текст следующего элемента, иначе внутри самого .copy
+      const copyText = this.nextElementSibling
+        ? this.nextElementSibling.textContent
+        : this.textContent;
 
-        tip.classList.add("active");
-        tip.innerHTML = `${copyTitleText} скопирован</h3>`;
-      })
-      .catch((err) => {
-        // Если возникла ошибка, выводим сообщение в консоль
-        console.error("Ошибка при копировании: ", err);
-      });
+      const copyTitleText = this.textContent;
+
+      navigator.clipboard
+        .writeText(copyText)
+        .then(() => {
+          const tip = document.querySelector(".tip");
+          if (tip) {
+            tip.classList.add("active");
+            tip.innerHTML = `${copyTitleText} скопирован</h3>`;
+          }
+        })
+        .catch((err) => {
+          console.error("Ошибка при копировании: ", err);
+        });
+    });
   });
 });
 
