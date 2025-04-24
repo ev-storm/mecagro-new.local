@@ -1,3 +1,4 @@
+const events = ["click", "touchstart"];
 //////////////////////-----------INPUT_OUTLINE------------//////////////////////////////
 const input = document.querySelectorAll("input");
 
@@ -147,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const modalButtons = document.querySelectorAll(".btn-modal-call");
 
 modalButtons.forEach(function (button) {
-  button.addEventListener("click", function () {
+  button.addEventListener(events, function () {
     const modalCon = document.querySelector(".modal-con");
     document.querySelector(".modal-con").classList.remove("hide-prev");
     modalCon.classList.remove("hide");
@@ -155,16 +156,14 @@ modalButtons.forEach(function (button) {
   });
 });
 
-document
-  .querySelector(".modal-con")
-  .addEventListener("click", function (event) {
-    if (!event.target.closest(".modal")) {
-      document.querySelector(".modal-con").classList.remove("show");
-      document.querySelector(".modal-con").classList.add("hide");
-    }
-  });
+document.querySelector(".modal-con").addEventListener(events, function (event) {
+  if (!event.target.closest(".modal")) {
+    document.querySelector(".modal-con").classList.remove("show");
+    document.querySelector(".modal-con").classList.add("hide");
+  }
+});
 
-document.querySelector(".close-modal").addEventListener("click", function () {
+document.querySelector(".close-modal").addEventListener(events, function () {
   document.querySelector(".modal-con").classList.remove("show");
   document.querySelector(".modal-con").classList.add("hide");
 });
@@ -177,7 +176,7 @@ const langSwitchActive = () => {
   const langSwitch = document.querySelectorAll(".lang-switch");
 
   langSwitch.forEach((item) => {
-    item.addEventListener("click", () => {
+    item.addEventListener(events, () => {
       // Удаляем класс "active" у всех элементов
       langSwitch.forEach((i) => {
         i.classList.remove("active");

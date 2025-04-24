@@ -14,39 +14,59 @@ const fetchDataCategories = async () => {
 ///////////////////////////----JSON------////////////////////////////////
 
 ///////////////////////////---- BREND ------////////////////////////////////
-const activeBrend = async () => {
+
+const activeBrend = () => {
   const categoriesBrand = document.querySelectorAll(".categories-brand");
 
   categoriesBrand.forEach((item) => {
     item.addEventListener("click", () => {
       const isActive = item.classList.contains("active");
-
       const activeCount = Array.from(categoriesBrand).filter((el) =>
         el.classList.contains("active")
       ).length;
 
-      if (isActive) {
-        if (activeCount > 1) {
+      if (activeCount === categoriesBrand.length) {
+        // Если все активны (3 из 3)
+        // При клике на любую: делаем активным только кликнутый
+        categoriesBrand.forEach((el) =>
+          el === item
+            ? el.classList.add("active")
+            : el.classList.remove("active")
+        );
+      } else if (activeCount === 2) {
+        if (isActive) {
+          // Если клик по активному, снимаем active
           item.classList.remove("active");
+        } else {
+          // Если клик по неактивному, добавляем active (станет 3 из 3)
+          item.classList.add("active");
         }
-      } else {
-        item.classList.add("active");
+      } else if (activeCount === 1) {
+        if (!isActive) {
+          // Если клик по неактивному, добавляем active (станет 2 из 3)
+          item.classList.add("active");
+        }
+        // Если клик по единственному активному, ничего не делаем
       }
 
+      // Обработка лейбла с выбранными названиями брендов
       const activeBrands = Array.from(categoriesBrand)
         .filter((el) => el.classList.contains("active"))
         .map((el) => el.querySelector("h2").textContent);
 
+      const tip = document.querySelector(".tip");
       if (activeBrands.length > 0) {
         const brandNames = activeBrands.join(", ");
-        const tip = document.querySelector(".tip");
-
         tip.classList.add("active");
         tip.innerHTML = `<h3>Задан фильтр по брендам:<br> ${brandNames}</h3>`;
+      } else {
+        tip.classList.remove("active");
+        tip.innerHTML = "";
       }
     });
   });
 };
+
 activeBrend();
 ///////////////////////////---- BREND ------////////////////////////////////
 
@@ -96,8 +116,8 @@ const renderCategories = async () => {
 
       container.appendChild(categoryItem);
     }
+    setupToggleCategories();
   });
-  setupToggleCategories();
 };
 
 renderCategories();
@@ -161,6 +181,7 @@ const setupToggleCategories = () => {
   });
 };
 setupToggleCategories();
+
 const expandActiveParents = (objectItems) => {
   // Получаем все элементы с классом active
   let activeItem = Array.from(objectItems).find((item) =>
@@ -189,103 +210,13 @@ const expandActiveParents = (objectItems) => {
     console.warn("Активный элемент не найден.");
   }
 };
+
 ///////////////////////------LEFT_MENU_ANIMATED--------////////////////////////////
-
-/////////////////////////---------SYNS_MENU--------///////////////////////////////////
-// const syncMenus = async () => {
-//   const menuItems = document.querySelectorAll(".menu-obj-item");
-//   const searchItems = document.querySelectorAll(".search-item");
-//   const objectItems = document.querySelectorAll(".object-item");
-//   const objectСlick = document.querySelectorAll(".object-click");
-
-//   const mainItems = document.querySelectorAll(".main-items");
-//   const mainSubCategories = document.querySelectorAll(".main-sub_categories");
-
-//   // if (objectItems.length > 1) {
-//   //   objectItems[1].classList.add("active");
-
-//   //   if (
-//   //     objectItems[0].classList.contains("active") ||
-//   //     objectItems[0].classList.contains("open")
-//   //   ) {
-//   //     objectItems[0].classList.remove("active");
-//   //     mainItems[0].classList.remove("open");
-//   //     mainItems[0].classList.add("close");
-//   //     mainSubCategories[0].classList.remove("open");
-//   //     mainSubCategories[0].classList.add("close");
-//   //   }
-
-//   //   mainItems[1].classList.remove("close");
-//   //   mainItems[1].classList.add("open");
-//   //   mainSubCategories[0].classList.remove("close");
-//   //   mainSubCategories[0].classList.add("open");
-//   // }
-
-//   // Функция для обработки кликов по элементам меню и поиска
-//   const handleClick = (itemText) => {
-//     objectItems.forEach((objItem) => {
-//       objItem.classList.remove("active");
-//     });
-
-//     const matchingItem = Array.from(objectItems).find((objItem) => {
-//       const objText = objItem.innerText.trim();
-//       return objText.includes(itemText);
-//     });
-
-//     const mainItems = document.querySelectorAll(
-//       ".main-items, .main-sub_categories"
-//     );
-
-//     mainItems.forEach((item) => {
-//       item.classList.remove("open");
-//       item.classList.add("close");
-//     });
-
-//     if (matchingItem) {
-//       matchingItem.classList.add("active");
-
-//       const parentMainItems = matchingItem.closest(".main-items");
-//       const parentMainSubCategories = matchingItem.closest(
-//         ".main-sub_categories"
-//       );
-
-//       if (parentMainItems) {
-//         parentMainItems.classList.remove("close");
-//         parentMainItems.classList.add("open");
-//       }
-
-//       if (parentMainSubCategories) {
-//         parentMainSubCategories.classList.remove("close");
-//         parentMainSubCategories.classList.add("open");
-//       }
-//     } else {
-//       console.warn("Соответствующий элемент не найден.");
-//     }
-//   };
-
-//   // Назначаем обработчики событий для элементов поиска
-//   searchItems.forEach((searchItem) => {
-//     searchItem.addEventListener("click", () => {
-//       const itemText = searchItem.innerText.trim();
-//       handleClick(itemText);
-//     });
-//   });
-
-//   // Назначаем обработчики событий для пунктов меню
-//   menuItems.forEach((menuItem) => {
-//     menuItem.addEventListener("click", () => {
-//       const itemText = menuItem.innerText.trim();
-//       handleClick(itemText);
-//     });
-//   });
-// };
-// syncMenus();
-/////////////////////////---------SYNS_MENU--------///////////////////////////////////
 
 /////////////////////////---------MENU--------///////////////////////////////////
 const createListMenu = async () => {
   const dataCategoriesMenu = await fetchDataCategories();
-  const menuContainer = document.querySelectorAll(".menu-categories");
+  const menuContainer = document.querySelector(".menu-categories");
   menuContainer.innerHTML = "";
 
   // Готовим HTML для меню
@@ -491,6 +422,7 @@ const objClick = async () => {
         return;
       }
       objAnimated(); // если нужно до отрисовки
+      setupToggleCategories();
       await selectAndDisplayObject(objectName);
     });
   });
@@ -503,7 +435,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await selectAndDisplayObject(cachedObjectName);
   }
 });
-// Функции для меню/поиска:
+// // Функции для меню/поиска:
 const syncMenus = () => {
   const menuItems = document.querySelectorAll(".menu-obj-item");
   const searchItems = document.querySelectorAll(".search-item");
@@ -719,7 +651,99 @@ function setupLanguageSwitch() {
   });
 }
 setupLanguageSwitch();
-//////////////////////////---------LANG-SWICH--------///////////////////////////////////()
+//////////////////////////---------LANG-SWICH--------///////////////////////////////////
+
+/////////////////////////---------SYNS_MENU--------///////////////////////////////////
+// const syncMenus = async () => {
+//   const menuItems = document.querySelectorAll(".menu-obj-item");
+//   const searchItems = document.querySelectorAll(".search-item");
+//   const objectItems = document.querySelectorAll(".object-item");
+//   const objectСlick = document.querySelectorAll(".object-click");
+
+//   const mainItems = document.querySelectorAll(".main-items");
+//   const mainSubCategories = document.querySelectorAll(".main-sub_categories");
+
+//   // if (objectItems.length > 1) {
+//   //   objectItems[1].classList.add("active");
+
+//   //   if (
+//   //     objectItems[0].classList.contains("active") ||
+//   //     objectItems[0].classList.contains("open")
+//   //   ) {
+//   //     objectItems[0].classList.remove("active");
+//   //     mainItems[0].classList.remove("open");
+//   //     mainItems[0].classList.add("close");
+//   //     mainSubCategories[0].classList.remove("open");
+//   //     mainSubCategories[0].classList.add("close");
+//   //   }
+
+//   //   mainItems[1].classList.remove("close");
+//   //   mainItems[1].classList.add("open");
+//   //   mainSubCategories[0].classList.remove("close");
+//   //   mainSubCategories[0].classList.add("open");
+//   // }
+
+//   // Функция для обработки кликов по элементам меню и поиска
+//   const handleClick = (itemText) => {
+//     objectItems.forEach((objItem) => {
+//       objItem.classList.remove("active");
+//     });
+
+//     const matchingItem = Array.from(objectItems).find((objItem) => {
+//       const objText = objItem.innerText.trim();
+//       return objText.includes(itemText);
+//     });
+
+//     const mainItems = document.querySelectorAll(
+//       ".main-items, .main-sub_categories"
+//     );
+
+//     mainItems.forEach((item) => {
+//       item.classList.remove("open");
+//       item.classList.add("close");
+//     });
+
+//     if (matchingItem) {
+//       matchingItem.classList.add("active");
+
+//       const parentMainItems = matchingItem.closest(".main-items");
+//       const parentMainSubCategories = matchingItem.closest(
+//         ".main-sub_categories"
+//       );
+
+//       if (parentMainItems) {
+//         parentMainItems.classList.remove("close");
+//         parentMainItems.classList.add("open");
+//       }
+
+//       if (parentMainSubCategories) {
+//         parentMainSubCategories.classList.remove("close");
+//         parentMainSubCategories.classList.add("open");
+//       }
+//     } else {
+//       console.warn("Соответствующий элемент не найден.");
+//     }
+//   };
+
+//   // Назначаем обработчики событий для элементов поиска
+//   searchItems.forEach((searchItem) => {
+//     searchItem.addEventListener("click", () => {
+//       const itemText = searchItem.innerText.trim();
+//       handleClick(itemText);
+//     });
+//   });
+
+//   // Назначаем обработчики событий для пунктов меню
+//   menuItems.forEach((menuItem) => {
+//     menuItem.addEventListener("click", () => {
+//       const itemText = menuItem.innerText.trim();
+//       handleClick(itemText);
+//     });
+//   });
+// };
+// syncMenus();
+/////////////////////////---------SYNS_MENU--------///////////////////////////////////
+
 //////////////////////-------MENU-------//////////////////////////////
 const openMenu = document.querySelector(".open-menu");
 const closeMenu = document.querySelector(".close-menu");
@@ -730,14 +754,6 @@ const closeCatMenu = document.querySelector(".close-cat-menu");
 const catalogMobMenu = document.querySelector(".catalog-mob-menu");
 
 const objBtn = document.querySelector(".obj-btn");
-
-// objBtn.forEach((item) => {
-//   item.addEventListener("click", () => {
-//     catalogMobMenu.classList.remove("active");
-//     closeCatMenu.classList.add("hide");
-//     openCatMenu.classList.remove("hide");
-//   });
-// });
 
 openMenu.addEventListener("click", () => {
   mainMobMenu.classList.add("active");
@@ -772,11 +788,6 @@ var hammertime = new Hammer(document.body, {
 });
 
 hammertime.on("swipeleft", function (ev) {
-  // mainMobMenu.classList.add("active");
-  // closeMenu.classList.remove("hide");
-  // catalogMobMenu.classList.remove("active");
-  //closeCatMenu.classList.add("hide");
-  //openCatMenu.classList.add("hide");
   catalogMobMenu.classList.remove("active");
   closeCatMenu.classList.add("hide");
   openCatMenu.classList.remove("hide");

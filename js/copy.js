@@ -1,30 +1,3 @@
-// const copyElements = document.querySelectorAll(".copy");
-
-// // Добавляем обработчик клика к каждому элементу с классом "copy"
-// copyElements.forEach((element) => {
-//   element.addEventListener("click", function () {
-//     // Находим текст внутри элемента h3 рядом с элементом h2
-//     const copyText = this.nextElementSibling
-//       ? this.nextElementSibling.textContent
-//       : this.textContent;
-
-//     const copyTitleText = this.textContent;
-//     // Копируем номер телефона в буфер обмена
-//     navigator.clipboard
-//       .writeText(copyText)
-//       .then(() => {
-//         // Выводим значение текста элемента в алерте
-//         const tip = document.querySelector(".tip");
-
-//         tip.classList.add("active");
-//         tip.innerHTML = `${copyTitleText} скопирован</h3>`;
-//       })
-//       .catch((err) => {
-//         // Если возникла ошибка, выводим сообщение в консоль
-//         console.error("Ошибка при копировании: ", err);
-//       });
-//   });
-// });
 const copyElements = document.querySelectorAll(".copy");
 
 copyElements.forEach((element) => {

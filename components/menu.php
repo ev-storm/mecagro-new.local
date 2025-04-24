@@ -77,7 +77,8 @@
 				</div>
 			</div>
 			
-			<ul class="menu-categories"></ul>
+			<ul class="menu-categories"> 
+			</ul>
 		</div>
 </div>
 

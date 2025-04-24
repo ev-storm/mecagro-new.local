@@ -128,9 +128,11 @@
   }
   .close-menu {
     position: absolute;
-    bottom: 10%;
-    left: -20%;
+    bottom: 20%;
+    left: -10%;
     transition: var(--tran-03);
+    background: #fff;
+    border-radius: 4px;
   }
   .close-menu.hide {
     left: 20%;
@@ -690,8 +692,11 @@
     font-size: 16px !important;
   }
   .tip {
-    top: 10vh;
-    z-index: 9999;
+    top: 15vh;
+    z-index: 99999;
+    width: 80vw;
+    height: fit-content;
+    border-radius: 0 4px 4px 0;
   }
   .adres-con h2 {
     font-size: 18px !important;
