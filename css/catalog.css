@@ -257,7 +257,7 @@
   font-size: 16px;
   padding: 2px 0px;
   line-height: 1.5;
-  font-weight: 550;
+  font-weight: 500;
 }
 .object-list li h2 {
   font-weight: 500;
@@ -275,7 +275,7 @@
 
 .main-items li h2 {
   color: var(--black);
-  font-weight: 550;
+  font-weight: 500;
   font-size: 16px;
 }
 .main-items li h2:hover {
@@ -321,13 +321,13 @@
   animation: fadeOutleftMenu 0.3s forwards;
 }
 
-.categories-brand h2 {
+.filter h2 {
   color: #00000050 !important;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px !important;
   padding: 2px;
 }
-.categories-brand.active h2 {
+.filter.active h2 {
   color: var(--main) !important;
 }
 .brend-tip {

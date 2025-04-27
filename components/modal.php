@@ -8,11 +8,11 @@
 			<input class="input-tel-modal" type="tel" name="Телефон" placeholder="Телефон">
 			<input class="input-mail" type="email" name="E-mail" placeholder="E-mail">
 			<textarea class="input-commet" name="Комментарий" placeholder="Введите комментарий" rows="2"></textarea>
-			<button class="btn btn-modal">Отправить</button>
+			<button class="btn btn-modal" disanle="true">Отправить</button>
 
 				<label class="check-form" for="check-form-id">
 					<input id="check-form-id" type="checkbox">
-					<span>Согласен с обработкой персональных данных в соответствии с <a href="/pages/contacts.php#block_5-cont">политикой конфиденциальности</a></span>
+					<span>Согласен с обработкой персональных данных в соответствии с <a href="/pages/about.php#policy">политикой конфиденциальности</a></span>
 				</label>			
 
 				<div class="link link-form">

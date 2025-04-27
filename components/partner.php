@@ -12,22 +12,19 @@
 		<div class="swiper brendMainSwiper">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide brend-slide">
-					<img src="/assets/svg/brend/1.svg" alt="">
+					<img src="/assets/svg/brend/mecargo-logo.svg" alt="">
 				</div>
 				<div class="swiper-slide brend-slide">
-					<img src="/assets/svg/brend/1.svg" alt="">
+						<img src="/assets/svg/brend/mecargo-logo.svg" alt="">
 				</div>
 				<div class="swiper-slide brend-slide">
-					<img src="/assets/svg/brend/1.svg" alt="">
+						<img src="/assets/svg/brend/mecargo-logo.svg" alt="">
 				</div>
 				<div class="swiper-slide brend-slide">
-					<img src="/assets/svg/brend/1.svg" alt="">
+						<img src="/assets/svg/brend/mecargo-logo.svg" alt="">
 				</div>
 				<div class="swiper-slide brend-slide">
-					<img src="/assets/svg/brend/1.svg" alt="">
-				</div>
-				<div class="swiper-slide brend-slide">
-					<img src="/assets/svg/brend/1.svg" alt="">
+						<img src="/assets/svg/brend/mecargo-logo.svg" alt="">
 				</div>
 			</div>
 		</div>

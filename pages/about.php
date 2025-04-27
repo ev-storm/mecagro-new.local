@@ -205,39 +205,7 @@
 
 		<?php include "../components/news.php"?>
 
-		<div  class="anim-left partners-con">
-			<div class="partners-title">
-				<div class="title-heading-con">
-					<h1 id="part" class="anim-left title-heading">Наши партнёры</h1>
-					<h2>ООО «МЕКАГРО ГРУП» является официальным дилером компаний:<br>
-						<span>MECAGRO, TIERRE, BERTOLINI, ARAG.</span>
-					</h2>
-				</div>
-			</div>
-		</div>
-
-		<div  class="swiper brendMainSwiper">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide brend-slide">
-					<img src="/assets/svg/brend/1.svg" alt="">
-				</div>
-				<div class="swiper-slide brend-slide">
-					<img src="/assets/svg/brend/1.svg" alt="">
-				</div>
-				<div class="swiper-slide brend-slide">
-					<img src="/assets/svg/brend/1.svg" alt="">
-				</div>
-				<div class="swiper-slide brend-slide">
-					<img src="/assets/svg/brend/1.svg" alt="">
-				</div>
-				<div class="swiper-slide brend-slide">
-					<img src="/assets/svg/brend/1.svg" alt="">
-				</div>
-				<div class="swiper-slide brend-slide">
-					<img src="/assets/svg/brend/1.svg" alt="">
-				</div>
-			</div>
-		</div>
+		<?php include "../components/partner.php"?>
 
 		<div id="serty" class="anim-left main-description-con">
 			<div class="main-description">

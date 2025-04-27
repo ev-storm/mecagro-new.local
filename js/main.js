@@ -39,11 +39,11 @@ const tipActive = () => {
 
 tipActive();
 //////////////////////-----------TIP_STATUS------------/////////////////////////////////
-
 document.addEventListener("DOMContentLoaded", () => {
   const catalogBtn = document.querySelector(".catalog-btn");
   const subMenuCatalog = document.querySelector(".menu-categories");
   let isMenuVisible = false;
+  let leaveTimer; // Таймер для события mouseleave
 
   const showMenu = () => {
     if (!isMenuVisible) {
@@ -53,26 +53,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  const hideMenu = (event) => {
-    const relatedTarget = event.relatedTarget;
-
-    if (
-      !catalogBtn.contains(relatedTarget) &&
-      !subMenuCatalog.contains(relatedTarget)
-    ) {
-      catalogBtn.classList.remove("active");
-      subMenuCatalog.classList.remove("show");
-      isMenuVisible = false;
-    }
+  const hideMenu = () => {
+    catalogBtn.classList.remove("active");
+    subMenuCatalog.classList.remove("show");
+    isMenuVisible = false;
   };
 
-  catalogBtn.addEventListener("mouseenter", showMenu);
-  catalogBtn.addEventListener("mouseleave", hideMenu);
+  const startLeaveTimer = () => {
+    leaveTimer = setTimeout(hideMenu, 500); // Установка таймера на 2 секунды
+  };
 
-  subMenuCatalog.addEventListener("mouseenter", showMenu);
-  subMenuCatalog.addEventListener("mouseleave", hideMenu);
+  const cancelLeaveTimer = () => {
+    clearTimeout(leaveTimer); // Очистка таймера при наведении мыши
+  };
+
+  catalogBtn.addEventListener("mouseenter", () => {
+    cancelLeaveTimer(); // Очистка таймера при наведении на кнопку
+    showMenu();
+  });
+
+  catalogBtn.addEventListener("mouseleave", startLeaveTimer); // Запуск таймера при уводе мыши
+
+  subMenuCatalog.addEventListener("mouseenter", () => {
+    cancelLeaveTimer(); // Очистка таймера при наведении на подменю
+    showMenu();
+  });
+
+  subMenuCatalog.addEventListener("mouseleave", startLeaveTimer); // Запуск таймера при уводе мыши
 });
-
 //////////////////////////---------ABOUT-MENU-----/////////////////////////////
 document.addEventListener("DOMContentLoaded", () => {
   const aboutBtn = document.querySelector(".about-btn");
@@ -148,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const modalButtons = document.querySelectorAll(".btn-modal-call");
 
 modalButtons.forEach(function (button) {
-  button.addEventListener(events, function () {
+  button.addEventListener("click", function () {
     const modalCon = document.querySelector(".modal-con");
     document.querySelector(".modal-con").classList.remove("hide-prev");
     modalCon.classList.remove("hide");
@@ -156,18 +164,39 @@ modalButtons.forEach(function (button) {
   });
 });
 
-document.querySelector(".modal-con").addEventListener(events, function (event) {
-  if (!event.target.closest(".modal")) {
-    document.querySelector(".modal-con").classList.remove("show");
-    document.querySelector(".modal-con").classList.add("hide");
-  }
-});
+document
+  .querySelector(".modal-con")
+  .addEventListener("click", function (event) {
+    if (!event.target.closest(".modal")) {
+      document.querySelector(".modal-con").classList.remove("show");
+      document.querySelector(".modal-con").classList.add("hide");
+    }
+  });
 
-document.querySelector(".close-modal").addEventListener(events, function () {
+document.querySelector(".close-modal").addEventListener("click", function () {
   document.querySelector(".modal-con").classList.remove("show");
   document.querySelector(".modal-con").classList.add("hide");
 });
 
+const check = document.getElementById("check-form-id");
+const btnModal = document.querySelector(".btn-modal");
+
+// Функция для обновления состояния кнопки
+const updateButtonState = () => {
+  if (check.checked) {
+    btnModal.disabled = false;
+    btnModal.style.opacity = 1;
+  } else {
+    btnModal.disabled = true;
+    btnModal.style.opacity = 0.5;
+  }
+};
+
+// Начальное состояние кнопки при загрузке
+updateButtonState();
+
+// Добавляем обработчик события на чекбокс
+check.addEventListener("click", updateButtonState);
 //////////////////////--------MODAL--------//////////////////////////////
 
 //////////////////////--------LANG-SWITCH--------//////////////////////////////
@@ -176,7 +205,7 @@ const langSwitchActive = () => {
   const langSwitch = document.querySelectorAll(".lang-switch");
 
   langSwitch.forEach((item) => {
-    item.addEventListener(events, () => {
+    item.addEventListener("click", () => {
       // Удаляем класс "active" у всех элементов
       langSwitch.forEach((i) => {
         i.classList.remove("active");

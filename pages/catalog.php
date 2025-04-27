@@ -19,34 +19,20 @@
 		<div class="catalog-vue">
 			<div class="categories-con">
 					<ul class="filter-categories">
-						<li><h2>Бренды</span></h2>
+						<li><h2></span></h2>
 							<ul>
-								<li class="categories-brand active"><h2>MECARGO</h2></li>
+								<li class="categories-brand filter active"><h2>MECARGO</h2></li>
 								<li><h2>|</h2></li>
-								<li class="categories-brand active"><h2>BARGAM</h2></li>
+								<li class="categories-brand filter active"><h2>BARGAM</h2></li>
 								<li><h2>|</h2></li>
-								<li class="categories-brand active"><h2>MOSH</h2></li>
+								<li class="categories-brand filter active"><h2>MOSH</h2></li>
 							</ul>
 						</li>
-						<li><h2>Популярные</h2></li>
-						<li><h2>Новинки</h2></li>
+						<li class="filter"><h2>Популярные</h2></li>
+						<li class="filter"><h2>Новинки</h2></li>
 					</ul>
 					<div class="categories-margin"></div>
-					<ul class="main-categories">
-						 <!-- <li>
-							<h2 class="open-img">categoryName</h2>
-							<ul class="main-sub_categories main-items close">
-								<li>
-                  <h2 class="open-img">subCategoryName</h2>
-                  <ul class="main-items close">
-										<li class="object-item object-click">
-											<h2 class="obj-btn">object.name</h2>
-										</li>
-									</ul>
-                </li>
-							</ul>
-						</li> -->
-					</ul>
+					<ul class="main-categories"></ul>
 			</div>
 			<div class="object-con">
 				<div class="object">

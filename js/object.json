@@ -21,7 +21,6 @@
                     "Пневматическая сеялка для сада",
                     "Сеялка для моркови"
                   ],
-                  "brand": ["MECARGO", "BARGAM", "MOSH"],
                   "filter": ["Новинка", "Популярное"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -45,8 +44,13 @@
                     "Пневматическая сеялка для сада",
                     "Сеялка для моркови"
                   ],
-                  "brand": ["MECARGO", "BARGAM", "MOSH"],
-                  "filter": ["Популярное"],
+                  "filter": [
+                    "Новинка",
+                    "Популярное",
+                    "MECARGO",
+                    "BARGAM",
+                    "MOSH"
+                  ],
                   "photo": [
                     "/assets/img/avto/1.png",
                     "/assets/img/avto/1.png",
@@ -74,8 +78,7 @@
                     "Пневматическая сеялка для сада",
                     "Сеялка для моркови"
                   ],
-                  "brand": ["MECARGO", "BARGAM"],
-                  "filter": ["Новинка"],
+                  "filter": ["Новинка", "Популярное", "BARGAM", "MOSH"],
                   "photo": [
                     "/assets/img/avto/1.png",
                     "/assets/img/avto/1.png",
@@ -99,7 +102,6 @@
                     "Пневматическая сеялка для сада",
                     "Сеялка для моркови"
                   ],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["Популярное"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -126,7 +128,6 @@
                     "Смывка ягод",
                     "Система орошения"
                   ],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["Новинка"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -149,8 +150,7 @@
                     "Смывка ягод",
                     "Система орошения"
                   ],
-                  "brand": ["MECARGO", "BARGAM"],
-                  "filter": ["Популярное"],
+                  "filter": ["Новинка", "MOSH"],
                   "photo": [
                     "/assets/img/avto/1.png",
                     "/assets/img/avto/1.png",
@@ -175,7 +175,6 @@
                     "Мотоблок",
                     "Оборудование для рыхления"
                   ],
-                  "brand": ["MECARGO", "BARGAM", "MOSH"],
                   "filter": ["Новинка"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -197,7 +196,6 @@
                     "Мотоблок",
                     "Оборудование для рыхления"
                   ],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["Популярное"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -223,7 +221,6 @@
                     "Рабочая скорость движения": "3 - 5 км/ч"
                   },
                   "subCategories": [],
-                  "brand": ["MECARGO"],
                   "filter": ["Новинка"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -242,7 +239,6 @@
                     "Длина хвоста": "5 м"
                   },
                   "subCategories": [],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["Популярное"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -264,7 +260,6 @@
                     "Рабочая скорость движения": "Н/Д"
                   },
                   "subCategories": [],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["Новинка"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -282,7 +277,6 @@
                     "Рабочая скорость движения": "Н/Д"
                   },
                   "subCategories": [],
-                  "brand": ["MECARGO"],
                   "filter": ["Популярное"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -308,7 +302,6 @@
                     "Рабочая скорость движения": "3 - 5 км/ч"
                   },
                   "subCategories": [],
-                  "brand": ["MECARGO"],
                   "filter": ["Новинка"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -326,7 +319,6 @@
                     "Рабочая скорость движения": "Н/Д"
                   },
                   "subCategories": [],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["Популярное"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -348,7 +340,6 @@
                     "Рабочая скорость движения": "Н/Д"
                   },
                   "subCategories": [],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["Новинка"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -366,7 +357,6 @@
                     "Рабочая скорость движения": "Н/Д"
                   },
                   "subCategories": [],
-                  "brand": ["MECARGO"],
                   "filter": ["Популярное"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -392,7 +382,6 @@
                     "Рабочая скорость движения": "3 - 5 км/ч"
                   },
                   "subCategories": [],
-                  "brand": ["MECARGO"],
                   "filter": ["Новинка"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -410,7 +399,6 @@
                     "Рабочая скорость движения": "Н/Д"
                   },
                   "subCategories": [],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["Популярное"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -432,7 +420,6 @@
                     "Рабочая скорость движения": "Н/Д"
                   },
                   "subCategories": [],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["Новинка"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -450,7 +437,6 @@
                     "Рабочая скорость движения": "Н/Д"
                   },
                   "subCategories": [],
-                  "brand": ["MECARGO"],
                   "filter": ["Популярное"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -484,7 +470,6 @@
                     "Pneumatic Seeder for Gardens",
                     "Carrot Planter"
                   ],
-                  "brand": ["MECARGO", "BARGAM", "MOSH"],
                   "filter": ["New", "Popular"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -508,7 +493,6 @@
                     "Pneumatic Seeder for Gardens",
                     "Carrot Planter"
                   ],
-                  "brand": ["MECARGO", "BARGAM", "MOSH"],
                   "filter": ["New"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -535,8 +519,13 @@
                     "Pneumatic Seeder for Gardens",
                     "Carrot Planter"
                   ],
-                  "brand": ["MECARGO", "BARGAM", "MOSH"],
-                  "filter": ["New"],
+                  "filter": [
+                    "Новинка",
+                    "Популярное",
+                    "MECARGO",
+                    "BARGAM",
+                    "MOSH"
+                  ],
                   "photo": [
                     "/assets/img/avto/1.png",
                     "/assets/img/avto/1.png",
@@ -558,7 +547,6 @@
                     "Pneumatic Seeder for Gardens",
                     "Carrot Planter"
                   ],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["Popular"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -583,8 +571,13 @@
                     "Berry Collectors",
                     "Berry Processing Equipment"
                   ],
-                  "brand": ["MECARGO", "BARGAM"],
-                  "filter": ["New"],
+                  "filter": [
+                    "Новинка",
+                    "Популярное",
+                    "MECARGO",
+                    "BARGAM",
+                    "MOSH"
+                  ],
                   "photo": [
                     "/assets/img/avto/1.png",
                     "/assets/img/avto/1.png",
@@ -604,7 +597,6 @@
                     "Berry Collectors",
                     "Berry Processing Equipment"
                   ],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["Popular"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -630,8 +622,13 @@
                     "Mini Tractors",
                     "Soil Loosening Equipment"
                   ],
-                  "brand": ["MECARGO", "BARGAM", "MOSH"],
-                  "filter": ["New"],
+                  "filter": [
+                    "Новинка",
+                    "Популярное",
+                    "MECARGO",
+                    "BARGAM",
+                    "MOSH"
+                  ],
                   "photo": [
                     "/assets/img/avto/1.png",
                     "/assets/img/avto/1.png",
@@ -652,7 +649,6 @@
                     "Mini Tractors",
                     "Soil Loosening Equipment"
                   ],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["Popular"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -681,8 +677,13 @@
                     "Grape Collectors",
                     "Grape Processing Equipment"
                   ],
-                  "brand": ["MECARGO", "BARGAM"],
-                  "filter": ["New"],
+                  "filter": [
+                    "Новинка",
+                    "Популярное",
+                    "MECARGO",
+                    "BARGAM",
+                    "MOSH"
+                  ],
                   "photo": [
                     "/assets/img/avto/1.png",
                     "/assets/img/avto/1.png",
@@ -702,7 +703,6 @@
                     "Grape Collectors",
                     "Grape Processing Equipment"
                   ],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["Popular"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -724,7 +724,6 @@
                     "Working speed of movement": "2 - 5 km/h"
                   },
                   "subCategories": ["Fertilizers", "Pest Control"],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["New"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -742,7 +741,6 @@
                     "Working speed of movement": "3 - 6 km/h"
                   },
                   "subCategories": ["Fertilizers", "Pest Control"],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["Popular"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -768,7 +766,6 @@
                     "Working speed of movement": "3 - 5 km/h"
                   },
                   "subCategories": [],
-                  "brand": ["MECARGO"],
                   "filter": ["New"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -786,7 +783,6 @@
                     "Working speed of movement": "N/A"
                   },
                   "subCategories": [],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["Popular"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -808,7 +804,6 @@
                     "Working speed of movement": "N/A"
                   },
                   "subCategories": [],
-                  "brand": ["MECARGO", "BARGAM"],
                   "filter": ["New"],
                   "photo": [
                     "/assets/img/avto/1.png",
@@ -826,7 +821,6 @@
                     "Working speed of movement": "N/A"
                   },
                   "subCategories": [],
-                  "brand": ["MECARGO"],
                   "filter": ["Popular"],
                   "photo": [
                     "/assets/img/avto/1.png",

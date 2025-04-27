@@ -67,7 +67,7 @@
 	margin-top: 25px;
 } */
 .foot-contact h2 {
-  color: #fff;
+  color: #fff !important;
   font-weight: 600;
   font-size: 30px;
   margin: 20px 0 5px 0;

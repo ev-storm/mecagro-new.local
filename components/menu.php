@@ -163,21 +163,6 @@
 			<img class="close-cat-menu hide" src="/assets/svg/catalog-close-mob.svg" alt="">
 		</div>
 		
-		<div class="cataog-main-title">
-			<h1>Каталог</h1>
-		</div>
-
-		<!-- <ul class="filter-categories">
-			<li><h2>Бренды</span></h2>
-				<ul>
-					<li class="categories-brand active"><h2>MECARGO</h2></li>
-					<li class="categories-brand active"><h2>BARGAM</h2></li>
-					<li class="categories-brand active"><h2>MOSH</h2></li>
-				</ul>
-			</li>
-			<li><h2>Популярные</h2></li>
-			<li><h2>Новинки</h2></li>
-		</ul> -->
 
 		<ul class="main-categories"></ul>
 		<div class="download-cat-mob">
