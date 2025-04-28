@@ -226,7 +226,7 @@
   border-bottom-left-radius: 10px;
   top: 100%;
   left: -20%;
-  z-index: 999;
+  z-index: 9999999;
   /* overflow: hidden; */
 }
 

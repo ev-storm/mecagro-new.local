@@ -1,21 +1,69 @@
 // ////////////////////////---------LANG-SWICH--------///////////////////////////////////
-let langToggle = "ru";
+let langToggle = localStorage.getItem("langToggle") || "ru"; // Получаем значение из localStorage или устанавливаем по умолчанию "ru"
+
 function setupLanguageSwitch() {
   const langSwitch = document.querySelectorAll(".lang-switch");
 
   langSwitch.forEach((item) => {
+    // Устанавливаем активный класс в зависимости от текущего языка при загрузке страницы
+    if (item.value === langToggle) {
+      item.classList.add("active");
+    }
+
     item.addEventListener("click", () => {
       const langValue = item.value;
       langToggle = langValue === "ru" ? "ru" : "en";
+
+      localStorage.setItem("langToggle", langToggle); // Сохраняем значение в localStorage
+
+      // Обновляем состояние кнопок переключателя языка
+      langSwitch.forEach((i) => {
+        i.classList.remove("active");
+      });
+      item.classList.add("active");
 
       renderCategories();
       createListMenu();
       getFlatCategoryObjects();
       objClick();
+      updateLanguageText();
+
+      // Обновляем содержание элемента с классом .tip
+      updateLanguageTip();
     });
   });
+
+  updateLanguageText(); // Обновляем текст сразу при загрузке страницы
 }
+
+function updateLanguageText() {
+  const elements = document.querySelectorAll("[data-lang], [data-lang_en]");
+
+  elements.forEach((element) => {
+    if (langToggle === "en") {
+      element.innerHTML = element.getAttribute("data-lang_en") || "";
+    } else {
+      element.innerHTML = element.getAttribute("data-lang") || "";
+    }
+  });
+}
+
+function updateLanguageTip() {
+  const tip = document.querySelector(".tip");
+  tip.classList.add("active");
+  if (langToggle === "ru") {
+    tip.innerHTML = `<h3>Язык переключен на русский</h3>`;
+  } else {
+    tip.innerHTML = `<h3>The language has been switched <br>to English</h3>`;
+  }
+}
+
 setupLanguageSwitch();
+
+// Вызываем функцию для первоначальной обновки подсказки
+updateLanguageTip();
+//////////////////////--------LANG-SWITCH-TOGGLE-------//////////////////////////////
+
 // //////////////////////////---------LANG-SWICH--------///////////////////////////////////
 //////////////////////////----JSON------////////////////////////////////
 const jsonCategories = "../js/object.json";
@@ -716,6 +764,7 @@ const search = (async = () => {
         const spec = document.querySelector(".object-specifications_table");
 
         objName.textContent = item.name + " " + item.cod;
+
         objDescripcion.textContent = item.description;
 
         let specHTML = `
@@ -727,10 +776,10 @@ const search = (async = () => {
         for (const key in item.specifications) {
           if (item.specifications.hasOwnProperty(key)) {
             specHTML += `
-                    <tr>
-                        <td><h1>${key}</h1></td>
-                        <td><h1>1${item.specifications[key]}</h1></td>
-                    </tr>`;
+							<tr>
+									<td><h1>${key}</h1></td>
+									<td><h1>1${item.specifications[key]}</h1></td>
+							</tr>`;
           }
         }
         spec.innerHTML = specHTML;
@@ -747,8 +796,14 @@ const search = (async = () => {
         resultsContainer.classList.remove("active");
         search.classList.remove("active");
 
-        objClick();
-        updateSlides(item);
+        if (window.location.pathname !== "/pages/catalog.php") {
+          localStorage.setItem("objectToFind", objName);
+          window.location.href = "/pages/catalog.php";
+          return;
+        }
+
+        objAnimated(leftMenuA); // если нужно до отрисовки
+        selectAndDisplayObject(objName);
         ActiveLeftMenuItem(leftMenuA);
       });
     });
@@ -788,53 +843,6 @@ const search = (async = () => {
 search();
 // ////////////////////////-----------SEARCH------------/////////////////////////////////
 //////////////////////--------TITLE_CATEGIRY-------//////////////////////////////
-
-// const titleSlides = async () => {
-//   const categoriesObjects = await getFlatCategoryObjects();
-//   const slideTexts = document.querySelectorAll(".slide-text");
-
-//   // Очищаем содержимое всех слайд-текстов
-//   slideTexts.forEach((slideText) => {
-//     slideText.innerHTML = "";
-//   });
-
-//   // Группируем данные обратно по категориям/подкатегориям
-//   const grouped = {};
-//   const titlesWithObjects = []; // Создаем массив для хранения объектов с title
-
-//   categoriesObjects.forEach((obj) => {
-//     if (obj.title) {
-//       // Проверяем наличие свойства title
-//       titlesWithObjects.push(obj); // Добавляем объект в массив, если title существует
-//     }
-
-//     if (!grouped[obj.categoryName]) grouped[obj.categoryName] = {};
-//     if (!grouped[obj.categoryName][obj.subCategoryName])
-//       grouped[obj.categoryName][obj.subCategoryName] = [];
-
-//     grouped[obj.categoryName][obj.subCategoryName].push(obj);
-//   });
-
-//   // Можем вывести все найденные объекты с title для проверки
-//   titlesWithObjects.forEach((obj, index) => {
-//     console.log(obj.name);
-
-//     // Создаем текст для каждого слайда
-//     const text = `
-//       <h3>Опрыскиватели для многолетних насаждений</h3>
-//       <h1>${obj.name} ${obj.cod}</h1>
-//       <h2>${obj.description}.</h2>
-//       <button class="btn">Побробнее</button>
-//     `;
-
-//     // Убедимся, что у нас есть доступ к правильному элементу слайда
-//     if (slideTexts[index]) {
-//       slideTexts[index].innerHTML += text; // Используем += для добавления текста
-//     }
-//   });
-// };
-
-// titleSlides();
 const titleSlides = async () => {
   const categoriesObjects = await getFlatCategoryObjects();
   const swiperWrapper = document.querySelector(".swiper-wrapper");
@@ -961,9 +969,7 @@ const titleSlides = async () => {
 
   ////////////////////////////////////////////////////////////////////////
 };
-
 titleSlides();
-
 //////////////////////--------TITLE_CATEGIRY-------//////////////////////////////
 
 // //////////////////////-------MENU-------//////////////////////////////

@@ -129,7 +129,7 @@ var brendMainSwiper = new Swiper(".brendMainSwiper", {
 var newsSwiper = new Swiper(".news-swiper", {
   loop: true,
   spaceBetween: 10,
-  simulateTouch: false,
+
   navigation: {
     nextEl: ".news-arrow_R",
     prevEl: ".news-arrow_L",
@@ -143,6 +143,7 @@ var newsSwiperMini = new Swiper(".news-swiper-mini", {
   loop: true,
   spaceBetween: 20,
   slidesPerView: 5,
+
   navigation: {
     nextEl: ".mini-news-arrow_R",
     prevEl: ".mini-news-arrow_L",

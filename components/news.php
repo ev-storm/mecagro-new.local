@@ -1,6 +1,6 @@
 <div id="news" class="news-con">
 	<div class="title-heading-con anim-left">
-		<h1 class="title-heading">
+		<h1 data-lang="Новости компании" data-lang_en="Company News" class="title-heading">
 			Новости компании
 		</h1>
 	</div>

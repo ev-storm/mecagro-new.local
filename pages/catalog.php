@@ -28,8 +28,8 @@
 								<li class="filter brend-btn active"><h2>MOSH</h2></li>
 							</ul>
 						</li>
-						<li class="filter filter-btn"><h2>Популярное</h2></li>
-						<li class="filter filter-btn"><h2>Новинка</h2></li>
+						<li class="filter filter-btn"><h2 data-lang="Популярное" data-lang_en="Popular">Популярное</h2></li>
+						<li class="filter filter-btn"><h2 data-lang="Новинка" data-lang_en="New">Новинка</h2></li>
 					</ul>
 					<div class="categories-margin"></div>
 					<ul class="main-categories"></ul>
@@ -84,7 +84,7 @@
 								<h2 class="object-categoty_main-text">Категория: </h2>
 							</div>
 							<div class="object-name_main">
-								<h1 class="object-name_main-text">Лучший поставщик</h1>
+								<h1 class="object-name_main-text">ООО «МЕКАГРО ГРУП» - официальный дилер компаний MECAGRO, TIERRE, BERTOLINI и ARAG на территории России и стран СНГ</h1>
 							</div>
 							<div class="object-descripcion_main">
 								<h3 class="object-descripcion_main-text" id="description">

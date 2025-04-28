@@ -5,29 +5,29 @@
 		<div class="menu-con">
 			<div class="menu">
 				<ul class="menu-ul">
-					<li><a href="/" class="home-btn">Главная</a></li>
+					<li><a  data-lang="Главная" data-lang_en="Home" href="/" class="home-btn">Главная</a></li>
 					<li>|</li>
-					<li class="about-btn-li"><a href="/pages/about.php" class="about-btn">О компании</a>
+					<li  class="about-btn-li"><a data-lang="О компании" data-lang_en="About the company" 	href="/pages/about.php" class="about-btn">О компании</a>
 						<ul class="sub-about-btn">
-							<li><a class="icon-menu icon-menu_1" href="/pages/about.php#contact">Контакты</a></li>
-							<li><a class="icon-menu icon-menu_2" href="/pages/about.php#recvisit">Реквизиты</a></li>
-							<li><a class="icon-menu icon-menu_3" href="/pages/about.php#delivry">Доставка</a></li>
-							<li><a class="icon-menu icon-menu_4" href="/pages/about.php#news">Новости</a></li>
-							<li><a class="icon-menu icon-menu_5" href="/pages/about.php#part">Партнеры</a></li>
-							<li><a class="icon-menu icon-menu_6" href="/pages/about.php#serty">Сертификаты</a></li>
-							<li><a class="icon-menu icon-menu_7" href="/pages/about.php#contact">Вакансии</a></li>
-							<li><a class="icon-menu icon-menu_8" href="/pages/about.php#policy">Политика <br> конфидециальности</a></li>
+							<li><a data-lang="Контакты" data-lang_en="Contacts" class="icon-menu icon-menu_1" href="/pages/about.php#contact">Контакты</a></li>
+							<li><a data-lang="Реквизиты" data-lang_en="Requisites" class="icon-menu icon-menu_2" href="/pages/about.php#recvisit">Реквизиты</a></li>
+							<li><a data-lang="Доставка" data-lang_en="Delivery" class="icon-menu icon-menu_3" href="/pages/about.php#delivry">Доставка</a></li>
+							<li><a data-lang="Новости" data-lang_en="News" class="icon-menu icon-menu_4" href="/pages/about.php#news">Новости</a></li>
+							<li><a data-lang="Партнеры" data-lang_en="Partners" class="icon-menu icon-menu_5" href="/pages/about.php#part">Партнеры</a></li>
+							<li><a data-lang="Сертификаты" data-lang_en="Certificates" class="icon-menu icon-menu_6" href="/pages/about.php#serty">Сертификаты</a></li>
+							<li><a data-lang="Вакансии" data-lang_en="Job openings" class="icon-menu icon-menu_7" href="/pages/about.php#contact">Вакансии</a></li>
+							<li><a data-lang="Политика <br> конфидециальности" data-lang_en="Privacy Policy" class="icon-menu icon-menu_8" href="/pages/about.php#policy">Политика <br> конфидециальности</a></li>
 						</ul>
 					</li>
 					<li>|</li>
-					<li><a href="/pages/about.php#contact">Контакты</a></li>
+					<li><a data-lang="Контакты" data-lang_en="Contacts" href="/pages/about.php#contact">Контакты</a></li>
 					<li>|</li>
-					<li><a href="/pages/about.php#delivry">Доставка</a></li>
+					<li><a data-lang="Доставка" data-lang_en="Delivery" href="/pages/about.php#delivry">Доставка</a></li>
 					<li>|</li>
-					<li ><a class="news-btn" href="/pages/news.php">Новости</a></li>
+					<li ><a data-lang="Новости" data-lang_en="News" class="news-btn" href="/pages/news.php">Новости</a></li>
 				</ul>
 				<div class="link-con">
-					<button class="btn btn-modal-call">Связаться</button>
+					<button data-lang="Связаться" data-lang_en="proposal"  class="btn btn-modal-call">Связаться</button>
 					<div class="link">
 						<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
 						<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
@@ -50,12 +50,12 @@
 				<div class="sub-menu-wrapper">
 					<ul>
 						<li>
-							<a class="catalog-btn" href="/pages/catalog.php">Каталог</a>
+							<a data-lang="Каталог" data-lang_en="Catalog" class="catalog-btn" href="/pages/catalog.php">Каталог</a>
 						</li>
 						<li>|</li>
-						<li><a href="#">Новинки</a></li>
+						<li><a data-lang="Новинки" data-lang_en="New products" href="#">Новинки</a></li>
 						<li>|</li>
-						<li class="download-cat pdf-down arrow"><a href="">Скачать каталог</a>
+						<li  class="download-cat pdf-down arrow"><a data-lang="Скачать каталог" data-lang_en="Download the catalog" href="">Скачать каталог</a>
 							<ul>
 								<li><a target="_blanc" href="/assets/img/brend/Mecagro.pdf"><h2>MECARGO PDF</h2></a></li>
 								<li><a target="_blanc" href="/assets/img/brend/BARGAM.pdf"><h2>BARGAM PDF</h2></a></li>
@@ -71,7 +71,7 @@
 							<div class="resultsContainer" id="resultsContainer"></div>
 						</div>
 						<span>|</span>
-						<button id="languageRu" value="ru" class="lang-switch active btn">RU</button>
+						<button id="languageRu" value="ru" class="lang-switch  btn">RU</button>
 						<button id="languageEn" value="en" class="lang-switch btn">EN</button>
 					</div>
 				</div>
@@ -104,22 +104,22 @@
 
 			<ul>
 				<li>
-					<a class="home-btn" href="/">Главная</a>
+					<a  data-lang="Главная" data-lang_en="Home" class="home-btn" href="/">Главная</a>
 				</li>
 				<li>
-					<a class="mob-catalog-btn" href="/pages/catalog.php">Каталог</a>
+					<a data-lang="Каталог" data-lang_en="Catalog" class="mob-catalog-btn" href="/pages/catalog.php">Каталог</a>
 				</li>
 				<li>
-					<a class="mob-about-btn" href="/pages/about.php">О компании</a>
+					<a data-lang="О компании" data-lang_en="About" class="mob-about-btn" href="/pages/about.php">О компании</a>
 				</li>
 				<li>
-					<a  href="/pages/about.php#contact">Контакты</a>
+					<a data-lang="Контакты" data-lang_en="Contacts" href="/pages/about.php#contact">Контакты</a>
 				</li>
 					<li>
-					<a  href="/pages/about.php#delivry">Доставка</a>
+					<a data-lang="Доставка" data-lang_en="Delivery" href="/pages/about.php#delivry">Доставка</a>
 				</li>
 					<li>
-					<a class="news-btn" href="/pages/news.php">Новости</a>
+					<a data-lang="Новости" data-lang_en="News" class="news-btn" href="/pages/news.php">Новости</a>
 				</li>
 			</ul>
 

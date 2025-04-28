@@ -199,38 +199,6 @@ updateButtonState();
 check.addEventListener("click", updateButtonState);
 //////////////////////--------MODAL--------//////////////////////////////
 
-//////////////////////--------LANG-SWITCH--------//////////////////////////////
-
-const langSwitchActive = () => {
-  const langSwitch = document.querySelectorAll(".lang-switch");
-
-  langSwitch.forEach((item) => {
-    item.addEventListener("click", () => {
-      // Удаляем класс "active" у всех элементов
-      langSwitch.forEach((i) => {
-        i.classList.remove("active");
-      });
-      // Добавляем класс "active" к текущему элементу
-      item.classList.add("active");
-
-      const langValue = item.value;
-
-      // Изменяем содержание элемента с классом .tip
-      const tip = document.querySelector(".tip");
-      tip.classList.add("active");
-      if (langValue === "ru") {
-        tip.innerHTML = `<h3>Язык переключен на русский</h3>`;
-      } else {
-        tip.innerHTML = `<h3>The language has been switched <br>to еnglish</h3>`;
-      }
-    });
-  });
-};
-
-// Вызываем функцию для инициализации
-langSwitchActive();
-//////////////////////--------LANG-SWITCH--------//////////////////////////////
-
 //////////////////////--------ANIM_LEFT-------//////////////////////////////
 window.addEventListener("scroll", function () {
   const elements = document.querySelectorAll(".anim-left");
