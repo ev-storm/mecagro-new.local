@@ -20,6 +20,24 @@
   align-items: center;
   justify-content: end !important;
 }
+.title-slide-mov {
+  justify-content: center !important;
+}
+.title-slide-mov video {
+  width: 100% !important;
+}
+.logo-mov {
+  position: absolute;
+  top: 20;
+  left: 0;
+  width: 100px !important;
+  height: 50px;
+  scale: 0.5;
+}
+.title-play {
+  scale: 0.5;
+  rotate: 90deg;
+}
 
 .title-slide img {
   width: 40% !important;
@@ -73,6 +91,9 @@
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: var(--main) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .autoplay-progress svg {
   --progress: 0;

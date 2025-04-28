@@ -18,7 +18,11 @@
 
 				<div class="swiper title-swiper">
 					<div class="swiper-wrapper">
-						<div class="swiper-slide title-slide">
+						<div class="swiper-slide title-slide title-slide-mov">
+							<img class="logo-mov" src="/assets/svg/logo_gray.svg" alt="">
+							<video src="/assets/img/mech/prev/1.mp4" autoplay muted playsinline alt="">
+						</div>
+						<!-- <div class="swiper-slide title-slide">
 							<div class="slide-text">
 								<h3>Опрыскиватели для многолетних насаждений</h3>
 								<h1>Опрыскиватель вентиляторный SLV 1500/2000 FV</h1>
@@ -26,34 +30,7 @@
 								<button class="btn">Побробнее</button>							
 							</div>
 							<img src="/assets/img/avto/1.png" />
-						</div>
-						<div class="swiper-slide title-slide">
-							<div class="slide-text">
-								<h3>Опрыскиватели для многолетних насаждений</h3>
-								<h1>Опрыскиватель вентиляторный SLV 1500/2000 FV</h1>
-								<h2>Новинка от компании “MecAgro” в мире агротехнологий. Предназначен для защиты от вредителей и болезней садов и виноградников высотой до 5 метров и шириной междурядий до 6 метров.</h2>
-								<button class="btn">Побробнее</button>							
-							</div>
-							<img src="/assets/img/avto/5.png" />
-						</div>
-						<div class="swiper-slide title-slide">
-							<div class="slide-text">
-								<h3>Опрыскиватели для многолетних насаждений</h3>
-								<h1>Опрыскиватель вентиляторный SLV 1500/2000 FV</h1>
-								<h2>Новинка от компании “MecAgro” в мире агротехнологий. Предназначен для защиты от вредителей и болезней садов и виноградников высотой до 5 метров и шириной междурядий до 6 метров.</h2>
-								<button class="btn">Побробнее</button>							
-							</div>
-							<img src="/assets/img/avto/2.png" />
-						</div>
-						<div class="swiper-slide title-slide">
-							<div class="slide-text">
-								<h3>Опрыскиватели для многолетних насаждений</h3>
-								<h1>Опрыскиватель вентиляторный SLV 1500/2000 FV</h1>
-								<h2>Новинка от компании “MecAgro” в мире агротехнологий. Предназначен для защиты от вредителей и болезней садов и виноградников высотой до 5 метров и шириной междурядий до 6 метров.</h2>
-								<button class="btn">Побробнее</button>							
-							</div>
-							<img src="/assets/img/avto/3.png" />
-						</div>
+						</div> -->
 					</div>
 					<div class="swiper-button-next"></div>
 					<div class="swiper-button-prev"></div>

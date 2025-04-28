@@ -18,9 +18,7 @@
 				<div class="link link-form">
 						<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
 						<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
-						<a href="#"><img src="/assets/svg/link/ml.svg" alt=""></a>
 						<a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
-						<a href="#"><img src="/assets/svg/link/tel.svg" alt=""></a>
 					</div>
 
 		</form>

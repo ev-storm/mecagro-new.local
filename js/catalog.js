@@ -9,8 +9,8 @@ function setupLanguageSwitch() {
       langToggle = langValue === "ru" ? "ru" : "en";
 
       renderCategories();
-      getFlatCategoryObjects();
       createListMenu();
+      getFlatCategoryObjects();
       objClick();
     });
   });
@@ -58,44 +58,43 @@ async function getFlatCategoryObjects(lang = langToggle) {
 }
 
 ///////////////////////////----JSON------////////////////////////////////
+
 // ///////////////////////////---- BREND ------////////////////////////////////
-let activeBrands = []; // Глобальная переменная
+let filterActive = []; // Глобальная переменная
 
 const activeBrend = () => {
-  const categoriesBrand = document.querySelectorAll(".categories-brand");
+  const brendBtn = document.querySelectorAll(".brend-btn");
   const categoriesFilter = document.querySelectorAll(".filter");
-
-  // categoriesBrand.forEach((item) => {
-  //   item.addEventListener("click", () => {
-  //     const isActive = item.classList.contains("active");
-  //     const activeCount = Array.from(categoriesBrand).filter((el) =>
-  //       el.classList.contains("active")
-  //     ).length;
-
-  //     if (activeCount === categoriesBrand.length) {
-  //       categoriesBrand.forEach((el) =>
-  //         el === item
-  //           ? el.classList.add("active")
-  //           : el.classList.remove("active")
-  //       );
-  //     } else if (activeCount === 2) {
-  //       if (isActive) {
-  //         item.classList.remove("active");
-  //       } else {
-  //         item.classList.add("active");
-  //       }
-  //     } else if (activeCount === 1) {
-  //       if (!isActive) {
-  //         item.classList.add("active");
-  //       }
-  //     }
-  //   });
-  // });
 
   categoriesFilter.forEach((item) => {
     item.addEventListener("click", () => {
-      item.classList.toggle("active");
-      filterActive = Array.from(categoriesFilter)
+      if (item.classList.contains("brend-btn")) {
+        // Проверяем текущее количество активных кнопок
+        const activeCount = Array.from(brendBtn).filter((btn) =>
+          btn.classList.contains("active")
+        ).length;
+
+        if (activeCount >= 3 && item.classList.contains("active")) {
+          // Если уже активны 3 кнопки, то отключаем все кроме нажатой
+          brendBtn.forEach((btn) => btn.classList.remove("active"));
+          item.classList.add("active");
+        } else if (activeCount === 2 && item.classList.contains("active")) {
+          // Если 2 активны и нажата уже активная, то просто удаляем её активность
+          item.classList.remove("active");
+        } else if (activeCount === 1 && item.classList.contains("active")) {
+          // Нельзя отключать единственную активную кнопку
+          return;
+        } else {
+          // Если менее 3 активных и нажата неактивная кнопка, то просто активируем
+          item.classList.toggle("active");
+        }
+      } else {
+        // Для кнопок filter-btn просто переключаем их состояние
+        item.classList.toggle("active");
+      }
+
+      // Сбор всех активных brend-btn в массив filterActive
+      const filterActive = Array.from(brendBtn)
         .filter((el) => el.classList.contains("active"))
         .map((el) => el.querySelector("h2").textContent);
 
@@ -111,12 +110,12 @@ const activeBrend = () => {
 
       renderCategories(filterActive);
       createListMenu(filterActive);
+      console.log(filterActive);
     });
   });
 };
 
 activeBrend();
-
 // ///////////////////////////---- BREND ------////////////////////////////////
 
 /////////////////////////---------LEFT-MENU--------///////////////////////////////////
@@ -182,7 +181,6 @@ renderCategories();
 /////////////////////////---------LEFT-MENU--------///////////////////////////////////
 
 // ////////////////////////////------LEFT_MENU_ANIMATED--------///////////////////////////
-
 const setupToggleCategories = () => {
   const openItems = document.querySelectorAll(".open-img");
 
@@ -215,7 +213,6 @@ const setupToggleCategories = () => {
     });
   });
 };
-
 const ActiveLeftMenuItem = (item) => {
   const objectItems = document.querySelectorAll(".object-item");
   const objectItemsActive = document.querySelectorAll(".object-item.active");
@@ -275,55 +272,9 @@ const ActiveLeftMenuItem = (item) => {
     }
   });
 };
-
 // ///////////////////////------LEFT_MENU_ANIMATED--------////////////////////////////
 
 // /////////////////////////---------MENU--------///////////////////////////////////
-// const createListMenu = async () => {
-//   const dataCategoriesMenu = await fetchDataCategories();
-//   const menuContainer = document.querySelector(".menu-categories");
-//   menuContainer.innerHTML = "";
-
-//   // Готовим HTML для меню
-//   const categories = dataCategoriesMenu[0].categories[langToggle];
-
-//   for (const [categoryName, categoryDetails] of Object.entries(categories)) {
-//     const subCategoriesHTML = Object.entries(
-//       categoryDetails.subCategories || {}
-//     )
-//       .map(([subCategoryName, subCategoryDetails]) => {
-//         const objectsHTML = (subCategoryDetails.object || [])
-//           .map(
-//             (object) => `
-//             <li class="menu-obj-item object-click">
-//               <h2 class="menu-obj-text">${object.name + " " + object.cod}</h2>
-//             </li>`
-//           )
-//           .join("");
-
-//         return `
-//           <li>
-//             <h2 class="menu-sub_categories-text">${subCategoryName}</h2>
-//             <ul class="menu-items">
-//               ${objectsHTML}
-//             </ul>
-//           </li>`;
-//       })
-//       .join("");
-
-//     const categoryHTML = `
-//       <li>
-//         <h2 class="menu-categories-text">${categoryName}</h2>
-//         <ul class="menu-sub_categories">
-//           ${subCategoriesHTML}
-//         </ul>
-//       </li>`;
-
-//     menuContainer.innerHTML += categoryHTML;
-//     objClick();
-//   }
-// };
-// createListMenu();
 const createListMenu = async (selectedFilters = []) => {
   const dataCategoriesMenu = await fetchDataCategories();
   const menuContainer = document.querySelector(".menu-categories");
@@ -383,8 +334,6 @@ const createListMenu = async (selectedFilters = []) => {
   }
   objClick(); // Вызываем функцию обработчиков кликов
 };
-
-// Пример вызова createListMenu с выбранными фильтрами и брендами
 createListMenu();
 // /////////////////////////---------MENU--------///////////////////////////////////
 
@@ -411,36 +360,57 @@ const objAnimated = () => {
 function updateSlides(object) {
   // Проверяем, существует ли объект и его массив photo
   if (object && Array.isArray(object.photo)) {
-    const photoUrls = []; // Создаем массив для хранения URL изображений
+    const photoUrls = object.photo; // Получаем массив URL изображений
 
-    // Заполняем массив photoUrls из данных объекта
-    for (let i = 0; i < object.photo.length; i++) {
-      photoUrls.push(object.photo[i]);
-    }
+    // Получаем контейнер для основных слайдов
+    const mainSwiperWrapper = document.querySelector(".object-swiper-wrapper");
+    mainSwiperWrapper.innerHTML = ""; // Очищаем текущие слайды
 
-    // Обновляем содержимое слайдов из photoUrls для основных слайдов
-    updateSlideImages(".object-slide", photoUrls);
+    // Получаем контейнер для мини-слайдов
+    const miniSwiperWrapper = document.querySelector(
+      ".object-swiper-wrapper_mini"
+    );
+    miniSwiperWrapper.innerHTML = ""; // Очищаем текущие мини-слайды
 
-    // Обновляем содержимое слайдов из photoUrls для мини-слайдов
-    updateSlideImages(".object-slide_mini", photoUrls);
+    // Заполняем контейнеры новыми слайдами
+    photoUrls.forEach((url) => {
+      // Создаём слайд для основного слайдера
+      const mainSlide = document.createElement("div");
+      mainSlide.classList.add("swiper-slide", "object-slide");
+      mainSlide.innerHTML = `<img src="${url}" />`;
+      mainSwiperWrapper.appendChild(mainSlide);
+
+      // Создаём слайд для мини-слайдера
+      const miniSlide = document.createElement("div");
+      miniSlide.classList.add("swiper-slide", "object-slide_mini");
+      miniSlide.innerHTML = `<img src="${url}" />`;
+      miniSwiperWrapper.appendChild(miniSlide);
+    });
+
+    var objectSwiper = new Swiper(".object-swiper", {
+      loop: true,
+      spaceBetween: 0,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: ".object-swiper_mini",
+      },
+    });
+
+    var objectSwiperMini = new Swiper(".object-swiper_mini", {
+      direction: "vertical",
+      loop: false,
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+
+    objectSwiper.update();
+    objectSwiperMini.update();
   }
-}
-function updateSlideImages(selector, photoUrls) {
-  const slides = document.querySelectorAll(selector);
-
-  slides.forEach((item, index) => {
-    // Проверяем, существует ли соответствующий URL для текущего слайда
-    if (index < photoUrls.length) {
-      // Находим img внутри текущего слайда и обновляем его src
-      const img = item.querySelector("img"); // Находим изображение внутри слайда
-      if (img) {
-        img.src = photoUrls[index]; // Обновляем ссылку на изображение
-      } else {
-        // Если изображения нет, создаем его
-        item.innerHTML = `<img src="${photoUrls[index]}"/>`;
-      }
-    }
-  });
 }
 // /////////////////////////--------- PHOTO --------///////////////////////////////////
 
@@ -485,6 +455,7 @@ async function selectAndDisplayObject(objectName) {
 
   // Характеристики
   let specHTML = `
+	<h1 class="object-specifications-title">Технические характеристики</h1>
     <tr class="object-specifications_table-title">
       <th><h1>наименование характеристики</h1></th>
       <th><h1>количество | Ед. изм.</h1></th>
@@ -494,11 +465,12 @@ async function selectAndDisplayObject(objectName) {
       specHTML += `
       <tr>
           <td><h1>${key}</h1></td>
-          <td><h1>1${object.specifications[key]}</h1></td>
+          <td><h1>${object.specifications[key]}</h1></td>
       </tr>`;
     }
   }
   spec.innerHTML = specHTML;
+  updateSlides(object);
 }
 // 2. Единый обработчик кликов (используйте централизованную функцию):
 const objClick = async () => {
@@ -714,57 +686,70 @@ const search = (async = () => {
 
     results.forEach((item) => {
       const resultItem = document.createElement("div");
-
       resultItem.classList.add("result-item");
 
       resultItem.innerHTML = `
-  				<div class="search-photo">
-  					<img src="${item.photo[0]}" alt="${item.name}">
+        <div class="search-photo">
+            <img src="${item.photo[0]}" alt="${item.name}">
+        </div>
+        <div class="search-item object-click">
+            <h1>${item.name + " " + item.cod}</h1>
+            <div class="search-filter">
+                <span class="search-filter-item">${
+                  item.filter[1] ? item.filter[1] : ""
+                }</span>
+                <h3 class="search-filter-item">${
+                  item.filter[0] ? item.filter[0] : ""
+                }</h3>
+            </div>
+        </div>
+    `;
 
-  				</div>
-  				<div class="search-item object-click">
-  					<h1>${item.name + " " + item.cod}</h1>
-						<div class="search-filter">
-							<span class="search-filter-item">${item.filter[1] ? item.filter[1] : ""}</span>
-							<h3 class="search-filter-item">${item.filter[0] ? item.filter[0] : ""}</h3>
-						</div>
-  				</div>
-					
-  			`;
       resultsContainer.appendChild(resultItem);
-    });
 
-    results.forEach((item) => {
-      const resultItem = document.querySelectorAll(".result-item");
-      resultItem.forEach((res) => {
-        res.addEventListener("click", () => {
-          const objName = document.querySelector(".object-name_main-text");
-          const objDescripcion = document.querySelector(
-            ".object-descripcion_main-text"
-          );
-          const spec = document.querySelector(".object-specifications_table");
+      // Здесь мы добавляем обработчик события клика на сам resultItem
+      resultItem.addEventListener("click", () => {
+        const objName = document.querySelector(".object-name_main-text");
+        const objDescripcion = document.querySelector(
+          ".object-descripcion_main-text"
+        );
+        const spec = document.querySelector(".object-specifications_table");
 
-          objName.textContent = item.name + " " + item.cod;
-          objDescripcion.textContent = item.description;
+        objName.textContent = item.name + " " + item.cod;
+        objDescripcion.textContent = item.description;
 
-          // Характеристики
-          let specHTML = `
-				<tr class="object-specifications_table-title">
-					<th><h1>наименование характеристики</h1></th>
-					<th><h1>количество | Ед. изм.</h1></th>
-				</tr>`;
-          for (const key in item.specifications) {
-            if (item.specifications.hasOwnProperty(key)) {
-              specHTML += `
-				<tr>
-						<td><h1>${key}</h1></td>
-						<td><h1>1${item.specifications[key]}</h1></td>
-				</tr>`;
-            }
+        let specHTML = `
+            <h1 class="object-specifications-title">Технические характеристики</h1>
+            <tr class="object-specifications_table-title">
+                <th><h1>наименование характеристики</h1></th>
+                <th><h1>количество | Ед. изм.</h1></th>
+            </tr>`;
+        for (const key in item.specifications) {
+          if (item.specifications.hasOwnProperty(key)) {
+            specHTML += `
+                    <tr>
+                        <td><h1>${key}</h1></td>
+                        <td><h1>1${item.specifications[key]}</h1></td>
+                    </tr>`;
           }
-          spec.innerHTML = specHTML;
-          objClick();
-        });
+        }
+        spec.innerHTML = specHTML;
+
+        const leftMenuA = document.createElement("li");
+        leftMenuA.className = "menu-obj-item object-click";
+        leftMenuA.innerHTML = `<h2 class="menu-obj-text">${
+          item.name + " " + item.cod
+        }</h2>`;
+
+        const resultsContainer = document.getElementById("resultsContainer");
+        const search = document.querySelector(".search");
+
+        resultsContainer.classList.remove("active");
+        search.classList.remove("active");
+
+        objClick();
+        updateSlides(item);
+        ActiveLeftMenuItem(leftMenuA);
       });
     });
   };
@@ -802,97 +787,184 @@ const search = (async = () => {
 });
 search();
 // ////////////////////////-----------SEARCH------------/////////////////////////////////
+//////////////////////--------TITLE_CATEGIRY-------//////////////////////////////
 
-// /////////////////////////---------SYNS_MENU--------///////////////////////////////////
-// // const syncMenus = async () => {
-// //   const menuItems = document.querySelectorAll(".menu-obj-item");
-// //   const searchItems = document.querySelectorAll(".search-item");
-// //   const objectItems = document.querySelectorAll(".object-item");
-// //   const objectСlick = document.querySelectorAll(".object-click");
+// const titleSlides = async () => {
+//   const categoriesObjects = await getFlatCategoryObjects();
+//   const slideTexts = document.querySelectorAll(".slide-text");
 
-// //   const mainItems = document.querySelectorAll(".main-items");
-// //   const mainSubCategories = document.querySelectorAll(".main-sub_categories");
+//   // Очищаем содержимое всех слайд-текстов
+//   slideTexts.forEach((slideText) => {
+//     slideText.innerHTML = "";
+//   });
 
-// //   // if (objectItems.length > 1) {
-// //   //   objectItems[1].classList.add("active");
+//   // Группируем данные обратно по категориям/подкатегориям
+//   const grouped = {};
+//   const titlesWithObjects = []; // Создаем массив для хранения объектов с title
 
-// //   //   if (
-// //   //     objectItems[0].classList.contains("active") ||
-// //   //     objectItems[0].classList.contains("open")
-// //   //   ) {
-// //   //     objectItems[0].classList.remove("active");
-// //   //     mainItems[0].classList.remove("open");
-// //   //     mainItems[0].classList.add("close");
-// //   //     mainSubCategories[0].classList.remove("open");
-// //   //     mainSubCategories[0].classList.add("close");
-// //   //   }
+//   categoriesObjects.forEach((obj) => {
+//     if (obj.title) {
+//       // Проверяем наличие свойства title
+//       titlesWithObjects.push(obj); // Добавляем объект в массив, если title существует
+//     }
 
-// //   //   mainItems[1].classList.remove("close");
-// //   //   mainItems[1].classList.add("open");
-// //   //   mainSubCategories[0].classList.remove("close");
-// //   //   mainSubCategories[0].classList.add("open");
-// //   // }
+//     if (!grouped[obj.categoryName]) grouped[obj.categoryName] = {};
+//     if (!grouped[obj.categoryName][obj.subCategoryName])
+//       grouped[obj.categoryName][obj.subCategoryName] = [];
 
-// //   // Функция для обработки кликов по элементам меню и поиска
-// //   const handleClick = (itemText) => {
-// //     objectItems.forEach((objItem) => {
-// //       objItem.classList.remove("active");
-// //     });
+//     grouped[obj.categoryName][obj.subCategoryName].push(obj);
+//   });
 
-// //     const matchingItem = Array.from(objectItems).find((objItem) => {
-// //       const objText = objItem.innerText.trim();
-// //       return objText.includes(itemText);
-// //     });
+//   // Можем вывести все найденные объекты с title для проверки
+//   titlesWithObjects.forEach((obj, index) => {
+//     console.log(obj.name);
 
-// //     const mainItems = document.querySelectorAll(
-// //       ".main-items, .main-sub_categories"
-// //     );
+//     // Создаем текст для каждого слайда
+//     const text = `
+//       <h3>Опрыскиватели для многолетних насаждений</h3>
+//       <h1>${obj.name} ${obj.cod}</h1>
+//       <h2>${obj.description}.</h2>
+//       <button class="btn">Побробнее</button>
+//     `;
 
-// //     mainItems.forEach((item) => {
-// //       item.classList.remove("open");
-// //       item.classList.add("close");
-// //     });
+//     // Убедимся, что у нас есть доступ к правильному элементу слайда
+//     if (slideTexts[index]) {
+//       slideTexts[index].innerHTML += text; // Используем += для добавления текста
+//     }
+//   });
+// };
 
-// //     if (matchingItem) {
-// //       matchingItem.classList.add("active");
+// titleSlides();
+const titleSlides = async () => {
+  const categoriesObjects = await getFlatCategoryObjects();
+  const swiperWrapper = document.querySelector(".swiper-wrapper");
 
-// //       const parentMainItems = matchingItem.closest(".main-items");
-// //       const parentMainSubCategories = matchingItem.closest(
-// //         ".main-sub_categories"
-// //       );
+  // Очищаем содержимое всех слайдов, кроме первого
+  const slides = document.querySelectorAll(
+    ".title-slide:not(.title-slide-mov)"
+  );
+  slides.forEach((slide) => {
+    slide.remove();
+  });
 
-// //       if (parentMainItems) {
-// //         parentMainItems.classList.remove("close");
-// //         parentMainItems.classList.add("open");
-// //       }
+  // Убедимся, что title-slide-mov на первом месте
+  const firstSlide = document.querySelector(".title-slide-mov");
+  if (firstSlide) {
+    swiperWrapper.prepend(firstSlide); // Поднимаем title-slide-mov на первое место
+  }
 
-// //       if (parentMainSubCategories) {
-// //         parentMainSubCategories.classList.remove("close");
-// //         parentMainSubCategories.classList.add("open");
-// //       }
-// //     } else {
-// //       console.warn("Соответствующий элемент не найден.");
-// //     }
-// //   };
+  // Группируем данные обратно по категориям/подкатегориям
+  const titlesWithObjects = []; // Создаем массив для хранения объектов с title
 
-// //   // Назначаем обработчики событий для элементов поиска
-// //   searchItems.forEach((searchItem) => {
-// //     searchItem.addEventListener("click", () => {
-// //       const itemText = searchItem.innerText.trim();
-// //       handleClick(itemText);
-// //     });
-// //   });
+  categoriesObjects.forEach((obj) => {
+    if (obj.title) {
+      titlesWithObjects.push(obj); // Если title существует, добавляем объект в массив
+    }
+  });
 
-// //   // Назначаем обработчики событий для пунктов меню
-// //   menuItems.forEach((menuItem) => {
-// //     menuItem.addEventListener("click", () => {
-// //       const itemText = menuItem.innerText.trim();
-// //       handleClick(itemText);
-// //     });
-// //   });
-// // };
-// // syncMenus();
-// /////////////////////////---------SYNS_MENU--------///////////////////////////////////
+  // Создаем и добавляем новые слайды для каждого объекта с title
+  titlesWithObjects.forEach((obj) => {
+    const newSlide = document.createElement("div");
+    newSlide.classList.add("swiper-slide", "title-slide");
+
+    newSlide.innerHTML = `
+      <div class="slide-text">
+        <h3>Опрыскиватели для многолетних насаждений</h3>
+        <h1>${obj.name} ${obj.cod}</h1>
+        <h2>${obj.description}.</h2>
+        <button class="btn title-btn-obj">Побробнее</button>
+      </div>
+      <img src="${obj.photo[0]}" />
+    `;
+
+    // Добавляем новый слайд в swiper-wrapper
+    swiperWrapper.appendChild(newSlide);
+
+    // Сохраняем ссылку на объект obj для обработки события
+    const titleBtnObj = newSlide.querySelector(".title-btn-obj");
+
+    titleBtnObj.addEventListener("click", async () => {
+      const objectName = obj.name + " " + obj.cod;
+
+      if (window.location.pathname !== "/pages/catalog.php") {
+        localStorage.setItem("objectToFind", objectName);
+        window.location.href = "/pages/catalog.php";
+        return;
+      }
+
+      objAnimated(); // если нужно до отрисовки
+      await selectAndDisplayObject(objectName);
+      ActiveLeftMenuItem(objectName);
+    });
+  });
+
+  //////////////////////////////////////////////////////////////////////////////////
+
+  const progressCircle = document.querySelector(".autoplay-progress svg");
+  const progressContent = document.querySelector(".autoplay-progress span");
+  const progress = document.querySelector(".autoplay-progress");
+
+  var titleSwiper = new Swiper(".title-swiper", {
+    loop: true,
+    speed: 1500,
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+      delay: 18000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    on: {
+      autoplayTimeLeft(s, time, progress) {
+        progressCircle.style.setProperty("--progress", 1 - progress);
+        progressContent.textContent = `${Math.ceil(time / 1000)}`;
+      },
+      slideChange() {
+        // Перезапускаем автопроигрывание
+        this.autoplay.start();
+        // Сбрасываем время и прогресс
+        const remainingTime = this.params.autoplay.delay;
+        // Обновляем прогресс
+        progressCircle.style.setProperty("--progress", 0); // Сбрасываем прогресс
+        progressContent.textContent = `${Math.ceil(remainingTime / 1000)}`; // Обновляем прогресс по времени
+      },
+    },
+  });
+
+  var isAutoplaying = true; // Переменная для отслеживания состояния автопроигрывания
+
+  if (progress) {
+    // Проверяем, существует ли titleSwiper
+    progress.addEventListener("click", function () {
+      if (isAutoplaying) {
+        titleSwiper.autoplay.stop(); // Останавливаем автопроигрывание
+        progressContent.innerHTML = `<svg class="title-play" width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0.966797 5.24512V0.713867L5.07987 2.85717C5.15107 2.89427 5.15172 2.99592 5.081 3.03393L0.966797 5.24512Z" fill="#58C88A"/>
+  </svg>`; // Меняем иконку на кнопке при остановке
+      } else {
+        titleSwiper.autoplay.start(); // Запускаем автопроигрывание
+        progressContent.innerHTML = `<svg class="title-pause" width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="2" height="6" fill="#58C88A"/>
+  <rect x="4" width="2" height="6" fill="#58C88A"/>
+  </svg>`; // Меняем иконку на кнопке при запуске
+      }
+      isAutoplaying = !isAutoplaying; // Переключаем состояние
+    });
+  }
+
+  ////////////////////////////////////////////////////////////////////////
+};
+
+titleSlides();
+
+//////////////////////--------TITLE_CATEGIRY-------//////////////////////////////
 
 // //////////////////////-------MENU-------//////////////////////////////
 const openMenu = document.querySelector(".open-menu");
