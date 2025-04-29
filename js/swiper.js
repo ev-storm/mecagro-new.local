@@ -112,17 +112,18 @@ var brendMainSwiper = new Swiper(".brendMainSwiper", {
   loop: true,
   spaceBetween: 0,
   slidesPerView: 1,
+  simulateTouch: false,
   breakpoints: {
     600: {
       direction: "horizontal",
-      slidesPerView: 4,
+      slidesPerView: 3,
     },
   },
   autoplay: {
     delay: 0,
     disableOnInteraction: false,
   },
-  speed: 5000,
+  speed: 10000,
 });
 
 //////////////////////////////////////////////////////////////////////

@@ -22,8 +22,6 @@
 					<li>|</li>
 					<li><a data-lang="Контакты" data-lang_en="Contacts" href="/pages/about.php#contact">Контакты</a></li>
 					<li>|</li>
-					<li><a data-lang="Доставка" data-lang_en="Delivery" href="/pages/about.php#delivry">Доставка</a></li>
-					<li>|</li>
 					<li ><a data-lang="Новости" data-lang_en="News" class="news-btn" href="/pages/news.php">Новости</a></li>
 				</ul>
 				<div class="link-con">
