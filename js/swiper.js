@@ -1,6 +1,7 @@
 var objectSwiper = new Swiper(".object-swiper", {
   loop: true,
   speed: 1500,
+  simulateTouch: false,
   // autoplay: {
   //   delay: 2500,
   //   disableOnInteraction: true,
@@ -87,6 +88,7 @@ var objectSwiper = new Swiper(".object-swiper", {
 var linkSwiper = new Swiper(".linkSwiper", {
   loop: true,
   direction: "vertical",
+  simulateTouch: false,
   spaceBetween: 30,
   slidesPerView: 3,
   centeredSlides: true,
@@ -130,6 +132,7 @@ var brendMainSwiper = new Swiper(".brendMainSwiper", {
 var newsSwiper = new Swiper(".news-swiper", {
   loop: true,
   spaceBetween: 10,
+  simulateTouch: false,
 
   navigation: {
     nextEl: ".news-arrow_R",
@@ -143,6 +146,7 @@ var newsSwiper = new Swiper(".news-swiper", {
 var newsSwiperMini = new Swiper(".news-swiper-mini", {
   loop: true,
   spaceBetween: 20,
+  simulateTouch: false,
   slidesPerView: 5,
 
   navigation: {
