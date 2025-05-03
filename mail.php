@@ -47,8 +47,8 @@ try {
 	$mail->setFrom('insight.studio2023@gmail.com', 'SANKOM'); // Адрес самой почты и имя отправителя
 
 	// Получатель письма
-	  $mail->addAddress('infomu-22@yandex.ru');
-	// $mail->addAddress('insight.studio2023@gmail.com');
+	  //$mail->addAddress('infomu-22@yandex.ru');
+	$mail->addAddress('insight.studio2023@gmail.com');
 
 	// Прикрипление файлов к письму
 	if (!empty($file['name'][0])) {

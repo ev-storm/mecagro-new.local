@@ -10,22 +10,22 @@
 
 		<nav class="menu-footer">
 			<ul class="foot-menu-item foot-main-btn">
-				<li><a href="#">Каталог</a></li>
-				<li><a href="#">Новости</a></li>
-				<li><a href="#">Доставка</a></li>
-				<li><a href="#">Контакты</a></li>
+				<li><a href="/pages/catalog.php">Каталог</a></li>
+				<li><a href="/pages/news.php">Новости</a></li>
+				<li><a href="/pages/about.php#delivry">Доставка</a></li>
+				<li><a href="/pages/about.php#contact">Контакты</a></li>
 			</ul>
 			<div class="foot-margin"></div>
 			<ul class="foot-menu-item foot-about-btn">
-				<li><a href="#">О компании</a></li>
-				<li><a href="#">Реквизиты</a></li>
-				<li><a href="#">Сертификат</a></li>
-				<li><a href="#">Партнёры</a></li>
+				<li><a href="/pages/about.php">О компании</a></li>
+				<li><a href="/pages/about.php#recvisit">Реквизиты</a></li>
+				<li><a href="/pages/about.php#serty">Сертификат</a></li>
+				<li><a href="/pages/about.php#part">Партнёры</a></li>
 			</ul>
 			<div class="foot-margin"></div>
 			<ul class="foot-menu-item foot-about-btn">
-				<li><a href="#">Вакансии</a></li>
-				<li><a href="#">Политика <br> конфидециальности</a></li>
+				<li><a href="/pages/about.php#contact">Вакансии</a></li>
+				<li><a href="/pages/about.php#policy">Политика <br> конфидециальности</a></li>
 			</ul>
 		</nav>
 
@@ -44,9 +44,10 @@
 		<div class="foot-link_con">
 			<h2>Заявка на обратный звонок</h2>
 			<div >
-					<form class="foot-input" action="#">
-						<input type="tel" class="btn" placeholder="Номер телефона">
-						<button class="btn">Отправить</button>
+					<form class="foot-input form-f" action="#" method="POST">
+						<input type="hidden" name="Заявка" value="Обратная связь">
+						<input type="tel" name="Телефон" class="btn input-tel-f" placeholder="Номер телефона">
+						<button class="btn btn-form-f">Отправить</button>
 					</form>
 			</div>
 			<div class="foot-link">
@@ -58,10 +59,15 @@
 			</div>
 		</div>
 
-		<div class="mob-about-foot">
-			<h2>ООО «МЕКАГРО ГРУП» © </h2>
-			<h3>Все права защищены | 2025</h3>
+		<div class="mob-about-foot-con">
+			<div class="mob-about-foot">
+				<h2>ООО «МЕКАГРО ГРУП» © </h2>
+				<h3>Все права защищены | 2025</h3>
+			</div>
+			<img class="up-btn" src="/assets/svg/arrow-white.svg" alt="">
 		</div>
+
+		
 
 
 </div>

@@ -12,7 +12,7 @@
 							<li><a data-lang="Контакты" data-lang_en="Contacts" class="icon-menu icon-menu_1" href="/pages/about.php#contact">Контакты</a></li>
 							<li><a data-lang="Реквизиты" data-lang_en="Requisites" class="icon-menu icon-menu_2" href="/pages/about.php#recvisit">Реквизиты</a></li>
 							<li><a data-lang="Доставка" data-lang_en="Delivery" class="icon-menu icon-menu_3" href="/pages/about.php#delivry">Доставка</a></li>
-							<li><a data-lang="Новости" data-lang_en="News" class="icon-menu icon-menu_4" href="/pages/about.php#news">Новости</a></li>
+							<li><a data-lang="Новости" data-lang_en="News" class="icon-menu icon-menu_4" href="/pages/news.php">Новости</a></li>
 							<li><a data-lang="Партнеры" data-lang_en="Partners" class="icon-menu icon-menu_5" href="/pages/about.php#part">Партнеры</a></li>
 							<li><a data-lang="Сертификаты" data-lang_en="Certificates" class="icon-menu icon-menu_6" href="/pages/about.php#serty">Сертификаты</a></li>
 							<li><a data-lang="Вакансии" data-lang_en="Job openings" class="icon-menu icon-menu_7" href="/pages/about.php#contact">Вакансии</a></li>
@@ -25,7 +25,7 @@
 					<li ><a data-lang="Новости" data-lang_en="News" class="news-btn" href="/pages/news.php">Новости</a></li>
 				</ul>
 				<div class="link-con">
-					<button data-lang="Связаться" data-lang_en="proposal"  class="btn btn-modal-call">Связаться</button>
+					<button data-lang="Связаться" data-lang_en="proposal"  class="btn form-data btn-modal-call">Связаться</button>
 					<div class="link">
 						<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
 						<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
@@ -122,7 +122,7 @@
 			</ul>
 
 			<div class="mob-link-con">
-				<button class="btn btn-modal-call">Получить консультацию</button>
+				<button class="btn btn-modal-call form-data">Получить консультацию</button>
 				<div class="link">
 					<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
 					<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
@@ -154,7 +154,9 @@
 
 	</div>
 
-	<div class="catalog-mob-menu">
+
+
+	<!-- <div class="catalog-mob-menu">
 		
 		<div class="mob-cat-btn-con">
 			<img class="open-cat-menu" src="/assets/svg/catalog-open-mob.svg" alt="">
@@ -175,7 +177,7 @@
 
 
 
-	</div>
+	</div> -->
 
 
 

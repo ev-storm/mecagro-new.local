@@ -18,6 +18,7 @@
 	<div class="container">
 		<div class="about-title">
 			<h1 data-lang="О компании" data-lang_en="About the company">О компании</h1>
+			<img class="about-title-mob" src="/assets/img/about/title.png" alt="">
 		</div>
 
 		<div class="about-nav">
@@ -137,7 +138,7 @@
 					<h1>ООО «МЕКАГРО ГРУП»
 						<br><span>Общество с ограниченной ответственностью «МЕКАГРО ГРУП»</span>
 					</h1>
-					<div>
+					<div class="copy-con">
 						<img class="copy-recvi" src="/assets/svg/copy.svg" alt="">
 						<a href="/assets/img/mecargo-company.pdf" target="_blank"><img src="/assets/svg/download-green.svg" alt=""></a>
 					</div>
@@ -214,7 +215,7 @@
 			</div>
 			<h2 data-lang="Обратите внимание, что при самовывозе компания «Мекагро груп» перестаёт нести ответственность за сохранность техники во время перевозки. Чтобы узнать, каким техническим характеристикам должны соответствовать транспортные средства для перевозки спецтехники, свяжитесь с нашими менеджерами по номеру +7 (812) 237-39-49 или напишите на электронную почту info@mekagro.pro. Сертификат соответствия к каждой покупке ООО «Мекагро Груп» предоставляет все сертификаты качества и соответствия к каждой покупке. Мы уверены в своей технике благодаря строгому контролю качества и материалам использующимся при изготовлении техники, которые идеально адаптированы под самые непростые условия климата и эксплуатации." data-lang_en="Please note that upon pickup, the Mekagro Group company ceases to be responsible for the safety of equipment during transportation. To find out what technical specifications vehicles for the transportation of special equipment should meet, contact our managers at +7 (812) 237-39-49 or email us. info@mekagro.pro Certificate of conformity for each purchase, Mekagro Group LLC provides all certificates of quality and conformity for each purchase. We are confident in our technology due to strict quality control and materials used in the manufacture of equipment, which are ideally adapted to the most difficult climatic and operational conditions.">
 					Обратите внимание, что при самовывозе компания «Мекагро груп» перестаёт нести ответственность за сохранность техники во время перевозки. Чтобы узнать, каким техническим характеристикам должны соответствовать транспортные средства для перевозки спецтехники, свяжитесь с нашими менеджерами по номеру +7 (812) 237-39-49 или напишите на электронную почту info@mekagro.pro. Сертификат соответствия к каждой покупке ООО «Мекагро Груп» предоставляет все сертификаты качества и соответствия к каждой покупке. Мы уверены в своей технике благодаря строгому контролю качества и материалам использующимся при изготовлении техники, которые идеально адаптированы под самые непростые условия климата и эксплуатации. 
-				</h2>
+			</h2>
 		</div>
 
 		<?php include "../components/news.php"?>

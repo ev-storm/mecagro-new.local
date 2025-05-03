@@ -16,14 +16,7 @@ var objectSwiper = new Swiper(".object-swiper", {
   },
 });
 
-// var objectSwiperMini = new Swiper(".object-swiper_mini", {
-//   direction: "vertical",
-//   loop: false,
-//   spaceBetween: 10,
-//   slidesPerView: 4,
-//   freeMode: true,
-//   watchSlidesProgress: true,
-// });
+//////////////////////////////////////////////////////////////////////////////////////////
 
 // const progressCircle = document.querySelector(".autoplay-progress svg");
 // const progressContent = document.querySelector(".autoplay-progress span");
@@ -63,7 +56,7 @@ var objectSwiper = new Swiper(".object-swiper", {
 //   },
 // });
 
-// var isAutoplaying = true; // Переменная для отслеживания состояния автопроигрывания
+// var isAutoplaying = true;
 
 // if (progress) {
 //   // Проверяем, существует ли titleSwiper
@@ -71,26 +64,26 @@ var objectSwiper = new Swiper(".object-swiper", {
 //     if (isAutoplaying) {
 //       titleSwiper.autoplay.stop(); // Останавливаем автопроигрывание
 //       progressContent.innerHTML = `<svg class="title-play" width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-// <path d="M0.966797 5.24512V0.713867L5.07987 2.85717C5.15107 2.89427 5.15172 2.99592 5.081 3.03393L0.966797 5.24512Z" fill="#58C88A"/>
-// </svg>`; // Меняем иконку на кнопке при остановке
+//   <path d="M0.966797 5.24512V0.713867L5.07987 2.85717C5.15107 2.89427 5.15172 2.99592 5.081 3.03393L0.966797 5.24512Z" fill="#58C88A"/>
+//   </svg>`; // Меняем иконку на кнопке при остановке
 //     } else {
 //       titleSwiper.autoplay.start(); // Запускаем автопроигрывание
 //       progressContent.innerHTML = `<svg class="title-pause" width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-// <rect width="2" height="6" fill="#58C88A"/>
-// <rect x="4" width="2" height="6" fill="#58C88A"/>
-// </svg>`; // Меняем иконку на кнопке при запуске
+//   <rect width="2" height="6" fill="#58C88A"/>
+//   <rect x="4" width="2" height="6" fill="#58C88A"/>
+//   </svg>`; // Меняем иконку на кнопке при запуске
 //     }
 //     isAutoplaying = !isAutoplaying; // Переключаем состояние
 //   });
 // }
 
-// // Инициализация Swiper
+////////////////////////////////////////////////////////////////////////////////////
 var linkSwiper = new Swiper(".linkSwiper", {
   loop: true,
-  direction: "vertical",
+  direction: "horizontal",
   simulateTouch: false,
   spaceBetween: 30,
-  slidesPerView: 3,
+  slidesPerView: 2,
   centeredSlides: true,
   simulateTouch: false,
   autoplay: {
@@ -129,30 +122,28 @@ var brendMainSwiper = new Swiper(".brendMainSwiper", {
 });
 
 //////////////////////////////////////////////////////////////////////
-var newsSwiper = new Swiper(".news-swiper", {
-  loop: true,
-  spaceBetween: 10,
-  simulateTouch: false,
+// var newsSwiper = new Swiper(".news-swiper", {
+//   loop: true,
+//   spaceBetween: 10,
 
-  navigation: {
-    nextEl: ".news-arrow_R",
-    prevEl: ".news-arrow_L",
-  },
-  thumbs: {
-    swiper: ".news-swiper-mini",
-  },
-});
+//   navigation: {
+//     nextEl: ".news-arrow_R",
+//     prevEl: ".news-arrow_L",
+//   },
+//   thumbs: {
+//     swiper: ".news-swiper-mini",
+//   },
+// });
 
-var newsSwiperMini = new Swiper(".news-swiper-mini", {
-  loop: true,
-  spaceBetween: 20,
-  simulateTouch: false,
-  slidesPerView: 5,
+// var newsSwiperMini = new Swiper(".news-swiper-mini", {
+//   loop: true,
+//   spaceBetween: 20,
+//   slidesPerView: 6,
 
-  navigation: {
-    nextEl: ".mini-news-arrow_R",
-    prevEl: ".mini-news-arrow_L",
-  },
-});
+//   navigation: {
+//     nextEl: ".mini-news-arrow_R",
+//     prevEl: ".mini-news-arrow_L",
+//   },
+// });
 
 /////////////////////////////////////////////////////////

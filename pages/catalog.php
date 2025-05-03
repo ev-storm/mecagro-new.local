@@ -33,6 +33,19 @@
 					</ul>
 					<div class="categories-margin"></div>
 					<ul class="main-categories"></ul>
+					<div class="download-cat-mob">
+						<button class="btn-light download-cat">Скачать каталог
+							<ul>
+								<li><a target="_blanc" href="/assets/img/brend/Mecagro.pdf"><h2>MECARGO PDF</h2></a></li>
+								<li><a target="_blanc" href="/assets/img/brend/BARGAM.pdf"><h2>BARGAM PDF</h2></a></li>
+								<li><a target="_blanc" href="/assets/img/brend/Mosh.pdf"><h2>MOSH PDF</h2></a></li>
+							</ul>
+						</button>
+							<div class="mob-cat-btn-con">
+								<img class="open-cat-menu" src="/assets/svg/catalog-open-mob.svg" alt="">
+								<img class="close-cat-menu hide" src="/assets/svg/catalog-close-mob.svg" alt="">
+							</div>
+					</div>
 			</div>
 			<div class="object-con">
 				<div class="object">
@@ -64,8 +77,8 @@
 						</div>
 						<div class="object-btn">
 							<div>
-								<button class="btn btn-modal-call">Получить консультацию</button>
-								<button class="btn-light">Лизинг</button>
+								<button class="btn btn-modal-call form-data">Получить консультацию</button>
+								<button class="btn-light btn-modal-call form-data-leasing">Лизинг</button>
 							</div>
 								<button class="btn-light download-cat">Скачать каталог
 									<ul>

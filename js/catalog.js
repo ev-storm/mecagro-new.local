@@ -48,9 +48,30 @@ function updateLanguageText() {
   });
 }
 
+// function updateLanguageTip() {
+//   const tip = document.querySelector(".tip");
+//   tip.classList.add("active");
+//   if (langToggle === "ru") {
+//     tip.innerHTML = `<h3>Язык переключен на русский</h3>`;
+//   } else {
+//     tip.innerHTML = `<h3>The language has been switched <br>to English</h3>`;
+//   }
+// }
 function updateLanguageTip() {
   const tip = document.querySelector(".tip");
-  tip.classList.add("active");
+
+  // Проверяем текущий язык в localStorage
+  const currentLang = localStorage.getItem("language") || "ru"; // 'en' по умолчанию
+
+  // Убедитесь, что класс "active" добавляется только при переключении языка
+  if (currentLang !== langToggle) {
+    tip.classList.add("active");
+    localStorage.setItem("language", langToggle); // Сохраняем новый язык в localStorage
+  } else {
+    tip.classList.remove("active"); // Удаляем класс, если язык не изменился
+  }
+
+  // Обновляем текст подсказки
   if (langToggle === "ru") {
     tip.innerHTML = `<h3>Язык переключен на русский</h3>`;
   } else {
@@ -158,7 +179,6 @@ const activeBrend = () => {
 
       renderCategories(filterActive);
       createListMenu(filterActive);
-      console.log(filterActive);
     });
   });
 };
@@ -463,6 +483,7 @@ function updateSlides(object) {
 // /////////////////////////--------- PHOTO --------///////////////////////////////////
 
 // /////////////////////////---------OBJECT-KLICK--------///////////////////////////////////
+
 // 1. Централизованная функция обработки выбора объекта:
 async function selectAndDisplayObject(objectName) {
   //const langToggle = window.langToggle || "ru";
@@ -500,6 +521,7 @@ async function selectAndDisplayObject(objectName) {
   // Заполнить поля
   objName.textContent = object.name + " " + object.cod;
   objDescripcion.textContent = object.description;
+  nameModal(object.name, object.cod);
 
   // Характеристики
   let specHTML = `
@@ -526,9 +548,18 @@ const objClick = async () => {
   objClickElements.forEach((item) => {
     item.addEventListener("click", async () => {
       const objectName = item.innerText.trim();
-      catalogMobMenu.classList.remove("active");
-      closeCatMenu.classList.add("hide");
-      openCatMenu.classList.remove("hide");
+      // catalogMobMenu.classList.remove("active");
+      // closeCatMenu.classList.add("hide");
+      // openCatMenu.classList.remove("hide");
+      const openCatMenu = document.querySelector(".open-cat-menu");
+      const closeCatMenu = document.querySelector(".close-cat-menu");
+      const catalogMobMenu = document.querySelector(".categories-con");
+
+      if (catalogMobMenu) {
+        catalogMobMenu.classList.remove("active");
+        openCatMenu.classList.remove("hide");
+        closeCatMenu.classList.add("hide");
+      }
       // Если не на catalog.php, сохранить состояние и редирект
       if (window.location.pathname !== "/pages/catalog.php") {
         localStorage.setItem("objectToFind", objectName);
@@ -762,49 +793,49 @@ const search = (async = () => {
           ".object-descripcion_main-text"
         );
         const spec = document.querySelector(".object-specifications_table");
+        if (objName) {
+          objName.textContent = item.name + " " + item.cod;
+          objDescripcion.textContent = item.description;
 
-        objName.textContent = item.name + " " + item.cod;
-
-        objDescripcion.textContent = item.description;
-
-        let specHTML = `
+          let specHTML = `
             <h1 class="object-specifications-title">Технические характеристики</h1>
             <tr class="object-specifications_table-title">
                 <th><h1>наименование характеристики</h1></th>
                 <th><h1>количество | Ед. изм.</h1></th>
             </tr>`;
-        for (const key in item.specifications) {
-          if (item.specifications.hasOwnProperty(key)) {
-            specHTML += `
+          for (const key in item.specifications) {
+            if (item.specifications.hasOwnProperty(key)) {
+              specHTML += `
 							<tr>
 									<td><h1>${key}</h1></td>
 									<td><h1>1${item.specifications[key]}</h1></td>
 							</tr>`;
+            }
           }
+          spec.innerHTML = specHTML;
+
+          const leftMenuA = document.createElement("li");
+          leftMenuA.className = "menu-obj-item object-click";
+          leftMenuA.innerHTML = `<h2 class="menu-obj-text">${
+            item.name + " " + item.cod
+          }</h2>`;
+
+          const resultsContainer = document.getElementById("resultsContainer");
+          const search = document.querySelector(".search");
+
+          resultsContainer.classList.remove("active");
+          search.classList.remove("active");
+
+          ActiveLeftMenuItem(leftMenuA);
+          objAnimated(leftMenuA);
         }
-        spec.innerHTML = specHTML;
-
-        const leftMenuA = document.createElement("li");
-        leftMenuA.className = "menu-obj-item object-click";
-        leftMenuA.innerHTML = `<h2 class="menu-obj-text">${
-          item.name + " " + item.cod
-        }</h2>`;
-
-        const resultsContainer = document.getElementById("resultsContainer");
-        const search = document.querySelector(".search");
-
-        resultsContainer.classList.remove("active");
-        search.classList.remove("active");
 
         if (window.location.pathname !== "/pages/catalog.php") {
           localStorage.setItem("objectToFind", objName);
           window.location.href = "/pages/catalog.php";
           return;
         }
-
-        objAnimated(leftMenuA); // если нужно до отрисовки
         selectAndDisplayObject(objName);
-        ActiveLeftMenuItem(leftMenuA);
       });
     });
   };
@@ -843,9 +874,10 @@ const search = (async = () => {
 search();
 // ////////////////////////-----------SEARCH------------/////////////////////////////////
 //////////////////////--------TITLE_CATEGIRY-------//////////////////////////////
+
 const titleSlides = async () => {
   const categoriesObjects = await getFlatCategoryObjects();
-  const swiperWrapper = document.querySelector(".swiper-wrapper");
+  const swiperWrapper = document.querySelector(".title-wrapper");
 
   // Очищаем содержимое всех слайдов, кроме первого
   const slides = document.querySelectorAll(
@@ -858,24 +890,24 @@ const titleSlides = async () => {
   // Убедимся, что title-slide-mov на первом месте
   const firstSlide = document.querySelector(".title-slide-mov");
   if (firstSlide) {
-    swiperWrapper.prepend(firstSlide); // Поднимаем title-slide-mov на первое место
+    swiperWrapper.prepend(firstSlide);
   }
 
-  // Группируем данные обратно по категориям/подкатегориям
-  const titlesWithObjects = []; // Создаем массив для хранения объектов с title
+  const titlesWithObjects = [];
 
-  categoriesObjects.forEach((obj) => {
-    if (obj.title) {
-      titlesWithObjects.push(obj); // Если title существует, добавляем объект в массив
-    }
-  });
+  if (swiperWrapper) {
+    categoriesObjects.forEach((obj) => {
+      if (obj.title) {
+        titlesWithObjects.push(obj); // Если title существует, добавляем объект в массив
+      }
+    });
 
-  // Создаем и добавляем новые слайды для каждого объекта с title
-  titlesWithObjects.forEach((obj) => {
-    const newSlide = document.createElement("div");
-    newSlide.classList.add("swiper-slide", "title-slide");
+    // Создаем и добавляем новые слайды для каждого объекта с title
+    titlesWithObjects.forEach((obj) => {
+      const newSlide = document.createElement("div");
+      newSlide.classList.add("swiper-slide", "title-slide");
 
-    newSlide.innerHTML = `
+      newSlide.innerHTML = `
       <div class="slide-text">
         <h3>Опрыскиватели для многолетних насаждений</h3>
         <h1>${obj.name} ${obj.cod}</h1>
@@ -885,26 +917,27 @@ const titleSlides = async () => {
       <img src="${obj.photo[0]}" />
     `;
 
-    // Добавляем новый слайд в swiper-wrapper
-    swiperWrapper.appendChild(newSlide);
+      // Добавляем новый слайд в swiper-wrapper
+      swiperWrapper.appendChild(newSlide);
 
-    // Сохраняем ссылку на объект obj для обработки события
-    const titleBtnObj = newSlide.querySelector(".title-btn-obj");
+      // Сохраняем ссылку на объект obj для обработки события
+      const titleBtnObj = newSlide.querySelector(".title-btn-obj");
 
-    titleBtnObj.addEventListener("click", async () => {
-      const objectName = obj.name + " " + obj.cod;
+      titleBtnObj.addEventListener("click", async () => {
+        const objectName = obj.name + " " + obj.cod;
 
-      if (window.location.pathname !== "/pages/catalog.php") {
-        localStorage.setItem("objectToFind", objectName);
-        window.location.href = "/pages/catalog.php";
-        return;
-      }
+        if (window.location.pathname !== "/pages/catalog.php") {
+          localStorage.setItem("objectToFind", objectName);
+          window.location.href = "/pages/catalog.php";
+          return;
+        }
 
-      objAnimated(); // если нужно до отрисовки
-      await selectAndDisplayObject(objectName);
-      ActiveLeftMenuItem(objectName);
+        objAnimated(); // если нужно до отрисовки
+        await selectAndDisplayObject(objectName);
+        ActiveLeftMenuItem(objectName);
+      });
     });
-  });
+  }
 
   //////////////////////////////////////////////////////////////////////////////////
 
@@ -946,7 +979,7 @@ const titleSlides = async () => {
     },
   });
 
-  var isAutoplaying = true; // Переменная для отслеживания состояния автопроигрывания
+  var isAutoplaying = true;
 
   if (progress) {
     // Проверяем, существует ли titleSwiper
@@ -969,45 +1002,56 @@ const titleSlides = async () => {
 
   ////////////////////////////////////////////////////////////////////////
 };
-titleSlides();
+
+document.addEventListener("DOMContentLoaded", function () {
+  titleSlides();
+});
+
 //////////////////////--------TITLE_CATEGIRY-------//////////////////////////////
 
 // //////////////////////-------MENU-------//////////////////////////////
 const openMenu = document.querySelector(".open-menu");
 const closeMenu = document.querySelector(".close-menu");
 const mainMobMenu = document.querySelector(".main-mob-menu");
-
+const button = document.querySelector(".btn-modal");
 const openCatMenu = document.querySelector(".open-cat-menu");
 const closeCatMenu = document.querySelector(".close-cat-menu");
-const catalogMobMenu = document.querySelector(".catalog-mob-menu");
+const catalogMobMenu = document.querySelector(".categories-con");
+const objectItem = document.querySelectorAll(".obj-btn");
 
-const objBtn = document.querySelector(".obj-btn");
+if (catalogMobMenu) {
+  openMenu.addEventListener("click", () => {
+    catalogMobMenu.classList.remove("active");
+    openCatMenu.classList.add("hide");
+  });
+
+  openCatMenu.addEventListener("click", () => {
+    catalogMobMenu.classList.add("active");
+    openCatMenu.classList.add("hide");
+    closeCatMenu.classList.remove("hide");
+  });
+
+  closeCatMenu.addEventListener("click", () => {
+    catalogMobMenu.classList.remove("active");
+    openCatMenu.classList.remove("hide");
+    closeCatMenu.classList.add("hide");
+  });
+
+  closeMenu.addEventListener("click", () => {
+    openCatMenu.classList.remove("hide");
+  });
+}
 
 openMenu.addEventListener("click", () => {
   mainMobMenu.classList.add("active");
   closeMenu.classList.remove("hide");
-  catalogMobMenu.classList.remove("active");
-  closeCatMenu.classList.add("hide");
-  openCatMenu.classList.add("hide");
+  closeCatMenu.add("hide");
 });
 
 closeMenu.addEventListener("click", () => {
   mainMobMenu.classList.remove("active");
   closeMenu.classList.add("hide");
-  openCatMenu.classList.remove("hide");
-  openCatMenu.classList.remove("hide");
-});
-
-openCatMenu.addEventListener("click", () => {
-  catalogMobMenu.classList.add("active");
-  closeCatMenu.classList.remove("hide");
-  openCatMenu.classList.add("hide");
-});
-
-closeCatMenu.addEventListener("click", () => {
-  catalogMobMenu.classList.remove("active");
-  closeCatMenu.classList.add("hide");
-  openCatMenu.classList.remove("hide");
+  closeCatMenu.add("active");
 });
 
 var hammertime = new Hammer(document.body, {
@@ -1028,3 +1072,300 @@ hammertime.on("swiperight", function (ev) {
 });
 
 // //////////////////////-------MENU-------//////////////////////////////
+
+//////////////////////--------MODAL--------//////////////////////////////
+function nameModal(name, cod) {
+  const modalButtons = document.querySelectorAll(".btn-modal-call");
+  const formData = document.querySelectorAll(".form-data");
+  const formDataLeasing = document.querySelectorAll(".form-data-leasing");
+  const modal = document.querySelectorAll(".modal");
+
+  const renderModal = (content) => {
+    modal.forEach((m) => {
+      m.innerHTML = content;
+      closeModal();
+      updateButtonState();
+    });
+  };
+  const modalContentLeasing = `
+  <div class="modal-title">
+    <img class="modal-logo" src="/assets/svg/logo.svg" alt="">
+    <img class="close-modal" src="/assets/svg/close-green.svg" alt="">
+  </div>
+  <form class="modal-form form" action="#" method="POST">
+	  <input type="hidden" name="Заявка на технику" value="Обратная связь">
+    <input class="input-name-title" name="Наименование техники" value="${name}" readonly>
+		<input class="input-name-title" name="Код техники" value="${cod}" readonly>
+    <input class="input-name-modal input-name" type="text" name="Имя" placeholder="Ваше имя *">
+    <input class="input-tel-modal input-tel" type="tel" name="Телефон" placeholder="Телефон *">
+    <input class="input-mail" type="email" name="E-mail" placeholder="E-mail *">
+    <textarea class="input-commet" name="Комментарий" placeholder="Введите комментарий" rows="2"></textarea>
+    <button class="btn btn-modal" disabled="false">Отправить</button>
+    <label class="check-form" for="check-form-id">
+      <input id="check-form-id" type="checkbox">
+      <span>Согласен с обработкой персональных данных в соответствии с <a href="/pages/about.php#policy">политикой конфиденциальности</a></span>
+    </label>
+    <div class="link link-form">
+      <a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
+      <a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
+      <a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
+    </div>
+  </form>
+`;
+
+  const modalContentForm = `
+  <div class="modal-title">
+    <img class="modal-logo" src="/assets/svg/logo.svg" alt="">
+    <img class="close-modal" src="/assets/svg/close-green.svg" alt="">
+  </div>
+  <form class="modal-form form" action="#" method="POST">
+    <input type="hidden" name="Заявка" value="Обратная связь">
+    <input class="input-name-modal input-name" type="text" name="Имя" placeholder="Ваше имя *">
+    <input class="input-tel-modal input-tel" type="tel" name="Телефон" placeholder="Телефон *">
+    <input class="input-mail" type="email" name="E-mail" placeholder="E-mail *">
+    <textarea class="input-commet" name="Комментарий" placeholder="Введите комментарий" rows="2"></textarea>
+    <button class="btn btn-modal" disabled="false">Отправить</button>
+    <label class="check-form" for="check-form-id">
+      <input id="check-form-id" type="checkbox" >
+      <span>Согласен с обработкой персональных данных в соответствии с <a href="/pages/about.php#policy">политикой конфиденциальности</a></span>
+    </label>
+    <div class="link link-form">
+      <a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
+      <a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
+      <a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
+    </div>
+  </form>
+`;
+
+  const attachEventListenersToButtons = (buttons, content) => {
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        renderModal(content);
+        validate();
+      });
+    });
+  };
+
+  attachEventListenersToButtons(formDataLeasing, modalContentLeasing);
+  attachEventListenersToButtons(formData, modalContentForm);
+
+  modalButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const modalCon = document.querySelector(".modal-con");
+      document.querySelector(".modal-con").classList.remove("hide-prev");
+      modalCon.classList.remove("hide");
+      modalCon.classList.add("show");
+    });
+  });
+
+  document
+    .querySelector(".modal-con")
+    .addEventListener("click", function (event) {
+      if (!event.target.closest(".modal")) {
+        document.querySelector(".modal-con").classList.remove("show");
+        document.querySelector(".modal-con").classList.add("hide");
+      }
+    });
+
+  const closeModal = () => {
+    document
+      .querySelector(".close-modal")
+      .addEventListener("click", function () {
+        document.querySelector(".modal-con").classList.remove("show");
+        document.querySelector(".modal-con").classList.add("hide");
+      });
+  };
+
+  const updateButtonState = () => {
+    const check = document.getElementById("check-form-id");
+    const btnModal = document.querySelector(".btn-modal");
+    if (check) {
+      check.addEventListener("click", () => {
+        if (check.checked) {
+          btnModal.disabled = false;
+          btnModal.style.opacity = 1;
+        } else {
+          btnModal.disabled = true;
+          btnModal.style.opacity = 0.5;
+        }
+      });
+    }
+  };
+}
+nameModal();
+
+//////////////////////--------MODAL--------//////////////////////////////
+function validate() {
+  const form = document.querySelector(".form");
+
+  const telSelector = form.querySelector(".input-tel");
+  const inputmask = new Inputmask("+7 (999) 999-99-99");
+
+  inputmask.mask(telSelector);
+
+  const validation = new JustValidate(".form");
+
+  validation
+    .addField(".input-name", [
+      {
+        rule: "minLength",
+        value: 3,
+        errorMessage: "Введите более 3 символов",
+      },
+      {
+        rule: "maxLength",
+        value: 30,
+        errorMessage: "Введите менее 30 символов",
+      },
+      {
+        rule: "required",
+        value: true,
+        errorMessage: "Введите имя",
+      },
+    ])
+    .addField(".input-tel", [
+      {
+        rule: "required",
+        value: true,
+        errorMessage: "Телефон обязателен",
+      },
+      {
+        rule: "function",
+        validator: function () {
+          const phone = telSelector.inputmask.unmaskedvalue();
+          return phone.length === 10;
+        },
+        errorMessage: "Введите корректный телефон",
+      },
+    ])
+    .onSuccess((event) => {
+      console.log("Validation passes and form submitted", event);
+
+      let formData = new FormData(event.target);
+
+      let xhr = new XMLHttpRequest();
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            console.log("Отправлено");
+            document.querySelector(".modal-con").classList.add("hide");
+            const tip = document.querySelector(".tip");
+            tip.classList.add("active");
+            if (langToggle === "ru") {
+              tip.innerHTML = `<h3>Даннык отправлены</h3>`;
+            } else {
+              tip.innerHTML = `<h3>The data has been sent</h3>`;
+            }
+          } else {
+            console.error("Ошибка при отправке: " + xhr.status);
+          }
+        }
+      };
+
+      xhr.open("POST", "../mail.php", true);
+      xhr.send(formData);
+
+      event.target.reset();
+    });
+}
+
+const mainForm = document.querySelector(".main-form");
+if (mainForm) {
+  validate();
+  const check = document.getElementById("check-form-id");
+  const btnForm = document.querySelector(".btn-form");
+  check.addEventListener("click", () => {
+    if (check.checked) {
+      btnForm.disabled = false;
+      btnForm.style.opacity = 1;
+    } else {
+      btnForm.disabled = true;
+      btnForm.style.opacity = 0.5;
+    }
+  });
+}
+
+function validateF() {
+  const forms = document.querySelectorAll(".form-f");
+
+  forms.forEach((form) => {
+    const telSelector = form.querySelector(".input-tel-f");
+
+    if (telSelector) {
+      const inputmask = new Inputmask("+7 (999) 999-99-99");
+      inputmask.mask(telSelector);
+
+      const validation = new JustValidate(form);
+
+      validation
+        .addField(".input-tel-f", [
+          {
+            rule: "required",
+            value: true,
+            errorMessage: "Телефон обязателен",
+          },
+          {
+            rule: "function",
+            validator: function () {
+              const phone = telSelector.inputmask.unmaskedvalue();
+              return phone.length === 10;
+            },
+            errorMessage: "Введите корректный телефон",
+          },
+        ])
+        .onSuccess((event) => {
+          console.log("Validation passes and form submitted", event);
+
+          let formData = new FormData(event.target);
+          let xhr = new XMLHttpRequest();
+
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+              if (xhr.status === 200) {
+                console.log("Отправлено");
+                const tip = document.querySelector(".tip");
+                tip.classList.add("active");
+                if (langToggle === "ru") {
+                  tip.innerHTML = `<h3>Даннык отправлены</h3>`;
+                } else {
+                  tip.innerHTML = `<h3>The data has been sent</h3>`;
+                }
+              } else {
+                console.error("Ошибка при отправке: " + xhr.status);
+              }
+            }
+          };
+
+          xhr.open("POST", "../mail.php", true);
+          xhr.send(formData);
+
+          event.target.reset();
+        });
+    } else {
+      console.error("Телефонный ввод не найден в форме");
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const footerForm = document.querySelectorAll(".form-f");
+
+  if (footerForm.length > 0) {
+    validateF();
+  }
+});
+
+const upBtns = document.querySelectorAll(".up-btn");
+
+if (upBtns) {
+  upBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      console.log("ok");
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  });
+}

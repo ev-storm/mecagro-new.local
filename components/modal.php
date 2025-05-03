@@ -1,7 +1,9 @@
 <div class="modal-con hide-prev">
 	<div class="modal">
+		<!-- <div class="modal-title">
 			<img class="modal-logo" src="/assets/svg/logo.svg" alt="">
 			<img class="close-modal" src="/assets/svg/close-green.svg" alt="">
+		</div>
 		<form class="modal-form form" action="#" method="POST">
 				<input type="hidden" name="Заявка" value="Обратная связь">
 			<input  class="input-name-modal" type="text" name="Имя" placeholder="Ваше имя">
@@ -21,6 +23,6 @@
 						<a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
 					</div>
 
-		</form>
+		</form> -->
 	</div>
 </div>

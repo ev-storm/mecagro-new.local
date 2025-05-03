@@ -128,7 +128,7 @@
   .close-menu {
     position: absolute;
     bottom: 20%;
-    left: -10%;
+    left: -12%;
     transition: var(--tran-03);
     background: #fff;
     border-radius: 4px;
@@ -153,7 +153,7 @@
   }
 
   .catalog-mob-menu {
-    display: flex !important;
+    display: none !important;
     flex-direction: column;
     align-items: start;
     justify-content: space-between;
@@ -291,6 +291,7 @@
   }
   .title-slide {
     flex-direction: column-reverse;
+    overflow: hidden;
   }
   .title-con {
     justify-content: start;
@@ -299,20 +300,25 @@
     max-height: fit-content;
   }
   .title-link-con {
-    height: 300px;
+    height: fit-content;
   }
   .title-arrow {
     display: none;
   }
   .link-slide {
-    flex-direction: row !important;
+    flex-direction: column !important;
+    height: 150px !important;
+  }
+  .linkSwiper {
+    width: 100% !important;
+    margin: 0px !important;
   }
   .link-slide svg {
     width: 30%;
   }
   .link-slide h2 {
-    width: 70%;
-    font-size: 16px;
+    width: 100%;
+    font-size: 14px;
   }
 
   .title-slide img {
@@ -340,7 +346,7 @@
     margin-bottom: 20px;
   }
   .link-slide svg {
-    width: 50%;
+    width: 100%;
   }
   .main-description {
     border-top-width: 0px;
@@ -412,8 +418,39 @@
     padding-bottom: 10px;
     font-size: 22px;
   }
-  .categories-con {
+  /* .categories-con {
     display: none !important;
+  } */
+  .categories-con {
+    display: flex;
+    flex-direction: column;
+    width: 80% !important;
+    height: 100%;
+    transform: translateX(-100%);
+    align-items: start;
+    justify-content: flex-end !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background: var(--main);
+    transition: var(--tran-03);
+  }
+  .categories-con.active {
+    transform: translateX(0);
+    transition: var(--tran-03);
+  }
+  .categories-margin {
+    width: 100% !important;
+    background: var(--dark) !important;
+  }
+  .filter.active h2 {
+    color: #fff !important;
+  }
+  .filter h2 {
+    color: var(--dark) !important;
   }
   .object-con {
     width: 100% !important;
@@ -484,8 +521,8 @@
     font-size: 10px !important;
   }
   .news-swiper-mini .news-slide {
-    height: 80px !important;
-    width: 12.5% !important;
+    height: 150px !important;
+    width: 200px !important;
   }
   .title-heading-con {
     align-items: stretch;
@@ -545,7 +582,10 @@
     font-size: 14px;
   }
   .filter-categories li h2 {
-    color: #fff !important;
+    color: #fff;
+  }
+  .filter-categories {
+    margin: 20px;
   }
   .categories-brand h2 {
     color: #fff !important;
@@ -586,7 +626,7 @@
   }
   .foot-input {
     margin: 10px 0;
-    width: 100%;
+    width: 105%;
   }
   .foot-input input {
     width: 100%;
@@ -596,13 +636,16 @@
     display: flex !important;
     flex-direction: column;
     width: 100%;
-    align-content: center;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    margin: 10px 0;
+    margin: 20px 0 0px 0;
   }
   .mob-about-foot h2 {
     color: #fff;
+  }
+  .foot-link {
+    width: 100%;
+    margin-top: 30px;
   }
   .mob-about-foot h3 {
     color: #ffffff99;
@@ -610,9 +653,26 @@
   .foot-menu-item:nth-child(5) {
     display: none;
   }
-  .menu-footer {
+  .foot-menu-item {
+    margin-right: 50px;
+    margin-top: 20px;
+  }
+  .foot-menu-item li a {
+    font-size: 18px !important;
+  }
+  .mob-about-foot-con {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
+  }
+  .mob-about-foot-con img {
+    rotate: -90deg;
+    width: 30px;
+  }
+  .menu-footer {
+    width: 110%;
     padding: 10% 0;
+    justify-content: flex-start;
   }
   .about-title h1 {
     color: #fff;
@@ -624,7 +684,9 @@
   .about-description {
     border-width: 0 0 0 0px !important;
     padding-left: 0 !important;
-    margin: 10% 10% 0% 10% !important;
+    padding: 10% 10% 0% 10% !important;
+    margin: 0 !important;
+    background: #fff;
   }
   .about-description h1 {
     font-size: 25px;
@@ -635,14 +697,27 @@
   }
   .progress-con {
     padding: 0 10% !important;
+    background: #fff;
   }
   .advant-item img {
     width: 40%;
     margin-top: 40px;
   }
   .about-title {
-    background-attachment: scroll;
+    background-image: none !important;
   }
+  .about-title-mob {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    left: -10%;
+    height: 90vh;
+    z-index: -1;
+  }
+  .about-title-mob.hide {
+    opacity: 0;
+  }
+
   .title-heading-con {
     margin: 60px 0 20px 0 !important;
   }
@@ -690,12 +765,14 @@
   .cont-item h3 {
     font-size: 16px !important;
   }
+
   .tip {
-    top: 15vh;
+    top: 9vh;
     z-index: 99999;
     width: 80vw;
     height: fit-content;
     border-radius: 0 4px 4px 0;
+    box-shadow: #00000020 0 0 20px;
   }
   .adres-con h2 {
     font-size: 18px !important;
@@ -705,9 +782,70 @@
   }
   .recvi-con {
     width: 100% !important;
+    height: fit-content !important;
   }
   .recvi-con-con {
     padding: 0 5% !important;
+    height: fit-content !important;
+  }
+  .recvi {
+    flex-direction: column;
+  }
+  .recvi-1 {
+    width: 100% !important;
+  }
+  .recvi-11 {
+    flex-direction: column !important;
+  }
+  .recvi-2 {
+    flex-direction: column !important;
+  }
+  .recvi h2 {
+    font-size: 16px !important;
+  }
+  .recvi span {
+    font-size: 16px !important;
+    color: #737373 !important;
+  }
+  .recvi-title-con h1 {
+    font-size: 25px !important;
+  }
+  .recvi-title-con h1 span {
+    font-size: 15px !important;
+  }
+  .recvi-2 {
+    width: 100% !important;
+  }
+  .delivry {
+    flex-direction: column !important;
+  }
+  .delivry-img {
+    width: 100% !important;
+  }
+  .delivry-img img {
+    width: 80%;
+  }
+  .delivry-text {
+    width: 100% !important;
+    margin-top: 50px !important;
+  }
+  .delivry-text h2 {
+    font-size: 14px !important;
+  }
+  .delivry-con h2 {
+    font-size: 14px !important;
+  }
+  .politica-con h2 {
+    font-size: 14px !important;
+  }
+  .copy-con {
+    transform: translateY(-80px);
+  }
+  .recvi-title-con {
+    justify-content: space-between !important;
+
+    flex-direction: column-reverse !important;
+    align-items: flex-end !important;
   }
   .catalog-vue {
     padding-top: 60px !important;
@@ -719,13 +857,25 @@
   .modal {
     width: 90vw !important;
   }
+
   .form input {
     padding: 8px 30px !important;
     margin: 5px 0 !important;
+    font-size: var(--btn);
+    border-radius: 4px;
+    font-weight: 500;
+    color: var(--black);
+    background: #f2f2f2;
+    box-shadow: #00000000 0 0 20px !important;
   }
   .form textarea {
     padding: 8px 30px !important;
     margin: 5px 0 !important;
+    font-size: var(--btn);
+    font-weight: 500;
+    border-radius: 4px !important;
+    background: #f2f2f2;
+    box-shadow: #00000000 0 0 20px !important;
   }
   .form button {
     padding: 8px 30px !important;
@@ -733,5 +883,67 @@
   }
   .check-form span {
     font-size: 12px;
+  }
+  .title-slide-mov video {
+    width: auto !important;
+    height: 100% !important;
+  }
+  .logo-mov {
+    left: -60px;
+  }
+  .news-slide {
+    max-height: 700px !important;
+  }
+  .news-text h2 {
+    max-height: 300px !important;
+  }
+  .download-cat-mob {
+    display: flex !important;
+  }
+  .news-main {
+    flex-direction: column;
+  }
+
+  .news-main-con {
+    padding: 20px !important;
+  }
+  .news-main-photo {
+    width: 100% !important;
+  }
+  .news-main-title {
+    width: 100% !important;
+    flex-direction: column;
+    padding: 20px 0 !important;
+  }
+  .news-main-title-h1 {
+    font-size: 25px !important;
+  }
+  .news-main-title-h2 {
+    font-size: 14px !important;
+  }
+  .news-main-con {
+    overflow: visible;
+  }
+  .news-list-con {
+    position: fixed !important;
+    transform: translateX(0);
+    top: 8%;
+    width: 70% !important;
+    background: #f7f7f7;
+  }
+
+  .news-list-con.active {
+    transform: translateX(-80%);
+    transition: var(--tran-03);
+    background: #f7f7f700;
+  }
+  .news-list-open {
+    position: fixed !important;
+    top: 80% !important;
+    left: 75% !important;
+    width: 60px !important;
+    height: fit-content !important;
+    z-index: 9999;
+    left: 10%;
   }
 }

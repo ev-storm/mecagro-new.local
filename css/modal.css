@@ -20,9 +20,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: start;
   width: 450px;
-  height: 600px;
+  height: fit-content;
   z-index: 9999;
   background: #ffffff;
   border-radius: 10px;
@@ -48,12 +48,20 @@
   font-size: var(--btn);
   border-radius: 4px;
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   cursor: pointer;
   color: var(--black);
-  background: #fff;
+  background: #f2f2f2;
   transition: var(--tran-05);
-  box-shadow: #00000017 0 0 20px;
+  /* box-shadow: #00000017 0 0 20px; */
+}
+.input-name-title {
+  padding: 2px 5px !important;
+  margin: 0 !important;
+  font-size: var(--btn);
+  font-weight: 600 !important;
+  background: transparent !important;
+  box-shadow: #00000000 0 0 20px !important;
 }
 .form textarea {
   resize: none;
@@ -64,16 +72,16 @@
   font-size: var(--btn);
   border-radius: 3px;
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   cursor: pointer;
   color: var(--black);
-  background: #fff;
+  background: #f2f2f2;
   transition: var(--tran-05);
-  box-shadow: #00000017 0 0 20px;
+  /* box-shadow: #00000017 0 0 20px; */
 }
 .form button {
   width: 100%;
-  margin: 40px 0 20px 0;
+  margin: 20px 0;
   padding: 10px 60px;
 }
 .check-form {
@@ -95,10 +103,13 @@
 input[type="checkbox"] {
   accent-color: var(--main);
 }
+.modal-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
 .close-modal {
-  position: absolute;
-  top: 30;
-  right: 50;
   cursor: pointer;
   opacity: 0.5;
   transition: var(--tran-03);
@@ -106,7 +117,9 @@ input[type="checkbox"] {
 .close-modal:hover {
   opacity: 1;
 }
-
+.btn-modal {
+  opacity: 0.5;
+}
 .ban-check {
   position: fixed;
   top: 80%;
@@ -143,6 +156,7 @@ input[type="checkbox"] {
   align-items: center;
   justify-content: center;
   padding: 20px 0;
+  margin: 0 !important;
 }
 .link-form a {
   margin: 0 0px;

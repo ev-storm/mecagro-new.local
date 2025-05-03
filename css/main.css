@@ -322,8 +322,15 @@
   content: url(/assets/svg/link/wt.svg);
   margin-right: 10px;
 }
-.main-form-btn {
+.main-form-btn button {
+  margin: 0 !important;
+}
+.btn-form {
+  opacity: 0.5;
+}
+.check-form {
   display: flex;
+  max-width: 500px;
 }
 .main-form-btn {
   width: 100%;

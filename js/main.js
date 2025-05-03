@@ -28,7 +28,7 @@ const tipActive = () => {
           // Устанавливаем новый таймер
           timeoutId = setTimeout(() => {
             tip.classList.remove("active");
-          }, 2000);
+          }, 5000);
         }
       }
     }
@@ -114,90 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
   subAboutBtn.addEventListener("mouseenter", showMenu);
   subAboutBtn.addEventListener("mouseleave", hideMenu);
 });
-//////////////////////////---------ABOUT-MENU-----///////////////////////////////////////////////////////
-// const toggleCategories = () => {
-//   const openItems = document.querySelectorAll(".open-img");
-
-//   openItems.forEach((item) => {
-//     item.addEventListener("click", () => {
-//       const subcategories = item.nextElementSibling;
-//       const allSubcategories = document.querySelectorAll("ul.open, ul.close");
-
-//       allSubcategories.forEach((ul) => {
-//         if (ul !== subcategories && !ul.contains(item)) {
-//           ul.classList.remove("open");
-//           ul.classList.add("close");
-//           // Убираем класс active у заголовка, если подкатегории закрыты
-//           const parentItem = ul.previousElementSibling;
-//           if (parentItem) {
-//             parentItem.classList.remove("active");
-//           }
-//         }
-//       });
-
-//       if (subcategories) {
-//         subcategories.classList.toggle("open");
-//         subcategories.classList.toggle("close");
-
-//         // Переключаем класс active у заголовка, если подкатегории открыты
-//         if (subcategories.classList.contains("open")) {
-//           item.classList.add("active");
-//         } else {
-//           item.classList.remove("active");
-//         }
-//       }
-//     });
-//   });
-// };
-
-// toggleCategories();
-
-//////////////////////--------MODAL--------//////////////////////////////
-const modalButtons = document.querySelectorAll(".btn-modal-call");
-
-modalButtons.forEach(function (button) {
-  button.addEventListener("click", function () {
-    const modalCon = document.querySelector(".modal-con");
-    document.querySelector(".modal-con").classList.remove("hide-prev");
-    modalCon.classList.remove("hide");
-    modalCon.classList.add("show");
-  });
-});
-
-document
-  .querySelector(".modal-con")
-  .addEventListener("click", function (event) {
-    if (!event.target.closest(".modal")) {
-      document.querySelector(".modal-con").classList.remove("show");
-      document.querySelector(".modal-con").classList.add("hide");
-    }
-  });
-
-document.querySelector(".close-modal").addEventListener("click", function () {
-  document.querySelector(".modal-con").classList.remove("show");
-  document.querySelector(".modal-con").classList.add("hide");
-});
-
-const check = document.getElementById("check-form-id");
-const btnModal = document.querySelector(".btn-modal");
-
-// Функция для обновления состояния кнопки
-const updateButtonState = () => {
-  if (check.checked) {
-    btnModal.disabled = false;
-    btnModal.style.opacity = 1;
-  } else {
-    btnModal.disabled = true;
-    btnModal.style.opacity = 0.5;
-  }
-};
-
-// Начальное состояние кнопки при загрузке
-updateButtonState();
-
-// Добавляем обработчик события на чекбокс
-check.addEventListener("click", updateButtonState);
-//////////////////////--------MODAL--------//////////////////////////////
 
 //////////////////////--------ANIM_LEFT-------//////////////////////////////
 window.addEventListener("scroll", function () {
@@ -234,32 +150,66 @@ window.addEventListener("scroll", function () {
 //////////////////////--------ANIM_LEFT-------//////////////////////////////
 
 //////////////////////--------READ_MORE-------//////////////////////////////
-// function checkWordCount() {
-//   const descriptionElement = document.getElementById("description");
-//   const fullText = descriptionElement.innerText.trim();
-//   const words = fullText.split(/\s+/); // Разбиваем текст на слова
+// Проверка количества слов в описании
+function checkWordCount() {
+  const descriptionElement = document.getElementById("description");
+  const fullText = descriptionElement.innerText.trim();
+  const words = fullText.split(/\s+/); // Разбиваем текст на слова
 
-//   if (words.length > 40) {
-//     const shortText = words.slice(0, 40).join(" ") + "..."; // Берем первые 20 слов
-//     descriptionElement.innerText = shortText; // Обновляем текст в элементе
-//     document.getElementById("readMoreBtn").style.display = "inline"; // Показываем кнопку
-//   }
-// }
+  if (words.length > 40) {
+    const shortText = words.slice(0, 40).join(" ") + "..."; // Берем первые 40 слов
+    descriptionElement.innerText = shortText; // Обновляем текст в элементе
+    document.getElementById("readMoreBtn").style.display = "inline"; // Показываем кнопку
+  }
+}
 
-// document.getElementById("readMoreBtn").onclick = function () {
-//   const descriptionElement = document.getElementById("description");
-//   descriptionElement.innerText =
-//     descriptionElement.getAttribute("data-full-text"); // Показываем полный текст
-//   this.style.display = "none"; // Скрываем кнопку
-// };
+// Обрабатываем клик по кнопке "Читать далее"
+function handleReadMoreClick() {
+  const descriptionElement = document.getElementById("description");
+  descriptionElement.innerText =
+    descriptionElement.getAttribute("data-full-text"); // Показываем полный текст
+  this.style.display = "none"; // Скрываем кнопку
+}
 
-// window.onload = function () {
-//   // Сохраняем полный текст в атрибут data-full-text
-//   const descriptionElement = document.getElementById("description");
-//   descriptionElement.setAttribute(
-//     "data-full-text",
-//     descriptionElement.innerText
-//   );
-//     checkWordCount();
-// };
+function init() {
+  const descriptionElement = document.getElementById("description");
+
+  if (descriptionElement) {
+    descriptionElement.setAttribute(
+      "data-full-text",
+      descriptionElement.innerText
+    );
+    checkWordCount();
+
+    const readMoreBtn = document.getElementById("readMoreBtn");
+    if (readMoreBtn) {
+      readMoreBtn.onclick = handleReadMoreClick;
+    }
+  }
+}
+
+// Назначаем функцию инициализации на событие загрузки окна
+window.onload = init;
 //////////////////////--------READ_MORE-------//////////////////////////////
+const aboutTitleMob = document.querySelector(".about-title-mob");
+
+if (aboutTitleMob) {
+  window.addEventListener("scroll", () => {
+    // Получаем текущую позицию скролла
+    const scrollPosition = window.scrollY;
+    // Получаем высоту окна браузера
+    const windowHeight = window.innerHeight;
+    // Получаем полную высоту документа
+    const documentHeight = document.documentElement.scrollHeight;
+
+    // Рассчитываем, сколько нужно прокрутить, чтобы это было более 20%
+    const threshold = documentHeight * 0.2;
+
+    // Если прокроллили больше 20% высоты страницы, добавляем класс hide
+    if (scrollPosition > threshold) {
+      aboutTitleMob.classList.add("hide");
+    } else {
+      aboutTitleMob.classList.remove("hide");
+    }
+  });
+}
