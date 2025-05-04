@@ -10,6 +10,7 @@
 @import url("admin.css");
 @import url("news.css");
 @import url("font.css");
+@import url("job.css");
 
 :root {
   --title: 65px;
@@ -67,8 +68,55 @@ a {
 }
 body {
   display: flex;
+  flex-direction: column;
   width: 100%;
   justify-content: center;
+}
+textarea {
+  outline: none;
+}
+input {
+  outline: none;
+}
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+}
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: var(--h2);
+  color: #454545;
+  line-height: 1.5;
+}
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: var(--h3-card);
+}
+span {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+ul {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  list-style-type: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+ul a li {
+  cursor: pointer;
+}
+li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .btn {
   border-style: none;
@@ -151,46 +199,7 @@ body {
 .btn-404 {
   margin: 10%;
 }
-h1 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 30px;
-}
-h2 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: var(--h2);
-  color: #454545;
-  line-height: 1.5;
-}
-h3 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: var(--h3-card);
-}
-span {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 13px;
-}
 
-ul {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  list-style-type: none;
-  cursor: pointer;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-ul a li {
-  cursor: pointer;
-}
-li a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 @keyframes fadeInSubMenu {
   0% {
     opacity: 0;

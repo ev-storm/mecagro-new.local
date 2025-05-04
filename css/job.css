@@ -1,0 +1,139 @@
+.job-con {
+  width: 100%;
+  display: flex;
+  padding-top: 90px;
+}
+.job-list-con {
+  width: 20%;
+  background: #00000003;
+  padding: 0 50px;
+  overflow: scroll;
+}
+.job-main-con {
+  width: 80%;
+  padding: 100px 30px;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: start;
+}
+.job-list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.job-list-item {
+  color: var(--black);
+  padding: 5px 0;
+  font-size: 18px;
+  transition: var(--tran-03);
+}
+.job-list-item:hover {
+  color: var(--main);
+}
+.job-card {
+  display: flex;
+  position: relative;
+  width: 600px;
+  max-height: 110px;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  box-shadow: #00000015 0 0 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 25px 50px 25px 0;
+  transition: var(--tran-03);
+  z-index: 9;
+}
+.job-card-main {
+  padding: 20px 50px 20px 50px;
+}
+
+.job-card.active {
+  height: auto;
+  max-height: 650px;
+  position: static;
+  z-index: 99;
+}
+.job-form-input {
+  display: flex;
+  align-items: center;
+}
+.job-form input {
+  height: fit-content;
+  font-size: 16px;
+}
+.job-form textarea {
+  font-size: 16px;
+}
+
+.btn-form {
+  margin-left: 10px !important;
+}
+.job-card-specifications {
+  display: flex;
+  justify-content: start;
+}
+.job-card-specifications h2 {
+  color: var(--main);
+  font-weight: 600;
+  display: flex;
+  align-items: stretch;
+  margin: 10px 30px 10px 0px;
+}
+.job-card-specifications h2:nth-child(1)::before {
+  content: url(/assets/svg/job_1.svg);
+  margin-right: 5px;
+}
+.job-card-specifications h2:nth-child(2)::before {
+  content: url(/assets/svg/job_2.svg);
+  margin-right: 5px;
+}
+.job-card-title {
+  display: flex;
+  justify-content: space-between;
+}
+.job-card-title img {
+  width: 15px;
+  transform: rotate(90deg);
+  cursor: pointer;
+  transition: var(--tran-03);
+}
+.job-card-title img.active {
+  width: 15px;
+  transform: rotate(-90deg);
+  cursor: pointer;
+}
+.job-card-description {
+  margin: 20px 0;
+  color: var(--gray);
+  height: fit-content;
+  max-height: 230px;
+  overflow: scroll;
+}
+.job-list-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 4;
+  margin: 50px 0;
+}
+.job-list-btn h2 {
+  color: #00000080;
+  font-weight: 600;
+  transition: var(--tran-03);
+}
+.job-list-btn-open.active {
+  color: var(--main);
+}
+.job-list-btn-close.active {
+  color: var(--main);
+}
+/* .job-card-photo {
+  width: 20%;
+} */
+/* .job-card-photo img {
+  height: 100%;
+} */

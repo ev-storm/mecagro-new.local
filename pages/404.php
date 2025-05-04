@@ -1,10 +1,12 @@
 	<title>mecagro | 404</title>
 	<?php include "../components/head.php"?>
+		
 
 
 
 <body>
 	<?php include "../components/menu.php"?>
+	<?php include "../components/modal.php"?>
 
 
 
@@ -18,9 +20,10 @@
 
 
 	</div>
+	<?php include "../components/footer.php"?>
 
 
-	<?php include "../components/modal.php"?>
+
 
 
 

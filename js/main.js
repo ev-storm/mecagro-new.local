@@ -1,12 +1,19 @@
 const events = ["click", "touchstart"];
-//////////////////////-----------INPUT_OUTLINE------------//////////////////////////////
-const input = document.querySelectorAll("input");
+// //////////////////////-----------INPUT_OUTLINE------------//////////////////////////////
+// const input = document.querySelectorAll("input");
 
-input.forEach((item) => {
-  item.addEventListener("focus", (event) => {
-    event.target.style.outline = "none";
-  });
-});
+// input.forEach((item) => {
+//   item.addEventListener("focus", (event) => {
+//     event.target.style.outline = "none";
+//   });
+// });
+// const textarea = document.querySelectorAll("textarea");
+
+// textarea.forEach((item) => {
+//   item.addEventListener("focus", (event) => {
+//     event.target.style.outline = "none";
+//   });
+// });
 
 //////////////////////-----------INPUT_OUTLINE------------/////////////////////////////////
 
@@ -212,4 +219,70 @@ if (aboutTitleMob) {
       aboutTitleMob.classList.remove("hide");
     }
   });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Получаем текущий URL
+  var currentUrl = window.location.pathname;
+
+  // Проверяем, находится ли URL на странице catalog.php
+  if (!currentUrl.endsWith("/pages/catalog.php")) {
+    // Если это не нужная страница, скрываем компонент
+    var categoriesCon = document.querySelector(".categories-con");
+    if (categoriesCon) {
+      categoriesCon.style.display = "none";
+    }
+  }
+});
+
+const jobCards = document.querySelectorAll(".job-card");
+const jobCardBtns = document.querySelectorAll(".job-card-title img");
+const openButton = document.querySelector(".job-list-btn-open");
+const closeButton = document.querySelector(".job-list-btn-close");
+
+if (jobCards.length && jobCardBtns.length) {
+  jobCardBtns.forEach((cardBtn, index) => {
+    // Обработчик события для кнопки
+    cardBtn.addEventListener("click", (event) => {
+      event.stopPropagation(); // Останавливаем всплытие события
+      cardBtn.classList.toggle("active");
+      jobCards[index].classList.toggle("active");
+      openButton.classList.remove("active");
+      closeButton.classList.remove("active");
+    });
+  });
+
+  // Обработчик события для карточки
+  jobCards.forEach((card, index) => {
+    card.addEventListener("click", () => {
+      card.classList.add("active");
+      jobCardBtns[index].classList.add("active");
+      openButton.classList.remove("active");
+      closeButton.classList.remove("active");
+    });
+  });
+
+  // Обработчик события для кнопки открытия всех карточек
+  if (openButton) {
+    openButton.addEventListener("click", () => {
+      jobCards.forEach((card, index) => {
+        card.classList.add("active");
+        openButton.classList.add("active");
+        closeButton.classList.remove("active");
+        jobCardBtns[index].classList.add("active");
+      });
+    });
+  }
+
+  // Обработчик события для кнопки закрытия всех карточек
+  if (closeButton) {
+    closeButton.addEventListener("click", () => {
+      jobCards.forEach((card, index) => {
+        openButton.classList.remove("active");
+        closeButton.classList.add("active");
+        card.classList.remove("active");
+        jobCardBtns[index].classList.remove("active");
+      });
+    });
+  }
 }

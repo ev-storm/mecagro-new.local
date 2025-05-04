@@ -62,33 +62,34 @@ function newsItemMain(title, description, photo, date) {
 				`;
       newsSwiperWrapperMini.appendChild(newsItemMainMini);
     }
+
+    var newsSwiperMini = new Swiper(".news-swiper-mini", {
+      loop: true,
+      spaceBetween: 20,
+      slidesPerView: 6,
+
+      navigation: {
+        nextEl: ".mini-news-arrow_R",
+        prevEl: ".mini-news-arrow_L",
+      },
+    });
+
+    var newsSwiper = new Swiper(".news-swiper", {
+      loop: true,
+      spaceBetween: 10,
+
+      navigation: {
+        nextEl: ".news-arrow_R",
+        prevEl: ".news-arrow_L",
+      },
+      thumbs: {
+        swiper: newsSwiperMini,
+      },
+    });
   }
 }
-var newsSwiper = new Swiper(".news-swiper", {
-  loop: true,
-  spaceBetween: 10,
 
-  navigation: {
-    nextEl: ".news-arrow_R",
-    prevEl: ".news-arrow_L",
-  },
-  thumbs: {
-    swiper: ".news-swiper-mini",
-  },
-});
-
-var newsSwiperMini = new Swiper(".news-swiper-mini", {
-  loop: true,
-  spaceBetween: 20,
-  slidesPerView: 6,
-
-  navigation: {
-    nextEl: ".mini-news-arrow_R",
-    prevEl: ".mini-news-arrow_L",
-  },
-});
-
-function addNewsItemToList(title, description, photo, date) {
+function addNewsItemToList(title, photo, date) {
   const newsListElement = document.querySelector(".news-list");
   if (newsListElement) {
     const newsItemLi = document.createElement("li");
@@ -161,18 +162,50 @@ if (newsListCon) {
     newsList.classList.toggle("active");
     newsListConTitle.classList.toggle("active");
   });
+  document.addEventListener("click", (event) => {
+    const isClickInside = newsListCon.contains(event.target);
+    const isClickOnButton = newsListBtn.contains(event.target);
 
-  newsMainCon.addEventListener("click", () => {
-    newsListCon.classList.add("active");
-    newsList.classList.add("active");
-    newsListConTitle.classList.add("active");
+    if (!isClickInside && !isClickOnButton) {
+      newsListCon.classList.add("active");
+      newsList.classList.add("active");
+      newsListConTitle.classList.add("active");
+    }
   });
 }
 
 async function displayNews() {
-  const newsList = await getFlatNewsObjects();
+  // Очистка текущих данных
+  const newsListElement = document.querySelector(".news-list");
+  const newsSwiperWrapper = document.querySelector(".news-swiper-wrapper");
+  const newsSwiperWrapperMini = document.querySelector(
+    ".news-swiper-wrapper-mini"
+  );
+
+  // Очистка элементов списка новостей
+  if (newsListElement) {
+    newsListElement.innerHTML = ""; // Удаляем старые элементы
+  }
+
+  if (newsSwiperWrapper) {
+    newsSwiperWrapper.innerHTML = ""; // Удаляем старые элементы для главного слайдера
+  }
+
+  if (newsSwiperWrapperMini) {
+    newsSwiperWrapperMini.innerHTML = ""; // Удаляем старые элементы для мини слайдера
+  }
+
+  // Получаем новые данные новостей с учетом текущего языка
+  const newsList = await getFlatNewsObjects(langToggle); // передаем langToggle
+
+  if (newsList.length === 0) {
+    console.log("Нет новостей для отображения");
+    return;
+  }
+
+  // Добавляем новые элементы списков и слайдов
   newsList.forEach((objN) => {
-    addNewsItemToList(objN.title, objN.description, objN.photo, objN.date);
+    addNewsItemToList(objN.title, objN.photo, objN.date);
     newsItemMain(objN.title, objN.description, objN.photo, objN.date);
   });
 }

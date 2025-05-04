@@ -13,6 +13,9 @@
   .header-con {
     display: none;
   }
+  .categories-con {
+    display: flex !important; /* Показываем компонент на экранах до 600px */
+  }
   .header-mob-con {
     display: flex !important;
     justify-content: space-between;
@@ -127,11 +130,13 @@
   }
   .close-menu {
     position: absolute;
-    bottom: 20%;
-    left: -12%;
+    bottom: 93%;
+    left: -25%;
     transition: var(--tran-03);
     background: #fff;
     border-radius: 4px;
+    width: 90px;
+    padding: 0 20px;
   }
   .close-menu.hide {
     left: 20%;
@@ -257,8 +262,9 @@
   }
   .mob-cat-btn-con img {
     position: absolute;
-    bottom: 20%;
-    right: -15%;
+    bottom: 14%;
+    right: -18%;
+    width: 60px;
   }
 
   .open-cat-menu {
@@ -434,7 +440,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 9999;
+    z-index: 999;
     background: var(--main);
     transition: var(--tran-03);
   }
@@ -929,21 +935,38 @@
     transform: translateX(0);
     top: 8%;
     width: 70% !important;
-    background: #f7f7f7;
+    background: #fff;
+    box-shadow: #00000040 0px 0px 20px;
   }
-
+  .news-list {
+    background: #fff !important;
+  }
   .news-list-con.active {
-    transform: translateX(-80%);
+    transform: translateX(-100%);
     transition: var(--tran-03);
     background: #f7f7f700;
+    box-shadow: #00000000 0px 0px 20px;
   }
   .news-list-open {
     position: fixed !important;
     top: 80% !important;
-    left: 75% !important;
-    width: 60px !important;
+    left: 82% !important;
+    width: 70px !important;
     height: fit-content !important;
-    z-index: 9999;
-    left: 10%;
+    background: #ffffff;
+    padding: 7px !important;
+    box-shadow: #00000040 0px 0px 20px;
+    align-items: center !important;
+    border-radius: 5px 0 0 5px;
+  }
+  .news-list-open h2 {
+    display: none;
+  }
+  .news-list-open {
+    transform: translateX(100px) !important;
+  }
+  .news-list-con.active ~ .news-list-open {
+    transform: translateX(0px) !important;
+    transition: var(--tran-05);
   }
 }

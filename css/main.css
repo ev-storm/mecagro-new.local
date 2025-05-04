@@ -212,7 +212,7 @@
   left: 0;
   transform: translateX(-100%);
   transition: var(--tran-05);
-  z-index: 999;
+  z-index: 99999999;
 }
 .tip.active {
   transform: translateX(0);

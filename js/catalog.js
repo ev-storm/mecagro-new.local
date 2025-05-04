@@ -27,6 +27,9 @@ function setupLanguageSwitch() {
       getFlatCategoryObjects();
       objClick();
       updateLanguageText();
+      displayNews();
+
+      //displayNews();
 
       // Обновляем содержание элемента с классом .tip
       updateLanguageTip();
@@ -1019,57 +1022,53 @@ const closeCatMenu = document.querySelector(".close-cat-menu");
 const catalogMobMenu = document.querySelector(".categories-con");
 const objectItem = document.querySelectorAll(".obj-btn");
 
-if (catalogMobMenu) {
-  openMenu.addEventListener("click", () => {
-    catalogMobMenu.classList.remove("active");
-    openCatMenu.classList.add("hide");
-  });
-
-  openCatMenu.addEventListener("click", () => {
-    catalogMobMenu.classList.add("active");
-    openCatMenu.classList.add("hide");
-    closeCatMenu.classList.remove("hide");
-  });
-
-  closeCatMenu.addEventListener("click", () => {
-    catalogMobMenu.classList.remove("active");
-    openCatMenu.classList.remove("hide");
-    closeCatMenu.classList.add("hide");
-  });
-
-  closeMenu.addEventListener("click", () => {
-    openCatMenu.classList.remove("hide");
-  });
-}
-
 openMenu.addEventListener("click", () => {
+  catalogMobMenu.classList.remove("active");
+  openCatMenu.classList.add("hide");
   mainMobMenu.classList.add("active");
   closeMenu.classList.remove("hide");
   closeCatMenu.add("hide");
+  mainMobMenu.classList.add("active");
+  closeMenu.classList.remove("hide");
+});
+
+openCatMenu.addEventListener("click", () => {
+  catalogMobMenu.classList.add("active");
+  openCatMenu.classList.add("hide");
+  closeCatMenu.classList.remove("hide");
+});
+
+closeCatMenu.addEventListener("click", () => {
+  catalogMobMenu.classList.remove("active");
+  openCatMenu.classList.remove("hide");
+  closeCatMenu.classList.add("hide");
 });
 
 closeMenu.addEventListener("click", () => {
+  openCatMenu.classList.remove("hide");
   mainMobMenu.classList.remove("active");
   closeMenu.classList.add("hide");
   closeCatMenu.add("active");
-});
-
-var hammertime = new Hammer(document.body, {
-  enable: true,
-  recognizers: [[Hammer.Swipe, { direction: Hammer.DIRECTION_HORIZONTAL }]],
-});
-
-hammertime.on("swipeleft", function (ev) {
-  catalogMobMenu.classList.remove("active");
-  closeCatMenu.classList.add("hide");
-  openCatMenu.classList.remove("hide");
-});
-
-hammertime.on("swiperight", function (ev) {
   mainMobMenu.classList.remove("active");
   closeMenu.classList.add("hide");
-  openCatMenu.classList.remove("hide");
 });
+
+// var hammertime = new Hammer(document.body, {
+//   enable: true,
+//   recognizers: [[Hammer.Swipe, { direction: Hammer.DIRECTION_HORIZONTAL }]],
+// });
+
+// hammertime.on("swipeleft", function (ev) {
+//   catalogMobMenu.classList.remove("active");
+//   closeCatMenu.classList.add("hide");
+//   openCatMenu.classList.remove("hide");
+// });
+
+// hammertime.on("swiperight", function (ev) {
+//   mainMobMenu.classList.remove("active");
+//   closeMenu.classList.add("hide");
+//   openCatMenu.classList.remove("hide");
+// });
 
 // //////////////////////-------MENU-------//////////////////////////////
 
@@ -1270,21 +1269,23 @@ function validate() {
     });
 }
 
-const mainForm = document.querySelector(".main-form");
-if (mainForm) {
-  validate();
-  const check = document.getElementById("check-form-id");
-  const btnForm = document.querySelector(".btn-form");
-  check.addEventListener("click", () => {
-    if (check.checked) {
-      btnForm.disabled = false;
-      btnForm.style.opacity = 1;
-    } else {
-      btnForm.disabled = true;
-      btnForm.style.opacity = 0.5;
-    }
-  });
-}
+// const mainForm = document.querySelector(".main-form");
+// if (mainForm) {
+//   validate();
+//   const check = document.querySelectorAll(".check-form-id");
+//   const btnForm = document.querySelector(".btn-form");
+//   check.forEach((c) => {
+//     c.addEventListener("click", () => {
+//       if (c.checked) {
+//         btnForm.disabled = false;
+//         btnForm.style.opacity = 1;
+//       } else {
+//         btnForm.disabled = true;
+//         btnForm.style.opacity = 0.5;
+//       }
+//     });
+//   });
+// }
 
 function validateF() {
   const forms = document.querySelectorAll(".form-f");

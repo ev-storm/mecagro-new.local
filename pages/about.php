@@ -12,7 +12,7 @@
 
 <body>
 	<?php include "../components/menu.php"?>
-
+	<?php include "../components/categories.php"?>
 	<?php include "../components/modal.php"?>
 
 	<div class="container">
@@ -240,8 +240,9 @@
 
 
 
-	<?php include "../components/footer.php"?>
+
 	</div>
+		<?php include "../components/footer.php"?>
 
 </body>
 </html>
