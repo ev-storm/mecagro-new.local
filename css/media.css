@@ -27,7 +27,7 @@
     padding: 0px 20px;
     background: #fff;
     box-shadow: #00000020 0 0 20px;
-    z-index: 9998;
+    z-index: 999999;
   }
   .mob-btn-con {
     display: flex;
@@ -63,7 +63,7 @@
     right: 0;
     background: #ffffff;
     box-shadow: #00000020 0 0 20px;
-    z-index: 9999;
+    z-index: 99999999;
     transition: var(--tran-03);
   }
   .logo-main-mob-menu a img {
@@ -440,7 +440,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 99999;
     background: var(--main);
     transition: var(--tran-03);
   }
@@ -451,6 +451,7 @@
   .categories-margin {
     width: 100% !important;
     background: var(--dark) !important;
+    display: none !important;
   }
   .filter.active h2 {
     color: #fff !important;
@@ -714,6 +715,7 @@
   }
   .about-title {
     background-image: none !important;
+    height: 70vh !important;
   }
   .about-title-mob {
     display: flex !important;
@@ -940,6 +942,7 @@
     width: 70% !important;
     background: #fff;
     box-shadow: #00000040 0px 0px 20px;
+    z-index: 99999 !important;
   }
   .news-list {
     background: #fff !important;

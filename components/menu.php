@@ -24,7 +24,7 @@
 					<li>|</li>
 					<li ><a data-lang="Новости" data-lang_en="News" class="news-btn" href="/pages/news.php">Новости</a></li>
 					<li>|</li>
-					<li><a data-lang="Вакансии" data-lang_en="Job" class="news-btn" href="/pages/job.php">Вакансии</a></li>
+					<li><a data-lang="Вакансии" data-lang_en="Job" class="job-btn" href="/pages/job.php">Вакансии</a></li>
 				</ul>
 				<div class="link-con">
 					<button data-lang="Связаться" data-lang_en="proposal"  class="btn form-data btn-modal-call">Связаться</button>

@@ -163,6 +163,9 @@
   font-size: 16px;
   transition: var(--tran-03);
 }
+.job-list-btn h2:hover {
+  color: var(--main);
+}
 .job-list-btn-open.active {
   color: var(--main);
 }

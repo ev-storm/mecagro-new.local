@@ -29,8 +29,12 @@ async function getObjects(lang = langToggle) {
 async function displayJob() {
   // Очистка текущих данных
   const jobCard = document.querySelector(".job-main-con");
+  const jobList = document.querySelector(".job-list");
 
   // Очистка элементов списка новостей
+  if (jobList) {
+    jobList.innerHTML = "";
+  }
   if (jobCard) {
     jobCard.innerHTML = "";
   }
@@ -120,9 +124,11 @@ function cardStates() {
       jobCards.forEach((card) => {
         const title = card.querySelector(".job-card-title-h1");
         const titleText = title.textContent.trim();
+        const btn = card.querySelector(".job-card-title-arrow");
 
         if (titleText === textList) {
           card.classList.add("active");
+          btn.classList.add("active");
           const activeList = list.classList.contains("active");
           if (activeList) {
             card.classList.remove("active");

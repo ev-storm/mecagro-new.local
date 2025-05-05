@@ -1,11 +1,11 @@
 	<title>mecagro | Вакансии</title>
 	<?php include "../components/head.php"?>
 
-	<!-- <style>
-			.news-btn{
+	<style>
+			.job-btn{
 				color: #58c88a!important;
 			}
-	</style> -->
+	</style>
 
 <body>
 	<?php include "../components/menu.php"?>
@@ -19,8 +19,8 @@
 		<div class="job-con">
 			<div class="job-list-con">
 				<div class="job-list-btn">
-					<h2 class="job-list-btn-open">Показать все</h2>
-					<h2 class="job-list-btn-close">Скрыть все</h2>
+					<h2 data-lang="Показать всё" data-lang_en="Show all" class="job-list-btn-open">Показать всё</h2>
+					<h2 data-lang="Скрыть все" data-lang_en="Hide all" class="job-list-btn-close">Скрыть все</h2>
 				</div>
 				<ul class="job-list">
 					<!-- <li class="job-list-item">Название вакансии</li>
