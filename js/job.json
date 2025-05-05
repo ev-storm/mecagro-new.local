@@ -1,0 +1,152 @@
+[
+  {
+    "ru": {
+      "job": [
+        {
+          "photo": "/assets/svg/job/1.svg",
+          "title": "Менеджер по закупкам",
+          "expert": "3 года",
+          "pay": "90 000",
+          "description": "Обязанности: <br>Поиск и анализ тендеров по профилю компании (снабжение промышленных предприятий);<br>Подготовка и подача тендерной документации, регистрация на электронных площадках;<br>Ведение переговоров с заказчиками и поставщиками;<br>Поиск поставщиков под конкретные позиции (в том числе параллельный импорт);<br>Расчёт себестоимости продукции;<br>Контроль текущих тендеров и сопровождение до подписания договора;<br>Ведение отчётности."
+        },
+        {
+          "photo": "/assets/svg/job/2.svg",
+          "title": "Системный аналитик",
+          "expert": "Более 5 лет",
+          "pay": "100 000",
+          "description": "Обязанности: <br>Анализ бизнес-процессов и требований пользователей;<br>Подготовка технической документации;<br>Консультация с клиентами по вопросам системы;<br>Моделирование бизнес-процессов."
+        },
+        {
+          "photo": "/assets/svg/job/3.svg",
+          "title": "Маркетолог",
+          "expert": "4 года",
+          "pay": "80 000",
+          "description": "Обязанности: <br>Разработка стратегий для повышения продаж;<br>Анализ рынка и конкурентов;<br>Управление рекламными кампаниями и отслеживание их эффективности;<br>Работа с социальными сетями."
+        },
+        {
+          "photo": "/assets/svg/job/4.svg",
+          "title": "Разработчик программного обеспечения",
+          "expert": "Более 3 лет",
+          "pay": "120 000",
+          "description": "Обязанности: <br>Разработка и поддержка программного обеспечения;<br>Участие в проектировании архитектуры приложений;<br>Тестирование и отладка кода;<br>Сотрудничество с командой разработчиков."
+        },
+        {
+          "photo": "/assets/svg/job/1.svg",
+          "title": "Директор по продажам",
+          "expert": "Более 7 лет",
+          "pay": "150 000",
+          "description": "Обязанности: <br>Управление отделом продаж;<br>Анализ и оптимизация процессов продаж;<br>Разработка стратегий для увеличения рынка сбыта;<br>Контроль выполнения бюджетов и планов."
+        },
+        {
+          "photo": "/assets/svg/job/2.svg",
+          "title": "HR-менеджер",
+          "expert": "3 года",
+          "pay": "75 000",
+          "description": "Обязанности: <br>Подбор, оценка и адаптация сотрудников;<br>Участие в разработке корпоративной культуры;<br>Проведение тренингов и семинаров;<br>Управление документами и отчетностью по кадрам."
+        },
+        {
+          "photo": "/assets/svg/job/3.svg",
+          "title": "Графический дизайнер",
+          "expert": "Более 2 лет",
+          "pay": "70 000",
+          "description": "Обязанности: <br>Создание визуальных решений для маркетинговых материалов;<br>Разработка адаптивного дизайна;<br>Взаимодействие с командами по контенту и разработке;<br>Создание прототипов и макетов."
+        },
+        {
+          "photo": "/assets/svg/job/4.svg",
+          "title": "Контент-менеджер",
+          "expert": "4 года",
+          "pay": "65 000",
+          "description": "Обязанности: <br>Создание и редактирование контента для веб-сайтов и соцсетей;<br>Анализ эффективности контента;<br>Работа с редакционной календарной планировкой;<br>Сотрудничество с другими отделами для создания контента."
+        },
+        {
+          "photo": "/assets/svg/job/1.svg",
+          "title": "Финансовый аналитик",
+          "expert": "5 лет",
+          "pay": "95 000",
+          "description": "Обязанности: <br>Анализ финансовых данных и подготовка отчетов;<br>Прогнозирование финансовых показателей;<br>Анализ рисков и возможностей для бизнеса;<br>Консультирование руководства по финансовым вопросам."
+        },
+        {
+          "photo": "/assets/svg/job/2.svg",
+          "title": "Инженер-строитель",
+          "expert": "Более 4 лет",
+          "pay": "110 000",
+          "description": "Обязанности: <br>Проектирование и реализация строительных проектов;<br>Контроль качества и соблюдения сроков выполнения работ;<br>Проверка соответствия проектов строительным нормам и стандартам;<br>Взаимодействие с подрядчиками и поставщиками."
+        }
+      ]
+    },
+    "en": {
+      "job": [
+        {
+          "photo": "/assets/svg/job/1.svg",
+          "title": "Purchasing Manager",
+          "expert": "More 3 years",
+          "pay": "90,000",
+          "description": "Responsibilities: <br>Search and analysis of tenders related to the company's profile (supply to industrial enterprises);<br>Preparation and submission of tender documentation, registration on electronic platforms;<br>Conducting negotiations with clients and suppliers;<br>Searching for suppliers for specific positions (including parallel imports);<br>Calculation of product cost;<br>Monitoring current tenders and supporting until the contract is signed;<br>Keeping reports."
+        },
+        {
+          "photo": "/assets/svg/job/2.svg",
+          "title": "Systems Analyst",
+          "expert": "More 5 years",
+          "pay": "100,000",
+          "description": "Responsibilities: <br>Analysis of business processes and user requirements;<br>Preparation of technical documentation;<br>Consultation with clients regarding system issues;<br>Modeling of business processes."
+        },
+        {
+          "photo": "/assets/svg/job/3.svg",
+          "title": "Marketing Specialist",
+          "expert": "4 years",
+          "pay": "80,000",
+          "description": "Responsibilities: <br>Development of strategies to increase sales;<br>Market and competitor analysis;<br>Management of advertising campaigns and tracking their effectiveness;<br>Working with social networks."
+        },
+        {
+          "photo": "/assets/svg/job/4.svg",
+          "title": "Software Developer",
+          "expert": "More 3 years",
+          "pay": "120,000",
+          "description": "Responsibilities: <br>Development and support of software;<br>Participation in the design of application architecture;<br>Testing and debugging code;<br>Collaboration with the development team."
+        },
+        {
+          "photo": "/assets/svg/job/1.svg",
+          "title": "Sales Director",
+          "expert": "More 7 years",
+          "pay": "150,000",
+          "description": "Responsibilities: <br>Management of the sales department;<br>Analysis and optimization of sales processes;<br>Development of strategies to increase market share;<br>Monitoring the execution of budgets and plans."
+        },
+        {
+          "photo": "/assets/svg/job/2.svg",
+          "title": "HR Manager",
+          "expert": "3 years",
+          "pay": "75,000",
+          "description": "Responsibilities: <br>Recruitment, assessment, and adaptation of employees;<br>Participation in the development of corporate culture;<br>Conducting training and seminars;<br>Managing documents and reporting related to personnel."
+        },
+        {
+          "photo": "/assets/svg/job/3.svg",
+          "title": "Graphic Designer",
+          "expert": "More 2 years",
+          "pay": "70,000",
+          "description": "Responsibilities: <br>Creating visual solutions for marketing materials;<br>Development of adaptive design;<br>Interaction with content and development teams;<br>Creation of prototypes and layouts."
+        },
+        {
+          "photo": "/assets/svg/job/4.svg",
+          "title": "Content Manager",
+          "expert": "4 years",
+          "pay": "65,000",
+          "description": "Responsibilities: <br>Creating and editing content for websites and social networks;<br>Analyzing content effectiveness;<br>Working with editorial scheduling;<br>Cooperation with other departments to create content."
+        },
+        {
+          "photo": "/assets/svg/job/1.svg",
+          "title": "Financial Analyst",
+          "expert": "5 years",
+          "pay": "95,000",
+          "description": "Responsibilities: <br>Analysis of financial data and report preparation;<br>Forecasting financial indicators;<br>Analyzing risks and opportunities for the business;<br>Consulting management on financial issues."
+        },
+        {
+          "photo": "/assets/svg/job/2.svg",
+          "title": "Construction Engineer",
+          "expert": "More 4 years",
+          "pay": "110,000",
+          "description": "Responsibilities: <br>Designing and implementing construction projects;<br>Quality control and compliance with deadlines;<br>Checking conformity of projects with construction norms and standards;<br>Interaction with contractors and suppliers."
+        }
+      ]
+    }
+  }
+]

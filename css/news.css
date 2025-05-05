@@ -38,6 +38,11 @@
   justify-content: space-between;
   padding: 50px 50px 10px 50px;
 }
+.news-data {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 .news-data span {
   display: flex;
   width: 100%;

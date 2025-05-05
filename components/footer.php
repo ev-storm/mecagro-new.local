@@ -19,12 +19,13 @@
 			<ul class="foot-menu-item foot-about-btn">
 				<li><a href="/pages/about.php">О компании</a></li>
 				<li><a href="/pages/about.php#recvisit">Реквизиты</a></li>
-				<li><a href="/pages/about.php#serty">Сертификат</a></li>
+				<li><a href="/pages/about.php#serty">Сертификаты</a></li>
 				<li><a href="/pages/about.php#part">Партнёры</a></li>
+				<li class="foot-menu-item-mob"><a href="/pages/job.php">Вакансии</a></li>
 			</ul>
 			<div class="foot-margin"></div>
 			<ul class="foot-menu-item foot-about-btn">
-				<li><a href="/pages/about.php#contact">Вакансии</a></li>
+				<li><a href="/pages/job.php">Вакансии</a></li>
 				<li><a href="/pages/about.php#policy">Политика <br> конфидециальности</a></li>
 			</ul>
 		</nav>

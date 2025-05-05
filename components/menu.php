@@ -15,7 +15,7 @@
 							<li><a data-lang="Новости" data-lang_en="News" class="icon-menu icon-menu_4" href="/pages/news.php">Новости</a></li>
 							<li><a data-lang="Партнеры" data-lang_en="Partners" class="icon-menu icon-menu_5" href="/pages/about.php#part">Партнеры</a></li>
 							<li><a data-lang="Сертификаты" data-lang_en="Certificates" class="icon-menu icon-menu_6" href="/pages/about.php#serty">Сертификаты</a></li>
-							<li><a data-lang="Вакансии" data-lang_en="Job openings" class="icon-menu icon-menu_7" href="/pages/about.php#contact">Вакансии</a></li>
+							<li><a data-lang="Вакансии" data-lang_en="Job openings" class="icon-menu icon-menu_7" href="/pages/job.php">Вакансии</a></li>
 							<li><a data-lang="Политика <br> конфидециальности" data-lang_en="Privacy Policy" class="icon-menu icon-menu_8" href="/pages/about.php#policy">Политика <br> конфидециальности</a></li>
 						</ul>
 					</li>
@@ -23,6 +23,8 @@
 					<li><a data-lang="Контакты" data-lang_en="Contacts" href="/pages/about.php#contact">Контакты</a></li>
 					<li>|</li>
 					<li ><a data-lang="Новости" data-lang_en="News" class="news-btn" href="/pages/news.php">Новости</a></li>
+					<li>|</li>
+					<li><a data-lang="Вакансии" data-lang_en="Job" class="news-btn" href="/pages/job.php">Вакансии</a></li>
 				</ul>
 				<div class="link-con">
 					<button data-lang="Связаться" data-lang_en="proposal"  class="btn form-data btn-modal-call">Связаться</button>
@@ -51,7 +53,7 @@
 							<a data-lang="Каталог" data-lang_en="Catalog" class="catalog-btn" href="/pages/catalog.php">Каталог</a>
 						</li>
 						<li>|</li>
-						<li><a data-lang="Новинки" data-lang_en="New products" href="#">Новинки</a></li>
+						<li><a data-lang="Новинки" data-lang_en="New products" href="/pages/catalog.php">Новинки</a></li>
 						<li>|</li>
 						<li  class="download-cat pdf-down arrow"><a data-lang="Скачать каталог" data-lang_en="Download the catalog" href="">Скачать каталог</a>
 							<ul>
@@ -119,6 +121,7 @@
 					<li>
 					<a data-lang="Новости" data-lang_en="News" class="news-btn" href="/pages/news.php">Новости</a>
 				</li>
+				<li><a data-lang="Вакансии" data-lang_en="Job" class="news-btn" href="/pages/job.php">Вакансии</a></li>
 			</ul>
 
 			<div class="mob-link-con">

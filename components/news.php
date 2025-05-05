@@ -22,6 +22,7 @@
 					
 					</div> -->
 				</div>
+				
 				<div class="news-arrow">
 					<img class="news-arrow_L" src="/assets/svg/title-link/L.svg" alt="">
 					<img class="news-arrow_R" src="/assets/svg/title-link/R.svg" alt="">

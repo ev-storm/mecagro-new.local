@@ -28,6 +28,7 @@ function setupLanguageSwitch() {
       objClick();
       updateLanguageText();
       displayNews();
+      displayJob();
 
       //displayNews();
 

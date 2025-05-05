@@ -653,6 +653,9 @@
     width: 100%;
     margin-top: 30px;
   }
+  .foot-menu-item-mob {
+    display: flex !important;
+  }
   .mob-about-foot h3 {
     color: #ffffff99;
   }
@@ -968,5 +971,31 @@
   .news-list-con.active ~ .news-list-open {
     transform: translateX(0px) !important;
     transition: var(--tran-05);
+  }
+  .job-list-con {
+    display: none;
+  }
+  .job-main-con {
+    width: 100% !important;
+    padding: 0px 0px !important;
+  }
+  .job-card {
+    margin: 25px 20px !important;
+  }
+  .job-card-title-photo {
+    width: 65px !important;
+  }
+  .job-card-title h1 {
+    font-size: 18px !important;
+  }
+  .job-card-specifications {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+  .job-card-title {
+    width: 72% !important;
+  }
+  .job-card-title-arrow.active {
+    width: 15px !important;
   }
 }

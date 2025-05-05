@@ -45,6 +45,7 @@ function newsItemMain(title, description, photo, date) {
 			<h2>${description}</h2>
 			<div class="news-data">
 				<span>${date}</span>
+				<a href="/pages/news.php"><button class="btn">Перейти</button></a>
 			</div>
 		</div>
 		`;
