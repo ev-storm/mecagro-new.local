@@ -62,35 +62,42 @@ function jobItemMain(photo, title, expert, pay, description) {
     newJobCard.classList.add("job-card");
 
     newJobCard.innerHTML = `
-		<div class="job-card-main">
-						<div class="job-card-title-con">
-							<img class="job-card-title-photo" src="${photo}" alt="">
-							<div class="job-card-title">
-								<h1  class="job-card-title-h1">${title}</h1>
-								<div class="job-card-specifications">
-									<h2>Опыт: ${expert}</h2>
-									<h1>${pay} ₽</h1>
-								</div>
-							</div>
-							<img class="job-card-title-arrow" src="/assets/svg/arrow-green.svg" alt="">
-						</div>
-						<div class="job-card-description">
-							<h2>${description}</h2>
-						</div>
-						<form class="job-form form" action="#" method="POST">
-							<input type="hidden" name="Заявка" value="Вакансия">
-							<input  class="input-name-job" type="text" name="Имя" placeholder="Ваше имя">
-							<textarea class="input-commet" name="Комментарий" placeholder="Введите комментарий" rows="4"></textarea>
-							<div class="job-form-input">
-								<input class="input-tel-job" type="tel" name="Телефон" placeholder="Телефон">
-								<button class="btn btn-job" disanle="true">Отправить</button>
-							</div>
-						</form>
-					</div>
-		`;
+      <div class="job-card-main">
+        <div class="job-card-title-con">
+          <img class="job-card-title-photo" src="${photo}" alt="">
+          <div class="job-card-title">
+            <h1  class="job-card-title-h1">${title}</h1>
+            <div class="job-card-specifications">
+              <h2>Опыт: ${expert}</h2>
+              <h1>${pay} ₽</h1>
+            </div>
+          </div>
+          <img class="job-card-title-arrow" src="/assets/svg/arrow-green.svg" alt="">
+        </div>
+        <div class="job-card-description">
+          <h2>${description}</h2>
+        </div>
+        <form class="job-form form" action="#" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="Заявка" value="Вакансия">
+          <div class="input-name-con">
+            <input class="input-name-job" type="text" name="Имя" placeholder="Ваше имя">
+            <input class="input-tel-job" type="tel" name="Телефон" placeholder="Телефон">
+          </div>
+          <textarea class="input-commet" name="Комментарий" placeholder="Введите комментарий" rows="4"></textarea>
+          <div class="job-form-input">
+            <input type="file" class="btn-file-job" id="file" name="file-upload" accept=".png, .jpg, .jpeg, .pdf">
+            <button class="btn btn-job" type="submit">Отправить</button>
+          </div>
+        </form>
+      </div>
+    `;
+
     jobCard.appendChild(newJobCard);
     cardStates();
-    validateJob();
+
+    // Инициализируем валидацию для новой формы сразу после её создания
+    const form = newJobCard.querySelector(".job-form");
+    validateJob(form);
   }
 }
 
@@ -197,15 +204,13 @@ function cardStates() {
   });
 }
 
-function validateJob() {
-  const form = document.querySelector(".job-form");
-
+function validateJob(form) {
   const telSelector = form.querySelector(".input-tel-job");
   const inputmask = new Inputmask("+7 (999) 999-99-99");
 
   inputmask.mask(telSelector);
 
-  const validation = new JustValidate(".job-form");
+  const validation = new JustValidate(form);
 
   validation
     .addField(".input-name-job", [
@@ -255,7 +260,7 @@ function validateJob() {
             const tip = document.querySelector(".tip");
             tip.classList.add("active");
             if (langToggle === "ru") {
-              tip.innerHTML = `<h3>Даннык отправлены</h3>`;
+              tip.innerHTML = `<h3>Данные отправлены</h3>`;
             } else {
               tip.innerHTML = `<h3>The data has been sent</h3>`;
             }

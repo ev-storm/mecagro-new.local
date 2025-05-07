@@ -121,7 +121,7 @@
 					<li>
 					<a data-lang="Новости" data-lang_en="News" class="news-btn" href="/pages/news.php">Новости</a>
 				</li>
-				<li><a data-lang="Вакансии" data-lang_en="Job" class="news-btn" href="/pages/job.php">Вакансии</a></li>
+				<li><a data-lang="Вакансии" data-lang_en="Job" class="job-btn" href="/pages/job.php">Вакансии</a></li>
 			</ul>
 
 			<div class="mob-link-con">

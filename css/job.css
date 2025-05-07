@@ -34,10 +34,22 @@
 .job-list-item.active {
   color: var(--main);
 }
+.btn-file-job {
+  background: transparent !important;
+  padding: 0 !important;
+}
+.input-name-con {
+  display: flex;
+  justify-content: space-between;
+}
+.input-name-job {
+  margin-right: 10px !important;
+}
+
 .job-card {
   display: flex;
   position: relative;
-  width: 600px;
+  width: 45%;
   max-height: 110px;
   overflow: hidden;
   transition: max-height 0.5s ease;
@@ -146,6 +158,9 @@
   height: fit-content;
   max-height: 230px;
   overflow: scroll;
+}
+.job-card-description h2 {
+  font-size: 14px;
 }
 .job-list-btn {
   display: flex;

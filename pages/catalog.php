@@ -20,7 +20,8 @@
 		
 		<?php include "../components/categories.php"?>
 			<div class="object-con">
-				<div class="object">
+				<?php include "../components/s-part.php"?>
+				<div class="object active">
 					<div class="object-prevue">
 						<div class="swiper-con">
 							<div class="swiper object-swiper">
@@ -103,13 +104,14 @@
 									<td><h1>600 / 800 / 900 кг</h1></td>
 							</tr> -->
 							
-					</table>
+						</table>
 					</div>
+				</div>
 			</div>
 		</div>
 
 
-	</div>
+	
 
 
 

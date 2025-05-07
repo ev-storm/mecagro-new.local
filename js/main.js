@@ -234,3 +234,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+///////////////////////////////////////////////////
+document.addEventListener("DOMContentLoaded", function () {
+  const footerLogo = document.querySelector(".footer-logo");
+  const imgMiniF = "/assets/svg/logo-footer.svg";
+  const imgF = "/assets/svg/logo-mini_footer.svg";
+
+  function updateLogo() {
+    if (window.innerWidth <= 1500) {
+      footerLogo.innerHTML = `
+				<img src="${imgF}" alt="logo">
+				<div class="about-foot">
+					<h2>ООО «МЕКАГРО ГРУП» © </h2>
+					<h3>Все права защищены | 2025</h3>
+				</div>
+			`;
+    } else {
+      footerLogo.innerHTML = `
+				<img src="${imgMiniF}" alt="logo">
+				<div class="about-foot">
+					<h2>ООО «МЕКАГРО ГРУП» © </h2>
+					<h3>Все права защищены | 2025</h3>
+				</div>
+			`;
+    }
+  }
+
+  updateLogo();
+  window.addEventListener("resize", updateLogo);
+});

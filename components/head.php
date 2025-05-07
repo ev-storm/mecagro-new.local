@@ -16,6 +16,7 @@
 	<script defer src="/js/admin.js"></script>
 	<script defer src="/js/news.js"></script>
 	<script defer src="/js/job.js"></script>
+		<script defer src="/js/sPart.js"></script>
 
 		<!-- <script defer type="module" src="/js/catalog/main.js"></script> -->
 	<!------------------- INPUT_MASK -------------------------->

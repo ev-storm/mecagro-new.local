@@ -29,6 +29,7 @@ function setupLanguageSwitch() {
       updateLanguageText();
       displayNews();
       displayJob();
+      displaySPart();
 
       //displayNews();
 
@@ -245,6 +246,7 @@ const renderCategories = async (selectedFilters = []) => {
       container.appendChild(categoryItem);
     }
     setupToggleCategories();
+    sPartToggle();
   });
 };
 
@@ -405,6 +407,7 @@ const createListMenu = async (selectedFilters = []) => {
     }
   }
   objClick(); // Вызываем функцию обработчиков кликов
+  sPartToggle();
 };
 createListMenu();
 // /////////////////////////---------MENU--------///////////////////////////////////
@@ -840,6 +843,13 @@ const search = (async = () => {
           return;
         }
         selectAndDisplayObject(objName);
+
+        const sPart = document.querySelector(".spare-parts-btn");
+        const object = document.querySelector(".object");
+        const sPartsCon = document.querySelector(".spare-parts-con");
+        sPart.classList.remove("active");
+        object.classList.add("active");
+        sPartsCon.classList.remove("active");
       });
     });
   };
@@ -1017,20 +1027,22 @@ document.addEventListener("DOMContentLoaded", function () {
 const openMenu = document.querySelector(".open-menu");
 const closeMenu = document.querySelector(".close-menu");
 const mainMobMenu = document.querySelector(".main-mob-menu");
-const button = document.querySelector(".btn-modal");
 const openCatMenu = document.querySelector(".open-cat-menu");
 const closeCatMenu = document.querySelector(".close-cat-menu");
 const catalogMobMenu = document.querySelector(".categories-con");
-const objectItem = document.querySelectorAll(".obj-btn");
+//const objectItem = document.querySelectorAll(".obj-btn");
+//const button = document.querySelector(".btn-modal");
 
 openMenu.addEventListener("click", () => {
-  catalogMobMenu.classList.remove("active");
-  openCatMenu.classList.add("hide");
   mainMobMenu.classList.add("active");
   closeMenu.classList.remove("hide");
-  closeCatMenu.add("hide");
-  mainMobMenu.classList.add("active");
-  closeMenu.classList.remove("hide");
+});
+
+document.addEventListener("click", (event) => {
+  if (!mainMobMenu.contains(event.target) && !openMenu.contains(event.target)) {
+    mainMobMenu.classList.remove("active");
+    closeMenu.classList.add("hide");
+  }
 });
 
 openCatMenu.addEventListener("click", () => {
@@ -1039,20 +1051,33 @@ openCatMenu.addEventListener("click", () => {
   closeCatMenu.classList.remove("hide");
 });
 
-closeCatMenu.addEventListener("click", () => {
-  catalogMobMenu.classList.remove("active");
-  openCatMenu.classList.remove("hide");
-  closeCatMenu.classList.add("hide");
+document.addEventListener("click", (event) => {
+  if (
+    (!catalogMobMenu.contains(event.target) &&
+      !openCatMenu.contains(event.target)) ||
+    closeCatMenu.contains(event.target)
+  ) {
+    catalogMobMenu.classList.remove("active");
+    openCatMenu.classList.remove("hide");
+    closeCatMenu.classList.add("hide");
+  }
 });
 
-closeMenu.addEventListener("click", () => {
-  openCatMenu.classList.remove("hide");
-  mainMobMenu.classList.remove("active");
-  closeMenu.classList.add("hide");
-  closeCatMenu.add("active");
-  mainMobMenu.classList.remove("active");
-  closeMenu.classList.add("hide");
-});
+// closeMenu.addEventListener("click", () => {
+//   openCatMenu.classList.remove("hide");
+//   mainMobMenu.classList.remove("active");
+//   closeMenu.classList.add("hide");
+//   closeCatMenu.remove("hide");
+//   mainMobMenu.classList.remove("active");
+//   closeMenu.classList.add("hide");
+// });
+//
+
+// closeCatMenu.addEventListener("click", () => {
+//   catalogMobMenu.classList.remove("active");
+//   openCatMenu.classList.remove("hide");
+//   closeCatMenu.classList.add("hide");
+// });
 
 // var hammertime = new Hammer(document.body, {
 //   enable: true,
@@ -1078,6 +1103,9 @@ function nameModal(name, cod) {
   const modalButtons = document.querySelectorAll(".btn-modal-call");
   const formData = document.querySelectorAll(".form-data");
   const formDataLeasing = document.querySelectorAll(".form-data-leasing");
+  const formDataSPart = document.querySelectorAll(".form-data-SPart");
+  const formDataSPartAll = document.querySelectorAll(".form-data-SPartAll");
+
   const modal = document.querySelectorAll(".modal");
 
   const renderModal = (content) => {
@@ -1105,11 +1133,94 @@ function nameModal(name, cod) {
       <input id="check-form-id" type="checkbox">
       <span>Согласен с обработкой персональных данных в соответствии с <a href="/pages/about.php#policy">политикой конфиденциальности</a></span>
     </label>
-    <div class="link link-form">
-      <a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
-      <a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
-      <a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
-    </div>
+		<div class="link link-form">
+			<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
+			<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
+			<a class="mail-btn"><img src="/assets/svg/link/ml.svg" alt="">
+				<div class="mail-drop-btn">
+						<h2 class="copy">mekagrogrup@mail.ru</h2>
+				</div>
+			</a>
+			<a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
+			<a class="mail-btn"><img src="/assets/svg/link/tel.svg" alt="">
+				<div class="mail-drop-btn">
+						<h2 class="copy">+7 (989) 807-00-15</h2>
+				</div>
+			</a>
+		</div>
+  </form>
+`;
+
+  const modalContentSPart = `
+  <div class="modal-title">
+    <img class="modal-logo" src="/assets/svg/logo.svg" alt="">
+    <img class="close-modal" src="/assets/svg/close-green.svg" alt="">
+  </div>
+  <form class="modal-form form" action="#" method="POST">
+	  <input type="hidden" name="Заявка на технику" value="Обратная связь">
+    <input class="input-name-title" name="Наименование техники" value="${name}" readonly>
+		<input class="input-name-title" name="Код техники" value="${cod}" readonly>
+    <input class="input-name-modal input-name" type="text" name="Имя" placeholder="Ваше имя *">
+    <input class="input-tel-modal input-tel" type="tel" name="Телефон" placeholder="Телефон *">
+    <input class="input-mail" type="email" name="E-mail" placeholder="E-mail *">
+    <textarea class="input-commet" name="Комментарий" placeholder="Введите комментарий" rows="2"></textarea>
+    <button class="btn btn-modal" disabled="false">Отправить</button>
+    <label class="check-form" for="check-form-id">
+      <input id="check-form-id" type="checkbox">
+      <span>Согласен с обработкой персональных данных в соответствии с <a href="/pages/about.php#policy">политикой конфиденциальности</a></span>
+    </label>
+		<div class="link link-form">
+			<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
+			<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
+			<a class="mail-btn"><img src="/assets/svg/link/ml.svg" alt="">
+				<div class="mail-drop-btn">
+						<h2 class="copy">mekagrogrup@mail.ru</h2>
+				</div>
+			</a>
+			<a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
+			<a class="mail-btn"><img src="/assets/svg/link/tel.svg" alt="">
+				<div class="mail-drop-btn">
+						<h2 class="copy">+7 (989) 807-00-15</h2>
+				</div>
+			</a>
+		</div>
+  </form>
+`;
+  const modalContentSPartAll = `
+  <div class="modal-title">
+    <img class="modal-logo" src="/assets/svg/logo.svg" alt="">
+    <img class="close-modal" src="/assets/svg/close-green.svg" alt="">
+  </div>
+  <form class="modal-form form" action="#" method="POST">
+	  <input type="hidden" name="Заявка на технику" value="Обратная связь">
+    <input class="input-name-title" name="Наименование техники" value="${[
+      name,
+    ]}" readonly>
+		<input class="input-name-title" name="Код техники" value="${[cod]}" readonly>
+    <input class="input-name-modal input-name" type="text" name="Имя" placeholder="Ваше имя *">
+    <input class="input-tel-modal input-tel" type="tel" name="Телефон" placeholder="Телефон *">
+    <input class="input-mail" type="email" name="E-mail" placeholder="E-mail *">
+    <textarea class="input-commet" name="Комментарий" placeholder="Введите комментарий" rows="2"></textarea>
+    <button class="btn btn-modal" disabled="false">Отправить</button>
+    <label class="check-form" for="check-form-id">
+      <input id="check-form-id" type="checkbox">
+      <span>Согласен с обработкой персональных данных в соответствии с <a href="/pages/about.php#policy">политикой конфиденциальности</a></span>
+    </label>
+		<div class="link link-form">
+			<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
+			<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
+			<a class="mail-btn"><img src="/assets/svg/link/ml.svg" alt="">
+				<div class="mail-drop-btn">
+						<h2 class="copy">mekagrogrup@mail.ru</h2>
+				</div>
+			</a>
+			<a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
+			<a class="mail-btn"><img src="/assets/svg/link/tel.svg" alt="">
+				<div class="mail-drop-btn">
+						<h2 class="copy">+7 (989) 807-00-15</h2>
+				</div>
+			</a>
+		</div>
   </form>
 `;
 
@@ -1130,10 +1241,20 @@ function nameModal(name, cod) {
       <span>Согласен с обработкой персональных данных в соответствии с <a href="/pages/about.php#policy">политикой конфиденциальности</a></span>
     </label>
     <div class="link link-form">
-      <a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
-      <a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
-      <a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
-    </div>
+			<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
+			<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
+			<a class="mail-btn"><img src="/assets/svg/link/ml.svg" alt="">
+				<div class="mail-drop-btn">
+						<h2 class="copy">mekagrogrup@mail.ru</h2>
+				</div>
+			</a>
+			<a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
+			<a class="mail-btn"><img src="/assets/svg/link/tel.svg" alt="">
+				<div class="mail-drop-btn">
+						<h2 class="copy">+7 (989) 807-00-15</h2>
+				</div>
+			</a>
+		</div>
   </form>
 `;
 
@@ -1147,6 +1268,8 @@ function nameModal(name, cod) {
   };
 
   attachEventListenersToButtons(formDataLeasing, modalContentLeasing);
+  attachEventListenersToButtons(formDataSPart, modalContentSPart);
+  attachEventListenersToButtons(formDataSPartAll, modalContentSPartAll);
   attachEventListenersToButtons(formData, modalContentForm);
 
   modalButtons.forEach(function (button) {
@@ -1270,23 +1393,23 @@ function validate() {
     });
 }
 
-// const mainForm = document.querySelector(".main-form");
-// if (mainForm) {
-//   validate();
-//   const check = document.querySelectorAll(".check-form-id");
-//   const btnForm = document.querySelector(".btn-form");
-//   check.forEach((c) => {
-//     c.addEventListener("click", () => {
-//       if (c.checked) {
-//         btnForm.disabled = false;
-//         btnForm.style.opacity = 1;
-//       } else {
-//         btnForm.disabled = true;
-//         btnForm.style.opacity = 0.5;
-//       }
-//     });
-//   });
-// }
+const mainForm = document.querySelector(".main-form");
+if (mainForm) {
+  validate();
+  const check = document.getElementById("check-form-id");
+  const btnForm = document.querySelector(".btn-form-main");
+  btnForm.disabled = true;
+  btnForm.style.opacity = 0.5;
+  check.addEventListener("click", () => {
+    if (check.checked) {
+      btnForm.disabled = false;
+      btnForm.style.opacity = 1;
+    } else {
+      btnForm.disabled = true;
+      btnForm.style.opacity = 0.5;
+    }
+  });
+}
 
 function validateF() {
   const forms = document.querySelectorAll(".form-f");

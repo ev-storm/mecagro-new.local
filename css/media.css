@@ -9,6 +9,12 @@
   button {
     border-radius: 2px;
   }
+  .link {
+    display: flex !important;
+  }
+  .up-btn {
+    display: flex !important;
+  }
 
   .header-con {
     display: none;
@@ -378,7 +384,7 @@
   }
   .advant-con {
     height: fit-content;
-    padding: 10% 0;
+    padding: 0;
   }
   .advant-item {
     align-items: center;
@@ -393,6 +399,7 @@
   }
   .advant-text h3 {
     width: 95%;
+    font-size: 14px;
   }
   .news-swiper {
     height: 1600px !important;
@@ -710,7 +717,7 @@
     background: #fff;
   }
   .advant-item img {
-    width: 40%;
+    width: 30%;
     margin-top: 40px;
   }
   .about-title {
@@ -1000,5 +1007,103 @@
   }
   .job-card-title-arrow.active {
     width: 15px !important;
+  }
+}
+
+@media (max-width: 1500px) {
+  .link {
+    display: none !important;
+  }
+  .link-form {
+    display: flex !important;
+  }
+  .logo {
+    width: 20%;
+  }
+  .foot-menu-item li a {
+    font-size: 14px;
+  }
+  .foot-contact h2 {
+    font-size: 25px;
+  }
+  .about-foot {
+    margin-top: 40px;
+    position: absolute;
+  }
+  .footer-logo {
+    margin-right: 40px;
+  }
+  .foot-input input {
+    font-size: 14px !important;
+    width: 270px;
+  }
+  .foot-input button {
+    font-size: 14px !important;
+  }
+  .foot-link_con h2 {
+    font-size: 18px;
+  }
+  .delivry-img {
+    width: 50% !important;
+  }
+  .news-text h2 {
+    max-height: 270px !important;
+    font-size: 14px !important;
+  }
+  .link-slide svg {
+    width: 15vw !important;
+  }
+  .link-slide h2 {
+    font-size: 16px;
+  }
+  .advant-con {
+    height: fit-content !important;
+  }
+  .advant-item {
+    height: fit-content !important;
+  }
+  .main-form-btn {
+    flex-direction: column !important;
+  }
+  .main-form-btn .btn,
+  .main-form-btn .btn-light {
+    width: 100% !important;
+    margin-top: 10px !important;
+  }
+  .main-form-description h2 {
+    width: 100% !important;
+    font-size: 18px;
+  }
+  .btn-light {
+    margin: 10px 0;
+  }
+  .main-categories li h2 {
+    font-size: 14px !important;
+  }
+  .main-items li h2 {
+    font-size: 14px !important;
+  }
+  .main-items {
+    padding-left: 10px !important;
+  }
+  .news-main-photo img {
+    height: fit-content;
+  }
+  .news-main {
+    flex-direction: column !important;
+  }
+  .news-main-title {
+    width: 80% !important;
+    padding: 3% 10% !important;
+  }
+  .news-main-photo {
+    width: 100% !important;
+    justify-content: center;
+  }
+  .news-main-photo img {
+    width: 80% !important;
+  }
+  .news-list-con-title {
+    font-size: 18px !important;
   }
 }

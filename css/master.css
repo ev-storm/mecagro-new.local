@@ -11,6 +11,7 @@
 @import url("news.css");
 @import url("font.css");
 @import url("job.css");
+@import url("s-part.css");
 
 :root {
   --title: 65px;
@@ -71,6 +72,7 @@ body {
   flex-direction: column;
   width: 100%;
   justify-content: center;
+  align-items: center;
 }
 textarea {
   outline: none;
@@ -188,6 +190,11 @@ li a {
   background-size: cover;
   background-repeat: no-repeat;
 }
+.just-validate-error-label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #ff8d8d;
+}
 .container-404 h1 {
   font-size: 70px;
   color: var(--black);
@@ -228,6 +235,7 @@ li a {
     opacity: 0;
     transform: translateY(-20px);
     visibility: visible;
+    display: flex;
   }
   100% {
     opacity: 1;
@@ -244,6 +252,7 @@ li a {
     opacity: 0;
     transform: translateY(-20px);
     visibility: hidden;
+    display: none;
   }
 }
 
@@ -308,5 +317,8 @@ li a {
   display: none;
 }
 .foot-menu-item-mob {
+  display: none;
+}
+.up-btn {
   display: none;
 }

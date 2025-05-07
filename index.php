@@ -142,17 +142,17 @@
 				</h2>
 			</div>
 			<div class="main-form">
-				<form class="form"  action="#" method="POST">
+				<form class="form main-form"  action="#" method="POST">
 					<input type="hidden" name="Заявка" value="Обратная связь">
 					<input class="btn input-name" type="text" name="Имя" placeholder="Имя *" require>
 					<input class="btn input-tel" type="tel" name="Телефон" placeholder="Номер телефона *" require>
 					<input class="btn input-mail" type="mail" name="E-mail" placeholder="E-mail">
 					<div class="main-form-btn">
-						<button class="btn btn-form" disabled>Отправить</button>
+						<button class="btn btn-form-main" disabled>Отправить</button>
 						<button class="btn-light">Менеджер</button>
 					</div>
 					<label class="check-form" for="check-form-id">
-						<input id="check-form-id" type="checkbox" >
+						<input id="check-form-id" type="checkbox">
 						<span>Согласен с обработкой персональных данных в соответствии с <a href="/pages/about.php#policy">политикой конфиденциальности</a></span>
 					</label>
 				</form>

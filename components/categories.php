@@ -14,6 +14,18 @@
 					</ul>
 					<div class="categories-margin"></div>
 					<ul class="main-categories"></ul>
+					<div class="categories-margin"></div>
+					<div>
+						<h2 class="spare-parts-btn"data-lang="Запчасти" data-lang_en="Spare parts">Запчасти</h2>
+						<div class="SPlistCart hide">
+							<h1>Список запчастей</h1>
+							<div class="SPlistCartUl-con">
+							</div>
+							<button class="btn-light btn-modal-call form-data-SPartAll">Заказать</button>
+						</div>
+					</div>
+					
+
 					<div class="download-cat-mob">
 						<button class="btn-light download-cat">Скачать каталог
 							<ul>

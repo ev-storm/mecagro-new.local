@@ -9,12 +9,11 @@
 .object-con {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 73%;
   height: 100%;
 }
 
 .object {
-  display: flex;
   flex-direction: column;
   width: 100%;
   overflow: scroll;
@@ -227,14 +226,12 @@
 .categories-con {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 27%;
   height: 100%;
-  display: flex;
   align-items: start;
   justify-content: start;
-  padding: 50px 3%;
+  padding: 50px 1% 0 3%;
   overflow: scroll;
-  /* background-color: rgb(247, 247, 247); */
 }
 
 .categories-margin {

@@ -1,0 +1,522 @@
+[
+  {
+    "ru": {
+      "SPart": [
+        {
+          "title": "ЕТАЛЛИЧЕСКАЯ МУФТА",
+          "photo": "/assets/img/s-part/1.png",
+          "art": "MP001"
+        },
+        {
+          "title": "ЛАСТИКОВАЯ МУФТА",
+          "photo": "/assets/img/s-part/2.png",
+          "art": "MP002"
+        },
+        {
+          "title": "ЕРАМИЧЕСКАЯ МУФТА",
+          "photo": "/assets/img/s-part/3.png",
+          "art": "MP003"
+        },
+        {
+          "title": "ОЛИUREТАНОВАЯ МУФТА",
+          "photo": "/assets/img/s-part/4.png",
+          "art": "MP004"
+        },
+        {
+          "title": "ЛОПЧАТОБУМАЖНАЯ МУФТА",
+          "photo": "/assets/img/s-part/5.png",
+          "art": "MP005"
+        },
+        {
+          "title": "ИКЕЛЕВАЯ МУФТА",
+          "photo": "/assets/img/s-part/6.png",
+          "art": "MP006"
+        },
+        {
+          "title": "ЛЮМИНИЕВАЯ МУФТА",
+          "photo": "/assets/img/s-part/7.png",
+          "art": "MP007"
+        },
+        {
+          "title": "ТАЛЬНАЯ МУФТА",
+          "photo": "/assets/img/s-part/8.png",
+          "art": "MP008"
+        },
+        {
+          "title": "ЕДНАЯ МУФТА",
+          "photo": "/assets/img/s-part/9.png",
+          "art": "MP009"
+        },
+        {
+          "title": "ОМПОЗИТНАЯ МУФТА",
+          "photo": "/assets/img/s-part/10.png",
+          "art": "MP010"
+        },
+        {
+          "title": "ЛАТУННАЯ МУФТА",
+          "photo": "/assets/img/s-part/11.png",
+          "art": "MP011"
+        },
+        {
+          "title": "ПАВЛИНА МУФТА",
+          "photo": "/assets/img/s-part/12.png",
+          "art": "MP012"
+        },
+        {
+          "title": "КРЕМНИЕВАЯ МУФТА",
+          "photo": "/assets/img/s-part/13.png",
+          "art": "MP013"
+        },
+        {
+          "title": "РЕЗИНОВАЯ МУФТА",
+          "photo": "/assets/img/s-part/14.png",
+          "art": "MP014"
+        },
+        {
+          "title": "ПЛАСТИКОВАЯ УФ МУФТА",
+          "photo": "/assets/img/s-part/15.png",
+          "art": "MP015"
+        },
+        {
+          "title": "ИЗОЛЯЦИОННАЯ МУФТА",
+          "photo": "/assets/img/s-part/16.png",
+          "art": "MP016"
+        },
+        {
+          "title": "СТЕКЛОПЛАСТИКОВАЯ МУФТА",
+          "photo": "/assets/img/s-part/17.png",
+          "art": "MP017"
+        },
+        {
+          "title": "ДЕРЕВЯННАЯ МУФТА",
+          "photo": "/assets/img/s-part/18.png",
+          "art": "MP018"
+        },
+        {
+          "title": "ТИТАНОВАЯ МУФТА",
+          "photo": "/assets/img/s-part/19.png",
+          "art": "MP019"
+        },
+        {
+          "title": "ПОЛИЭТИЛЕНОВАЯ МУФТА",
+          "photo": "/assets/img/s-part/20.png",
+          "art": "MP020"
+        },
+        {
+          "title": "ЭПДМ МУФТА",
+          "photo": "/assets/img/s-part/21.png",
+          "art": "MP021"
+        },
+        {
+          "title": "РТУТНАЯ МУФТА",
+          "photo": "/assets/img/s-part/22.png",
+          "art": "MP022"
+        },
+        {
+          "title": "ГИПСОВАЯ МУФТА",
+          "photo": "/assets/img/s-part/23.png",
+          "art": "MP023"
+        },
+        {
+          "title": "МЕТАЛЛОПЛАСТИКОВАЯ МУФТА",
+          "photo": "/assets/img/s-part/24.png",
+          "art": "MP024"
+        },
+        {
+          "title": "СТЕКЛОПЛАСТИКОВАЯ МУФТА",
+          "photo": "/assets/img/s-part/25.png",
+          "art": "MP025"
+        },
+        {
+          "title": "АНТИБАКТЕРИАЛЬНАЯ МУФТА",
+          "photo": "/assets/img/s-part/26.png",
+          "art": "MP026"
+        },
+        {
+          "title": "НАНОКОМПОЗИТНАЯ МУФТА",
+          "photo": "/assets/img/s-part/27.png",
+          "art": "MP027"
+        },
+        {
+          "title": "ПАРАФИНОВАЯ МУФТА",
+          "photo": "/assets/img/s-part/28.png",
+          "art": "MP028"
+        },
+        {
+          "title": "СИЛИКОНА МУФТА",
+          "photo": "/assets/img/s-part/29.png",
+          "art": "MP029"
+        },
+        {
+          "title": "АРОМАТИЗИРОВАННАЯ МУФТА",
+          "photo": "/assets/img/s-part/30.png",
+          "art": "MP030"
+        },
+        {
+          "title": "МЕТАЛЛИЧЕСКАЯ С ПРОТИВОКОРРОЗИОННЫМ ПОКРЫТИЕМ",
+          "photo": "/assets/img/s-part/31.png",
+          "art": "MP031"
+        },
+        {
+          "title": "ПЕПЛАСТИКОВАЯ С УЛУЧШЕННЫМИ ХАРАКТЕРИСТИКАМИ",
+          "photo": "/assets/img/s-part/32.png",
+          "art": "MP032"
+        },
+        {
+          "title": "СТАНДАРТНАЯ МУФТА",
+          "photo": "/assets/img/s-part/33.png",
+          "art": "MP033"
+        },
+        {
+          "title": "УВЕЛИЧЕННАЯ ПРОЧНОСТЬ",
+          "photo": "/assets/img/s-part/34.png",
+          "art": "MP034"
+        },
+        {
+          "title": "С ИНТЕГРИРОВАННЫМ ДАТЧИКОМ",
+          "photo": "/assets/img/s-part/35.png",
+          "art": "MP035"
+        },
+        {
+          "title": "ГИДРОФОБНАЯ МУФТА",
+          "photo": "/assets/img/s-part/36.png",
+          "art": "MP036"
+        },
+        {
+          "title": "МУФТА С УСТОЙЧИВОСТЬЮ К УЛЬТРАФИОЛЕТОВОМУ ИЗЛУЧЕНИЮ",
+          "photo": "/assets/img/s-part/37.png",
+          "art": "MP037"
+        },
+        {
+          "title": "РЕГУЛИРУЕМАЯ МУФТА",
+          "photo": "/assets/img/s-part/38.png",
+          "art": "MP038"
+        },
+        {
+          "title": "С УЛУЧШЕННЫМИ ТЕПЛОВЫМИ ХАРАКТЕРИСТИКАМИ",
+          "photo": "/assets/img/s-part/39.png",
+          "art": "MP039"
+        },
+        {
+          "title": "С МОДУЛЕМ ДЛЯ ИНТЕРАКТИВНОГО УПРАВЛЕНИЯ",
+          "photo": "/assets/img/s-part/40.png",
+          "art": "MP040"
+        },
+        {
+          "title": "ВЫСОКОПРОЧНАЯ МУФТА",
+          "photo": "/assets/img/s-part/41.png",
+          "art": "MP041"
+        },
+        {
+          "title": "ИННОВАЦИОННАЯ МУФТА",
+          "photo": "/assets/img/s-part/42.png",
+          "art": "MP042"
+        },
+        {
+          "title": "МОДУЛЬНАЯ СИСТЕМА МУФТ",
+          "photo": "/assets/img/s-part/43.png",
+          "art": "MP043"
+        },
+        {
+          "title": "СЭКОНОМ ЛОПАСТЯМИ",
+          "photo": "/assets/img/s-part/44.png",
+          "art": "MP044"
+        },
+        {
+          "title": "МУФТА ДЛЯ ВОДОПРОВОДНЫХ СИСТЕМ",
+          "photo": "/assets/img/s-part/45.png",
+          "art": "MP045"
+        },
+        {
+          "title": "МУФТА С СИГНАЛИЗАТОРОМ",
+          "photo": "/assets/img/s-part/46.png",
+          "art": "MP046"
+        },
+        {
+          "title": "МУФТА ДЛЯ УСИЛЕНИЯ",
+          "photo": "/assets/img/s-part/47.png",
+          "art": "MP047"
+        },
+        {
+          "title": "СЕНСОРНАЯ МУФТА",
+          "photo": "/assets/img/s-part/48.png",
+          "art": "MP048"
+        },
+        {
+          "title": "АВТОМАТИЧЕСКАЯ МУФТА",
+          "photo": "/assets/img/s-part/49.png",
+          "art": "MP049"
+        },
+        {
+          "title": "РОБОТЕХНИЧЕСКАЯ МУФТА",
+          "photo": "/assets/img/s-part/50.png",
+          "art": "MP050"
+        },
+        {
+          "title": "УМНАЯ МУФТА",
+          "photo": "/assets/img/s-part/51.png",
+          "art": "MP051"
+        }
+      ]
+    },
+    "en": {
+      "SPart": [
+        {
+          "title": "ETAL COUPLING",
+          "photo": "/assets/img/s-part/1.png",
+          "art": "MP001"
+        },
+        {
+          "title": "LASTIC COUPLING",
+          "photo": "/assets/img/s-part/2.png",
+          "art": "MP002"
+        },
+        {
+          "title": "ERAMIC COUPLING",
+          "photo": "/assets/img/s-part/3.png",
+          "art": "MP003"
+        },
+        {
+          "title": "OLYURETHANE COUPLING",
+          "photo": "/assets/img/s-part/4.png",
+          "art": "MP004"
+        },
+        {
+          "title": "OTTON COUPLING",
+          "photo": "/assets/img/s-part/5.png",
+          "art": "MP005"
+        },
+        {
+          "title": "ICKEL COUPLING",
+          "photo": "/assets/img/s-part/6.png",
+          "art": "MP006"
+        },
+        {
+          "title": "LUMINUM COUPLING",
+          "photo": "/assets/img/s-part/7.png",
+          "art": "MP007"
+        },
+        {
+          "title": "TEEL COUPLING",
+          "photo": "/assets/img/s-part/8.png",
+          "art": "MP008"
+        },
+        {
+          "title": "OPPER COUPLING",
+          "photo": "/assets/img/s-part/9.png",
+          "art": "MP009"
+        },
+        {
+          "title": "OMPOSITE COUPLING",
+          "photo": "/assets/img/s-part/10.png",
+          "art": "MP010"
+        },
+        {
+          "title": "BRASS COUPLING",
+          "photo": "/assets/img/s-part/11.png",
+          "art": "MP011"
+        },
+        {
+          "title": "PEACOCK COUPLING",
+          "photo": "/assets/img/s-part/12.png",
+          "art": "MP012"
+        },
+        {
+          "title": "SILICONE COUPLING",
+          "photo": "/assets/img/s-part/13.png",
+          "art": "MP013"
+        },
+        {
+          "title": "RUBBER COUPLING",
+          "photo": "/assets/img/s-part/14.png",
+          "art": "MP014"
+        },
+        {
+          "title": "UV PLASTIC COUPLING",
+          "photo": "/assets/img/s-part/15.png",
+          "art": "MP015"
+        },
+        {
+          "title": "INSULATED COUPLING",
+          "photo": "/assets/img/s-part/16.png",
+          "art": "MP016"
+        },
+        {
+          "title": "FIBERGLASS COUPLING",
+          "photo": "/assets/img/s-part/17.png",
+          "art": "MP017"
+        },
+        {
+          "title": "WOODEN COUPLING",
+          "photo": "/assets/img/s-part/18.png",
+          "art": "MP018"
+        },
+        {
+          "title": "TITANIUM COUPLING",
+          "photo": "/assets/img/s-part/19.png",
+          "art": "MP019"
+        },
+        {
+          "title": "POLYETHYLENE COUPLING",
+          "photo": "/assets/img/s-part/20.png",
+          "art": "MP020"
+        },
+        {
+          "title": "EPDM COUPLING",
+          "photo": "/assets/img/s-part/21.png",
+          "art": "MP021"
+        },
+        {
+          "title": "MERCURY COUPLING",
+          "photo": "/assets/img/s-part/22.png",
+          "art": "MP022"
+        },
+        {
+          "title": "GYPSUM COUPLING",
+          "photo": "/assets/img/s-part/23.png",
+          "art": "MP023"
+        },
+        {
+          "title": "METAL PLASTIC COUPLING",
+          "photo": "/assets/img/s-part/24.png",
+          "art": "MP024"
+        },
+        {
+          "title": "GLASS PLASTIC COUPLING",
+          "photo": "/assets/img/s-part/25.png",
+          "art": "MP025"
+        },
+        {
+          "title": "ANTIBACTERIAL COUPLING",
+          "photo": "/assets/img/s-part/26.png",
+          "art": "MP026"
+        },
+        {
+          "title": "NANOCOMPOSITE COUPLING",
+          "photo": "/assets/img/s-part/27.png",
+          "art": "MP027"
+        },
+        {
+          "title": "PARAFIN COUPLING",
+          "photo": "/assets/img/s-part/28.png",
+          "art": "MP028"
+        },
+        {
+          "title": "SILICONE COUPLING",
+          "photo": "/assets/img/s-part/29.png",
+          "art": "MP029"
+        },
+        {
+          "title": "FRAGRANT COUPLING",
+          "photo": "/assets/img/s-part/30.png",
+          "art": "MP030"
+        },
+        {
+          "title": "METAL COUPLING WITH CORROSION PROTECTION",
+          "photo": "/assets/img/s-part/31.png",
+          "art": "MP031"
+        },
+        {
+          "title": "PLASTIC COUPLING WITH IMPROVED CHARACTERISTICS",
+          "photo": "/assets/img/s-part/32.png",
+          "art": "MP032"
+        },
+        {
+          "title": "STANDARD COUPLING",
+          "photo": "/assets/img/s-part/33.png",
+          "art": "MP033"
+        },
+        {
+          "title": "HIGH STRENGTH COUPLING",
+          "photo": "/assets/img/s-part/34.png",
+          "art": "MP034"
+        },
+        {
+          "title": "INTEGRATED SENSOR COUPLING",
+          "photo": "/assets/img/s-part/35.png",
+          "art": "MP035"
+        },
+        {
+          "title": "HYDROPHOBIC COUPLING",
+          "photo": "/assets/img/s-part/36.png",
+          "art": "MP036"
+        },
+        {
+          "title": "UV RESISTANT COUPLING",
+          "photo": "/assets/img/s-part/37.png",
+          "art": "MP037"
+        },
+        {
+          "title": "ADJUSTABLE COUPLING",
+          "photo": "/assets/img/s-part/38.png",
+          "art": "MP038"
+        },
+        {
+          "title": "COUPLING WITH IMPROVED THERMAL CHARACTERISTICS",
+          "photo": "/assets/img/s-part/39.png",
+          "art": "MP039"
+        },
+        {
+          "title": "MODULAR CONTROL COUPLING",
+          "photo": "/assets/img/s-part/40.png",
+          "art": "MP040"
+        },
+        {
+          "title": "HIGH STRENGTH COUPLING",
+          "photo": "/assets/img/s-part/41.png",
+          "art": "MP041"
+        },
+        {
+          "title": "INNOVATIVE COUPLING",
+          "photo": "/assets/img/s-part/42.png",
+          "art": "MP042"
+        },
+        {
+          "title": "MODULAR COUPLING SYSTEM",
+          "photo": "/assets/img/s-part/43.png",
+          "art": "MP043"
+        },
+        {
+          "title": "ECO-FRIENDLY COUPLING",
+          "photo": "/assets/img/s-part/44.png",
+          "art": "MP044"
+        },
+        {
+          "title": "COUPLING FOR WATER SUPPLY SYSTEMS",
+          "photo": "/assets/img/s-part/45.png",
+          "art": "MP045"
+        },
+        {
+          "title": "COUPLING WITH ALARM",
+          "photo": "/assets/img/s-part/46.png",
+          "art": "MP046"
+        },
+        {
+          "title": "COUPLING FOR REINFORCEMENT",
+          "photo": "/assets/img/s-part/47.png",
+          "art": "MP047"
+        },
+        {
+          "title": "SENSOR COUPLING",
+          "photo": "/assets/img/s-part/48.png",
+          "art": "MP048"
+        },
+        {
+          "title": "AUTOMATIC COUPLING",
+          "photo": "/assets/img/s-part/49.png",
+          "art": "MP049"
+        },
+        {
+          "title": "ROBOTIC COUPLING",
+          "photo": "/assets/img/s-part/50.png",
+          "art": "MP050"
+        },
+        {
+          "title": "SMART COUPLING",
+          "photo": "/assets/img/s-part/51.png",
+          "art": "MP051"
+        }
+      ]
+    }
+  }
+]

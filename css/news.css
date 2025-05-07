@@ -9,7 +9,7 @@
 .news-swiper {
   display: flex !important;
   flex-direction: column !important;
-  width: 90% !important;
+  width: 90vw !important;
   max-width: 1800px;
   height: fit-content !important;
   border-radius: 10px !important;
@@ -23,7 +23,7 @@
 }
 .news-img-con {
   width: 50%;
-  height: 100%;
+  height: 60vh;
 }
 .news-img-con img {
   width: 100%;
@@ -107,7 +107,7 @@
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  width: 90% !important;
+  width: 90vw !important;
   margin: 20px 0;
   max-width: 1800px;
 }
