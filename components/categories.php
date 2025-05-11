@@ -9,13 +9,13 @@
 								<li class="filter brend-btn active"><h2>MOSH</h2></li>
 							</ul>
 						</li>
-						<li class="filter filter-btn"><h2 data-lang="Популярное" data-lang_en="Popular">Популярное</h2></li>
-						<li class="filter filter-btn"><h2 data-lang="Новинка" data-lang_en="New">Новинка</h2></li>
+						<li class="filter filter-plus filter-btn"><h2 data-lang="Популярное" data-lang_en="Popular">Популярное</h2></li>
+						<li class="filter filter-plus filter-btn"><h2 data-lang="Новинка" data-lang_en="New">Новинка</h2></li>
 					</ul>
 					<div class="categories-margin"></div>
 					<ul class="main-categories"></ul>
 					<div class="categories-margin"></div>
-					<div>
+					<div class="categories-SP-con">
 						<h2 class="spare-parts-btn"data-lang="Запчасти" data-lang_en="Spare parts">Запчасти</h2>
 						<div class="SPlistCart hide">
 							<h1>Список запчастей</h1>
@@ -24,6 +24,7 @@
 							<button class="btn-light btn-modal-call form-data-SPartAll">Заказать</button>
 						</div>
 					</div>
+					
 					
 
 					<div class="download-cat-mob">

@@ -28,6 +28,7 @@
   transition: var(--tran-01);
   transform: translateX(0);
   z-index: 999;
+  position: relative;
 }
 .object-prevue.hide {
   opacity: 1;
@@ -230,7 +231,7 @@
   height: 100%;
   align-items: start;
   justify-content: start;
-  padding: 50px 1% 0 3%;
+  padding: 50px 1% 0 2%;
   overflow: scroll;
 }
 

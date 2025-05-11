@@ -1008,6 +1008,62 @@
   .job-card-title-arrow.active {
     width: 15px !important;
   }
+  .categories-SP-con {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 10%;
+  }
+  .spare-parts-btn {
+    color: #fff !important;
+  }
+  .spare-parts-btn::before {
+    content: url(/assets/svg/part-w.svg) !important;
+  }
+  .s-part {
+    width: 100% !important;
+  }
+  .s-part .btn {
+    width: 75% !important;
+  }
+  .s-part .btn-light {
+    font-size: 20px !important;
+    padding: 0 15px !important;
+  }
+  .SPlistCart {
+    width: 100% !important;
+    position: absolute;
+    top: 8%;
+    right: -111%;
+    min-height: 0 !important;
+    height: 150px !important;
+    transition: var(--tran-03);
+  }
+  .SPlistCart:hover {
+    height: 300px !important;
+    transition: var(--tran-03);
+  }
+  .form-data-SPartAll {
+    display: none;
+  }
+  .SPlistCart:hover .form-data-SPartAll {
+    display: flex;
+    justify-content: center;
+  }
+  .SPlistCartUl-con {
+    height: 160px !important;
+    overflow: scroll;
+  }
+  .SPlist-photo {
+    width: 50px;
+    display: none;
+  }
+  .spare-parts-con {
+    overflow: visible;
+  }
+  .SPlistCartUl li {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 1500px) {

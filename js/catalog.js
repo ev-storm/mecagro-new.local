@@ -139,44 +139,43 @@ let filterActive = []; // Глобальная переменная
 const activeBrend = () => {
   const brendBtn = document.querySelectorAll(".brend-btn");
   const categoriesFilter = document.querySelectorAll(".filter");
+  const categoriesFilterPlus = document.querySelectorAll(".filter-plus");
 
   categoriesFilter.forEach((item) => {
     item.addEventListener("click", () => {
       if (item.classList.contains("brend-btn")) {
-        // Проверяем текущее количество активных кнопок
         const activeCount = Array.from(brendBtn).filter((btn) =>
           btn.classList.contains("active")
         ).length;
 
         if (activeCount >= 3 && item.classList.contains("active")) {
-          // Если уже активны 3 кнопки, то отключаем все кроме нажатой
           brendBtn.forEach((btn) => btn.classList.remove("active"));
           item.classList.add("active");
         } else if (activeCount === 2 && item.classList.contains("active")) {
-          // Если 2 активны и нажата уже активная, то просто удаляем её активность
           item.classList.remove("active");
         } else if (activeCount === 1 && item.classList.contains("active")) {
-          // Нельзя отключать единственную активную кнопку
           return;
         } else {
-          // Если менее 3 активных и нажата неактивная кнопка, то просто активируем
           item.classList.toggle("active");
         }
       } else {
-        // Для кнопок filter-btn просто переключаем их состояние
         item.classList.toggle("active");
       }
 
-      // Сбор всех активных brend-btn в массив filterActive
       const filterActive = Array.from(brendBtn)
+        .filter((el) => el.classList.contains("active"))
+        .map((el) => el.querySelector("h2").textContent);
+
+      const filterActivePlus = Array.from(categoriesFilterPlus)
         .filter((el) => el.classList.contains("active"))
         .map((el) => el.querySelector("h2").textContent);
 
       const tip = document.querySelector(".tip");
       if (filterActive.length > 0) {
         const brandNames = filterActive.join(", ");
+        const brandNamesPlus = filterActivePlus.join(", ");
         tip.classList.add("active");
-        tip.innerHTML = `<h3>Задан фильтр:<br> ${brandNames}</h3>`;
+        tip.innerHTML = `<h3>Задан фильтр:<br> ${brandNames} ${brandNamesPlus}</h3>`;
       } else {
         tip.classList.remove("active");
         tip.innerHTML = "";
@@ -503,7 +502,7 @@ async function selectAndDisplayObject(objectName) {
   const spec = document.querySelector(".object-specifications_table");
   const data = await fetchDataCategories();
 
-  // Поиск объекта по имени (или дружественному тексту)
+  //Поиск объекта по имени (или дружественному тексту)
   function findObject(categories, text) {
     for (const category of Object.values(categories)) {
       for (const subCategory of Object.values(category.subCategories)) {
@@ -530,7 +529,6 @@ async function selectAndDisplayObject(objectName) {
   objDescripcion.textContent = object.description;
   nameModal(object.name, object.cod);
 
-  // Характеристики
   let specHTML = `
 	<h1 class="object-specifications-title">Технические характеристики</h1>
     <tr class="object-specifications_table-title">
@@ -555,9 +553,7 @@ const objClick = async () => {
   objClickElements.forEach((item) => {
     item.addEventListener("click", async () => {
       const objectName = item.innerText.trim();
-      // catalogMobMenu.classList.remove("active");
-      // closeCatMenu.classList.add("hide");
-      // openCatMenu.classList.remove("hide");
+
       const openCatMenu = document.querySelector(".open-cat-menu");
       const closeCatMenu = document.querySelector(".close-cat-menu");
       const catalogMobMenu = document.querySelector(".categories-con");
@@ -820,6 +816,7 @@ const search = (async = () => {
             }
           }
           spec.innerHTML = specHTML;
+          updateSlides(item);
 
           const leftMenuA = document.createElement("li");
           leftMenuA.className = "menu-obj-item object-click";
@@ -1099,14 +1096,22 @@ document.addEventListener("click", (event) => {
 // //////////////////////-------MENU-------//////////////////////////////
 
 //////////////////////--------MODAL--------//////////////////////////////
+
 function nameModal(name, cod) {
   const modalButtons = document.querySelectorAll(".btn-modal-call");
   const formData = document.querySelectorAll(".form-data");
   const formDataLeasing = document.querySelectorAll(".form-data-leasing");
-  const formDataSPart = document.querySelectorAll(".form-data-SPart");
-  const formDataSPartAll = document.querySelectorAll(".form-data-SPartAll");
-
+  // const formDataSPart = document.querySelectorAll(".form-data-SPart");
+  // const formDataSPartAll = document.querySelectorAll(".form-data-SPartAll");
   const modal = document.querySelectorAll(".modal");
+
+  const SPlistLi = document.querySelectorAll(".SPlist-li");
+  let SPlistLiMass = [];
+
+  SPlistLi.forEach((e) => {
+    SPlistLiMass = e.innerText;
+    console.log(SPlistLiMass);
+  });
 
   const renderModal = (content) => {
     modal.forEach((m) => {
@@ -1115,6 +1120,7 @@ function nameModal(name, cod) {
       updateButtonState();
     });
   };
+
   const modalContentLeasing = `
   <div class="modal-title">
     <img class="modal-logo" src="/assets/svg/logo.svg" alt="">
@@ -1150,79 +1156,76 @@ function nameModal(name, cod) {
 		</div>
   </form>
 `;
+  //   const modalContentSPart = `
+  //   <div class="modal-title">
+  //     <img class="modal-logo" src="/assets/svg/logo.svg" alt="">
+  //     <img class="close-modal" src="/assets/svg/close-green.svg" alt="">
+  //   </div>
+  //   <form class="modal-form form" action="#" method="POST">
+  // 	  <input type="hidden" name="Заявка на технику" value="Обратная связь">
+  //     <input class="input-name-title" name="Наименование техники" value="${name}" readonly>
+  // 		<input class="input-name-title" name="Код техники" value="${cod}" readonly>
+  //     <input class="input-name-modal input-name" type="text" name="Имя" placeholder="Ваше имя *">
+  //     <input class="input-tel-modal input-tel" type="tel" name="Телефон" placeholder="Телефон *">
+  //     <input class="input-mail" type="email" name="E-mail" placeholder="E-mail *">
+  //     <textarea class="input-commet" name="Комментарий" placeholder="Введите комментарий" rows="2"></textarea>
+  //     <button class="btn btn-modal" disabled="false">Отправить</button>
+  //     <label class="check-form" for="check-form-id">
+  //       <input id="check-form-id" type="checkbox">
+  //       <span>Согласен с обработкой персональных данных в соответствии с <a href="/pages/about.php#policy">политикой конфиденциальности</a></span>
+  //     </label>
+  // 		<div class="link link-form">
+  // 			<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
+  // 			<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
+  // 			<a class="mail-btn"><img src="/assets/svg/link/ml.svg" alt="">
+  // 				<div class="mail-drop-btn">
+  // 						<h2 class="copy">mekagrogrup@mail.ru</h2>
+  // 				</div>
+  // 			</a>
+  // 			<a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
+  // 			<a class="mail-btn"><img src="/assets/svg/link/tel.svg" alt="">
+  // 				<div class="mail-drop-btn">
+  // 						<h2 class="copy">+7 (989) 807-00-15</h2>
+  // 				</div>
+  // 			</a>
+  // 		</div>
+  //   </form>
+  // `;
 
-  const modalContentSPart = `
-  <div class="modal-title">
-    <img class="modal-logo" src="/assets/svg/logo.svg" alt="">
-    <img class="close-modal" src="/assets/svg/close-green.svg" alt="">
-  </div>
-  <form class="modal-form form" action="#" method="POST">
-	  <input type="hidden" name="Заявка на технику" value="Обратная связь">
-    <input class="input-name-title" name="Наименование техники" value="${name}" readonly>
-		<input class="input-name-title" name="Код техники" value="${cod}" readonly>
-    <input class="input-name-modal input-name" type="text" name="Имя" placeholder="Ваше имя *">
-    <input class="input-tel-modal input-tel" type="tel" name="Телефон" placeholder="Телефон *">
-    <input class="input-mail" type="email" name="E-mail" placeholder="E-mail *">
-    <textarea class="input-commet" name="Комментарий" placeholder="Введите комментарий" rows="2"></textarea>
-    <button class="btn btn-modal" disabled="false">Отправить</button>
-    <label class="check-form" for="check-form-id">
-      <input id="check-form-id" type="checkbox">
-      <span>Согласен с обработкой персональных данных в соответствии с <a href="/pages/about.php#policy">политикой конфиденциальности</a></span>
-    </label>
-		<div class="link link-form">
-			<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
-			<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
-			<a class="mail-btn"><img src="/assets/svg/link/ml.svg" alt="">
-				<div class="mail-drop-btn">
-						<h2 class="copy">mekagrogrup@mail.ru</h2>
-				</div>
-			</a>
-			<a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
-			<a class="mail-btn"><img src="/assets/svg/link/tel.svg" alt="">
-				<div class="mail-drop-btn">
-						<h2 class="copy">+7 (989) 807-00-15</h2>
-				</div>
-			</a>
-		</div>
-  </form>
-`;
-  const modalContentSPartAll = `
-  <div class="modal-title">
-    <img class="modal-logo" src="/assets/svg/logo.svg" alt="">
-    <img class="close-modal" src="/assets/svg/close-green.svg" alt="">
-  </div>
-  <form class="modal-form form" action="#" method="POST">
-	  <input type="hidden" name="Заявка на технику" value="Обратная связь">
-    <input class="input-name-title" name="Наименование техники" value="${[
-      name,
-    ]}" readonly>
-		<input class="input-name-title" name="Код техники" value="${[cod]}" readonly>
-    <input class="input-name-modal input-name" type="text" name="Имя" placeholder="Ваше имя *">
-    <input class="input-tel-modal input-tel" type="tel" name="Телефон" placeholder="Телефон *">
-    <input class="input-mail" type="email" name="E-mail" placeholder="E-mail *">
-    <textarea class="input-commet" name="Комментарий" placeholder="Введите комментарий" rows="2"></textarea>
-    <button class="btn btn-modal" disabled="false">Отправить</button>
-    <label class="check-form" for="check-form-id">
-      <input id="check-form-id" type="checkbox">
-      <span>Согласен с обработкой персональных данных в соответствии с <a href="/pages/about.php#policy">политикой конфиденциальности</a></span>
-    </label>
-		<div class="link link-form">
-			<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
-			<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
-			<a class="mail-btn"><img src="/assets/svg/link/ml.svg" alt="">
-				<div class="mail-drop-btn">
-						<h2 class="copy">mekagrogrup@mail.ru</h2>
-				</div>
-			</a>
-			<a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
-			<a class="mail-btn"><img src="/assets/svg/link/tel.svg" alt="">
-				<div class="mail-drop-btn">
-						<h2 class="copy">+7 (989) 807-00-15</h2>
-				</div>
-			</a>
-		</div>
-  </form>
-`;
+  //   const modalContentSPartAll = `
+  //   <div class="modal-title">
+  //   	<img class="modal-logo" src="/assets/svg/logo.svg" alt="">
+  //   	<img class="close-modal" src="/assets/svg/close-green.svg" alt="">
+  //   </div>
+  //   <form class="modal-form form" action="#" method="POST">
+  //   	<input type="hidden" name="Заявка на технику" value="Обратная связь">
+  //   	<input class="input-name-title" name="Наименование техники" value="${name}" readonly>
+  //   	<input class="input-name-modal input-name" type="text" name="Имя" placeholder="Ваше имя *">
+  //   	<input class="input-tel-modal input-tel" type="tel" name="Телефон" placeholder="Телефон *">
+  //   	<input class="input-mail" type="email" name="E-mail" placeholder="E-mail *">
+  //   	<textarea class="input-commet" name="Комментарий" placeholder="Введите комментарий" rows="2"></textarea>
+  //   	<button class="btn btn-modal" disabled="false">Отправить</button>
+  //   	<label class="check-form" for="check-form-id">
+  //   		<input id="check-form-id" type="checkbox">
+  //   		<span>Согласен с обработкой персональных данных в соответствии с <a href="/pages/about.php#policy">политикой конфиденциальности</a></span>
+  //   	</label>
+  //   	<div class="link link-form">
+  //   		<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
+  //   		<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
+  //   		<a class="mail-btn"><img src="/assets/svg/link/ml.svg" alt="">
+  //   			<div class="mail-drop-btn">
+  //   					<h2 class="copy">mekagrogrup@mail.ru</h2>
+  //   			</div>
+  //   		</a>
+  //   		<a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
+  //   		<a class="mail-btn"><img src="/assets/svg/link/tel.svg" alt="">
+  //   			<div class="mail-drop-btn">
+  //   					<h2 class="copy">+7 (989) 807-00-15</h2>
+  //   			</div>
+  //   		</a>
+  //   	</div>
+  //   </form>
+  //   `;
 
   const modalContentForm = `
   <div class="modal-title">
@@ -1267,9 +1270,9 @@ function nameModal(name, cod) {
     });
   };
 
+  //attachEventListenersToButtons(formDataSPart, modalContentSPart);
   attachEventListenersToButtons(formDataLeasing, modalContentLeasing);
-  attachEventListenersToButtons(formDataSPart, modalContentSPart);
-  attachEventListenersToButtons(formDataSPartAll, modalContentSPartAll);
+  //attachEventListenersToButtons(formDataSPartAll, modalContentSPartAll);
   attachEventListenersToButtons(formData, modalContentForm);
 
   modalButtons.forEach(function (button) {
@@ -1316,6 +1319,217 @@ function nameModal(name, cod) {
   };
 }
 nameModal();
+
+function nameModalZap(item, name, cod) {
+  const modalButtons = document.querySelectorAll(".btn-modal-call");
+  const formDataSPart = item.querySelectorAll(".form-data-SPart");
+  const modal = document.querySelectorAll(".modal");
+
+  const renderModal = (content) => {
+    modal.forEach((m) => {
+      m.innerHTML = content;
+      closeModal();
+      updateButtonState();
+    });
+  };
+
+  const modalContentSPart = `
+  <div class="modal-title">
+    <img class="modal-logo" src="/assets/svg/logo.svg" alt="">
+    <img class="close-modal" src="/assets/svg/close-green.svg" alt="">
+  </div>
+  <form class="modal-form form" action="#" method="POST">
+	  <input type="hidden" name="Заявка на технику" value="Обратная связь">
+    <input class="input-name-title" name="Наименование техники" value="${name}" readonly>
+		<input class="input-name-title" name="Код техники" value="${cod}" readonly>
+    <input class="input-name-modal input-name" type="text" name="Имя" placeholder="Ваше имя *">
+    <input class="input-tel-modal input-tel" type="tel" name="Телефон" placeholder="Телефон *">
+    <input class="input-mail" type="email" name="E-mail" placeholder="E-mail *">
+    <textarea class="input-commet" name="Комментарий" placeholder="Введите комментарий" rows="2"></textarea>
+    <button class="btn btn-modal" disabled="false">Отправить</button>
+    <label class="check-form" for="check-form-id">
+      <input id="check-form-id" type="checkbox">
+      <span>Согласен с обработкой персональных данных в соответствии с <a href="/pages/about.php#policy">политикой конфиденциальности</a></span>
+    </label>
+		<div class="link link-form">
+			<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
+			<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
+			<a class="mail-btn"><img src="/assets/svg/link/ml.svg" alt="">
+				<div class="mail-drop-btn">
+						<h2 class="copy">mekagrogrup@mail.ru</h2>
+				</div>
+			</a>
+			<a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
+			<a class="mail-btn"><img src="/assets/svg/link/tel.svg" alt="">
+				<div class="mail-drop-btn">
+						<h2 class="copy">+7 (989) 807-00-15</h2>
+				</div>
+			</a>
+		</div>
+  </form>
+`;
+
+  const attachEventListenersToButtons = (buttons, content) => {
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        renderModal(content);
+        validate();
+      });
+    });
+  };
+
+  attachEventListenersToButtons(formDataSPart, modalContentSPart);
+
+  modalButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const modalCon = document.querySelector(".modal-con");
+      document.querySelector(".modal-con").classList.remove("hide-prev");
+      modalCon.classList.remove("hide");
+      modalCon.classList.add("show");
+    });
+  });
+
+  document
+    .querySelector(".modal-con")
+    .addEventListener("click", function (event) {
+      if (!event.target.closest(".modal")) {
+        document.querySelector(".modal-con").classList.remove("show");
+        document.querySelector(".modal-con").classList.add("hide");
+      }
+    });
+
+  const closeModal = () => {
+    document
+      .querySelector(".close-modal")
+      .addEventListener("click", function () {
+        document.querySelector(".modal-con").classList.remove("show");
+        document.querySelector(".modal-con").classList.add("hide");
+      });
+  };
+
+  const updateButtonState = () => {
+    const check = document.getElementById("check-form-id");
+    const btnModal = document.querySelector(".btn-modal");
+    if (check) {
+      check.addEventListener("click", () => {
+        if (check.checked) {
+          btnModal.disabled = false;
+          btnModal.style.opacity = 1;
+        } else {
+          btnModal.disabled = true;
+          btnModal.style.opacity = 0.5;
+        }
+      });
+    }
+  };
+}
+nameModalZap();
+
+function nameModalZapAll() {
+  const modalButtons = document.querySelectorAll(".btn-modal-call");
+  const modal = document.querySelectorAll(".modal");
+
+  const SPlistLi = document.querySelectorAll(".SPlist-li span");
+  const formDataSPartAll = document.querySelector(".form-data-SPartAll");
+  let SPlistLiMass = [];
+
+  formDataSPartAll.addEventListener("click", () => {
+    SPlistLiMass = [];
+
+    SPlistLi.forEach((e) => {
+      SPlistLiMass.push(e.innerText);
+    });
+
+    const modalContentSPartAll = `
+		<div class="modal-title">
+			<img class="modal-logo" src="/assets/svg/logo.svg" alt="">
+			<img class="close-modal" src="/assets/svg/close-green.svg" alt="">
+		</div>
+		<form class="modal-form form" action="#" method="POST">
+			<input type="hidden" name="Заявка на технику" value="Обратная связь">
+			<input class="input-name-title" name="Наименование техники" value="${SPlistLiMass}" readonly>
+			<input class="input-name-modal input-name" type="text" name="Имя" placeholder="Ваше имя *">
+			<input class="input-tel-modal input-tel" type="tel" name="Телефон" placeholder="Телефон *">
+			<input class="input-mail" type="email" name="E-mail" placeholder="E-mail *">
+			<textarea class="input-commet" name="Комментарий" placeholder="Введите комментарий" rows="2"></textarea>
+			<button class="btn btn-modal" disabled="false">Отправить</button>
+			<label class="check-form" for="check-form-id">
+				<input id="check-form-id" type="checkbox">
+				<span>Согласен с обработкой персональных данных в соответствии с <a href="/pages/about.php#policy">политикой конфиденциальности</a></span>
+			</label>
+			<div class="link link-form">
+				<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
+				<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
+				<a class="mail-btn"><img src="/assets/svg/link/ml.svg" alt="">
+					<div class="mail-drop-btn">
+							<h2 class="copy">mekagrogrup@mail.ru</h2>
+					</div>
+				</a>
+				<a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
+				<a class="mail-btn"><img src="/assets/svg/link/tel.svg" alt="">
+					<div class="mail-drop-btn">
+							<h2 class="copy">+7 (989) 807-00-15</h2>
+					</div>
+				</a>
+			</div>
+		</form>
+		`;
+
+    renderModal(modalContentSPartAll);
+    validate();
+  });
+
+  const renderModal = (content) => {
+    modal.forEach((m) => {
+      m.innerHTML = content;
+      closeModal();
+      updateButtonState();
+    });
+  };
+
+  modalButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const modalCon = document.querySelector(".modal-con");
+      document.querySelector(".modal-con").classList.remove("hide-prev");
+      modalCon.classList.remove("hide");
+      modalCon.classList.add("show");
+    });
+  });
+
+  document
+    .querySelector(".modal-con")
+    .addEventListener("click", function (event) {
+      if (!event.target.closest(".modal")) {
+        document.querySelector(".modal-con").classList.remove("show");
+        document.querySelector(".modal-con").classList.add("hide");
+      }
+    });
+
+  const closeModal = () => {
+    document
+      .querySelector(".close-modal")
+      .addEventListener("click", function () {
+        document.querySelector(".modal-con").classList.remove("show");
+        document.querySelector(".modal-con").classList.add("hide");
+      });
+  };
+
+  const updateButtonState = () => {
+    const check = document.getElementById("check-form-id");
+    const btnModal = document.querySelector(".btn-modal");
+    if (check) {
+      check.addEventListener("click", () => {
+        if (check.checked) {
+          btnModal.disabled = false;
+          btnModal.style.opacity = 1;
+        } else {
+          btnModal.disabled = true;
+          btnModal.style.opacity = 0.5;
+        }
+      });
+    }
+  };
+}
 
 //////////////////////--------MODAL--------//////////////////////////////
 function validate() {

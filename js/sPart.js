@@ -38,6 +38,7 @@ async function displaySPart() {
 
   ListSPart.forEach((obj) => {
     SPartItemMain(obj.photo, obj.title, obj.art);
+    //cartState(cardElement, obj.title, obj.art, obj.photo);
   });
 }
 
@@ -61,10 +62,10 @@ function SPartItemMain(photo, title, art) {
         <button class="btn-light cartPlus cart-SPart">+</button>
       </div>
     `;
-
     SPartCard.appendChild(newSPartCard);
-    nameModal(title, art);
-    cartState(newSPartCard, title, art);
+
+    cartState(newSPartCard, title, art, photo);
+    nameModalZap(newSPartCard, title, art);
   }
 }
 
@@ -75,7 +76,6 @@ const sPartToggle = async () => {
   const mainSubCategories = document.querySelectorAll(".main-sub_categories");
   const openImg = document.querySelectorAll(".open-img");
   const sPartsCon = document.querySelector(".spare-parts-con");
-  const SPlistCart = document.querySelector(".SPlistCart");
 
   if (sPart) {
     sPart.addEventListener("click", () => {
@@ -108,39 +108,6 @@ const sPartToggle = async () => {
 
 sPartToggle();
 
-// function cartState(cardElement, title, art) {
-//   const cartButton = cardElement.querySelector(".cart-SPart");
-//   const SPlistCart = document.querySelector(".SPlistCart");
-//   const cartPlus = document.querySelectorAll(".cartPlus");
-
-//   cartButton.addEventListener("click", () => {
-//     const SPlistCartUlCon = document.querySelector(".SPlistCartUl-con");
-//     if (SPlistCartUlCon) {
-//       const newSPlistCart = document.createElement("ul");
-//       newSPlistCart.classList.add("SPlistCartUl");
-//       newSPlistCart.innerHTML = `<li>${title}|${art}</li>`;
-//       SPlistCartUlCon.appendChild(newSPlistCart);
-//     } else {
-//       console.error("PlistCart element not found");
-//     }
-
-//     cartButton.classList.toggle("active");
-//   });
-//   cartPlus.forEach((p) => {
-//     p.addEventListener("click", () => {
-//       const hasActive = Array.from(cartPlus).some((button) =>
-//         button.classList.contains("active")
-//       );
-
-//       if (hasActive) {
-//         SPlistCart.classList.add("active");
-//       } else {
-//         SPlistCart.classList.remove("active");
-//       }
-//     });
-//   });
-// }
-
 function cartState(cardElement, title, art, photo) {
   const cartButton = cardElement.querySelector(".cart-SPart");
   const SPlistCart = document.querySelector(".SPlistCart");
@@ -159,11 +126,19 @@ function cartState(cardElement, title, art, photo) {
     const isActive = cartButton.classList.contains("active");
 
     if (!isActive) {
-      const newSPlistCart = document.createElement("ul");
-      newSPlistCart.classList.add("SPlistCartUl");
-      newSPlistCart.innerHTML = `<li>${title}|${art}</li>`;
-      SPlistCartUlCon.appendChild(newSPlistCart);
+      const SPlistCartUlCon = document.querySelector(".SPlistCartUl-con");
+      let newSPlistCart = SPlistCartUlCon.querySelector(".SPlistCartUl");
+      if (!newSPlistCart) {
+        newSPlistCart = document.createElement("ul");
+        newSPlistCart.classList.add("SPlistCartUl");
+        SPlistCartUlCon.appendChild(newSPlistCart);
+      }
+      const newSPlistCartLi = document.createElement("li");
+      newSPlistCartLi.classList.add("SPlist-li");
+      newSPlistCartLi.innerHTML = `<div class="SP-photo-con"><img class="SPlist-photo" src="${photo}" alt=""></div><h2>${title}<br><span>${art}</span></h2>`;
+      newSPlistCart.appendChild(newSPlistCartLi);
       cartButton.classList.add("active");
+      nameModalZapAll();
     } else {
       const items = SPlistCartUlCon.querySelectorAll("li");
       items.forEach((item) => {
@@ -171,10 +146,10 @@ function cartState(cardElement, title, art, photo) {
           item.remove();
         }
       });
+
       cartButton.classList.remove("active");
     }
 
     updateCartState();
-    nameModal(title, art);
   });
 }
