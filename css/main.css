@@ -227,11 +227,14 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  padding: 10% 8%;
+  padding: 7% 8%;
   background-image: url(/assets/svg/map-svg.svg);
   background-position: 80%;
   background-size: 50%;
   background-repeat: no-repeat;
+}
+.title-heading-progress {
+  margin: 0px 0 60px 0 !important;
 }
 .main-description {
   width: 95%;

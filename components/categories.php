@@ -1,6 +1,9 @@
 			<div class="categories-con">
+				<div class="obj-all-btn-con">
+					<img class="obj-all-btn active" src="/assets/svg/obj-all_2.svg" alt="">
+				</div>
 					<ul class="filter-categories">
-						<li><h2></h2>
+						<li>
 							<ul>
 								<li class="filter brend-btn active"><h2>MECARGO</h2></li>
 								<li><h2>|</h2></li>
@@ -10,7 +13,7 @@
 							</ul>
 						</li>
 						<li class="filter filter-plus filter-btn"><h2 data-lang="Популярное" data-lang_en="Popular">Популярное</h2></li>
-						<li class="filter filter-plus filter-btn"><h2 data-lang="Новинка" data-lang_en="New">Новинка</h2></li>
+						<li class="filter filter-plus filter-new-btn filter-btn"><h2 data-lang="Новинка" data-lang_en="New">Новинка</h2></li>
 					</ul>
 					<div class="categories-margin"></div>
 					<ul class="main-categories"></ul>

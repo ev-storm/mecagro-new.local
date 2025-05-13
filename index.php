@@ -19,10 +19,10 @@
 
 				<div class="swiper title-swiper">
 					<div class="swiper-wrapper title-wrapper">
-						<div class="swiper-slide title-slide title-slide-mov">
+						<!-- <div class="swiper-slide title-slide title-slide-mov">
 							<img class="logo-mov" src="/assets/svg/logo_gray.svg" alt="">
 							<video src="/assets/img/mech/prev/1.mp4" autoplay muted playsinline alt="">
-						</div>
+						</div> -->
 						<!-- <div class="swiper-slide title-slide">
 							<div class="slide-text">
 								<h3>Опрыскиватели для многолетних насаждений</h3>

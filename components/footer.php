@@ -35,8 +35,8 @@
 		<div class="foot-contact">
 			<h1>Контакты</h1>
 			<div>
-					<h2>+7 989 807-00-15</h2>
-					<h3>mekagrogrup@mail.ru</h3>
+					<h2>+7 812 237-39-49</h2>
+					<h3>info@mekagro.pro</h3>
 			</div>
 		</div>
 		
@@ -52,11 +52,11 @@
 					</form>
 			</div>
 			<div class="foot-link">
-				<a href="#"><img src="/assets/svg/link/wt-f.svg" alt=""></a>
-				<a href="#"><img src="/assets/svg/link/tg-f.svg" alt=""></a>
-				<a href="#"><img src="/assets/svg/link/ml-f.svg" alt=""></a>
-				<a href="#"><img src="/assets/svg/link/vk-f.svg" alt=""></a>
-				<a href="#"><img src="/assets/svg/link/tel-f.svg" alt=""></a>
+				<a href="https://wa.me/78122373949" target="_blank"><img src="/assets/svg/link/wt-f.svg" alt=""></a>
+				<a href="https://t.me/+d3cgc17mj8piNjJi" target="_blank"><img src="/assets/svg/link/tg-f.svg" alt=""></a>
+				<a href="mailto:info@mekagro.pro"  target="_blank"><img src="/assets/svg/link/ml-f.svg" alt=""></a>
+				<a href="https://vk.ru/club230395511"  target="_blank"><img src="/assets/svg/link/vk-f.svg" alt=""></a>
+				<a href="https://wa.me/78122373949" target="_blank"><img src="/assets/svg/link/tel-f.svg" alt=""></a>
 			</div>
 		</div>
 

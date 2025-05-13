@@ -112,6 +112,9 @@ ul {
   justify-content: flex-end;
   align-items: center;
 }
+li {
+  list-style-type: none;
+}
 ul a li {
   cursor: pointer;
 }

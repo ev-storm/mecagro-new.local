@@ -30,6 +30,7 @@ function setupLanguageSwitch() {
       displayNews();
       displayJob();
       displaySPart();
+      categoryFull();
 
       //displayNews();
 
@@ -181,8 +182,9 @@ const activeBrend = () => {
         tip.innerHTML = "";
       }
 
-      renderCategories(filterActive);
-      createListMenu(filterActive);
+      renderCategories(filterActive, filterActivePlus);
+      createListMenu(filterActive, filterActivePlus);
+      categoryFull(filterActive, filterActivePlus);
     });
   });
 };
@@ -191,15 +193,22 @@ activeBrend();
 // ///////////////////////////---- BREND ------////////////////////////////////
 
 /////////////////////////---------LEFT-MENU--------///////////////////////////////////
-const renderCategories = async (selectedFilters = []) => {
+const renderCategories = async (
+  selectedFilters = [],
+  filterActivePlus = []
+) => {
   const categoriesObjects = await getFlatCategoryObjects(); // получаем массив объектов
 
-  // Фильтруем объекты по brand и filter
   const filteredObjects = categoriesObjects.filter((obj) => {
-    const filterMatches =
+    const brandMatches =
       selectedFilters.length === 0 ||
       selectedFilters.some((filter) => obj.filter.includes(filter));
-    return filterMatches;
+
+    const filterActivePlusMatches =
+      filterActivePlus.length === 0 ||
+      filterActivePlus.some((filter) => obj.filter.includes(filter));
+
+    return brandMatches && filterActivePlusMatches;
   });
 
   // Группируем данные обратно по категориям/подкатегориям
@@ -348,7 +357,8 @@ const ActiveLeftMenuItem = (item) => {
 // ///////////////////////------LEFT_MENU_ANIMATED--------////////////////////////////
 
 // /////////////////////////---------MENU--------///////////////////////////////////
-const createListMenu = async (selectedFilters = []) => {
+
+const createListMenu = async (selectedFilters = [], filterActivePlus = []) => {
   const dataCategoriesMenu = await fetchDataCategories();
   const menuContainer = document.querySelector(".menu-categories");
   menuContainer.innerHTML = "";
@@ -360,36 +370,42 @@ const createListMenu = async (selectedFilters = []) => {
       categoryDetails.subCategories || {}
     )
       .map(([subCategoryName, subCategoryDetails]) => {
-        // Фильтруем объекты по брендам и фильтрам
-        const filteredObjects = (subCategoryDetails.object || []).filter(
-          (obj) => {
-            const filterMatches =
-              selectedFilters.length === 0 ||
-              selectedFilters.some((filter) => obj.filter.includes(filter));
+        // Получаем все объекты подкатегории
+        const allObjects = subCategoryDetails.object || [];
 
-            return filterMatches;
-          }
-        );
+        // Фильтруем объекты по брендам и дополнительным фильтрам
+        const filteredObjects = allObjects.filter((obj) => {
+          const brandMatches =
+            selectedFilters.length === 0 ||
+            selectedFilters.some((filter) => obj.filter.includes(filter));
 
+          const filterActivePlusMatches =
+            filterActivePlus.length === 0 ||
+            filterActivePlus.some((filter) => obj.filter.includes(filter));
+
+          return brandMatches && filterActivePlusMatches;
+        });
+
+        // Создание HTML для отфильтрованных объектов
         const objectsHTML = filteredObjects
           .map(
             (object) => `
-            <li class="menu-obj-item object-click">
-              <h2 class="menu-obj-text">${object.name + " " + object.cod}</h2>
-            </li>`
+        <li class="menu-obj-item object-click">
+          <h2 class="menu-obj-text">${object.name + " " + object.cod}</h2>
+        </li>`
           )
           .join("");
 
-        // Если после фильтрации остались объекты, создаем HTML
+        // Если остались объекты, создаем HTML для подкатегории
         return objectsHTML.length > 0
           ? `
-          <li>
-            <h2 class="menu-sub_categories-text">${subCategoryName}</h2>
-            <ul class="menu-items">
-              ${objectsHTML}
-            </ul>
-          </li>`
-          : ""; // Возвращаем пустую строку, если нет объектов
+        <li>
+          <h2 class="menu-sub_categories-text">${subCategoryName}</h2>
+          <ul class="menu-items">
+            ${objectsHTML}
+          </ul>
+        </li>`
+          : ""; // Возвращаем пустую строку, если объектов нет
       })
       .join("");
 
@@ -405,7 +421,9 @@ const createListMenu = async (selectedFilters = []) => {
       menuContainer.innerHTML += categoryHTML;
     }
   }
-  objClick(); // Вызываем функцию обработчиков кликов
+
+  // Вызываем функции обработчиков кликов и другие
+  objClick();
   sPartToggle();
 };
 createListMenu();
@@ -847,6 +865,12 @@ const search = (async = () => {
         sPart.classList.remove("active");
         object.classList.add("active");
         sPartsCon.classList.remove("active");
+        const objectAllBtn = document.querySelector(".obj-all-btn");
+        const objectAllPrevue = document.querySelector(".object-all-prevue");
+
+        objectAllBtn.classList.remove("active");
+        objectAllBtn.src = "/assets/svg/obj-all.svg";
+        objectAllPrevue.classList.remove("active");
       });
     });
   };
@@ -886,22 +910,137 @@ search();
 // ////////////////////////-----------SEARCH------------/////////////////////////////////
 //////////////////////--------TITLE_CATEGIRY-------//////////////////////////////
 
+// const titleSlides = async () => {
+//   const categoriesObjects = await getFlatCategoryObjects();
+//   const swiperWrapper = document.querySelector(".title-wrapper");
+
+//   const firstSlide = document.querySelector(".title-slide-mov");
+
+//   if (firstSlide) {
+//     firstSlide.remove();
+//   }
+
+//   const titlesWithObjects = [];
+
+//   if (swiperWrapper) {
+//     categoriesObjects.forEach((obj) => {
+//       if (obj.title) {
+//         titlesWithObjects.push(obj);
+//       }
+//     });
+
+//     titlesWithObjects.forEach((obj) => {
+//       const newSlide = document.createElement("div");
+//       newSlide.classList.add("swiper-slide", "title-slide");
+
+//       newSlide.innerHTML = `
+//       <div class="slide-text">
+//         <h3>Опрыскиватели для многолетних насаждений</h3>
+//         <h1>${obj.name} ${obj.cod}</h1>
+//         <h2>${obj.description}.</h2>
+//         <button class="btn title-btn-obj">Побробнее</button>
+//       </div>
+//       <img src="${obj.photo[0]}" />
+//     `;
+
+//       swiperWrapper.appendChild(newSlide); // Добавляем новый слайд в swiper-wrapper
+
+//       const titleBtnObj = newSlide.querySelector(".title-btn-obj");
+
+//       titleBtnObj.addEventListener("click", async () => {
+//         const objectName = obj.name + " " + obj.cod;
+
+//         if (window.location.pathname !== "/pages/catalog.php") {
+//           localStorage.setItem("objectToFind", objectName);
+//           window.location.href = "/pages/catalog.php";
+//           return;
+//         }
+
+//         objAnimated();
+//         await selectAndDisplayObject(objectName);
+//         ActiveLeftMenuItem(objectName);
+//       });
+//     });
+
+//     // Добавляем title-slide-mov только один раз в конце swiper-wrapper
+//     const titleMov = document.createElement("div");
+//     titleMov.classList.add("swiper-slide", "title-slide", "title-slide-mov");
+//     titleMov.innerHTML = `
+//       <img class="logo-mov" src="/assets/svg/logo_gray.svg" alt="">
+//       <video src="/assets/img/mech/prev/1.mp4" autoplay muted playsinline alt=""></video>
+//     `;
+
+//     swiperWrapper.appendChild(titleMov);
+//   }
+
+//   const progressCircle = document.querySelector(".autoplay-progress svg");
+//   const progressContent = document.querySelector(".autoplay-progress span");
+//   const progress = document.querySelector(".autoplay-progress");
+
+//   var titleSwiper = new Swiper(".title-swiper", {
+//     loop: true,
+//     speed: 1500,
+//     spaceBetween: 30,
+//     centeredSlides: true,
+//     autoplay: {
+//       delay: 10000,
+//       disableOnInteraction: false,
+//     },
+//     pagination: {
+//       el: ".swiper-pagination",
+//       clickable: true,
+//     },
+//     navigation: {
+//       nextEl: ".swiper-button-next",
+//       prevEl: ".swiper-button-prev",
+//     },
+//     on: {
+//       autoplayTimeLeft(s, time, progress) {
+//         progressCircle.style.setProperty("--progress", 1 - progress);
+//         progressContent.textContent = `${Math.ceil(time / 1000)}`;
+//       },
+//       slideChange() {
+//         this.autoplay.start();
+//         const remainingTime = this.params.autoplay.delay;
+//         progressCircle.style.setProperty("--progress", 0);
+//         progressContent.textContent = `${Math.ceil(remainingTime / 1000)}`;
+//       },
+//     },
+//   });
+
+//   var isAutoplaying = true;
+
+//   if (progress) {
+//     progress.addEventListener("click", function () {
+//       if (isAutoplaying) {
+//         titleSwiper.autoplay.stop();
+//         progressContent.innerHTML = `<svg class="title-play" width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+//           <path d="M0.966797 5.24512V0.713867L5.07987 2.85717C5.15107 2.89427 5.15172 2.99592 5.081 3.03393L0.966797 5.24512Z" fill="#58C88A"/>
+//           </svg>`;
+//       } else {
+//         titleSwiper.autoplay.start();
+//         progressContent.innerHTML = `<svg class="title-pause" width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+//           <rect width="2" height="6" fill="#58C88A"/>
+//           <rect x="4" width="2" height="6" fill="#58C88A"/>
+//           </svg>`;
+//       }
+//       isAutoplaying = !isAutoplaying;
+//     });
+//   }
+// };
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   titleSlides();
+// });
+
 const titleSlides = async () => {
   const categoriesObjects = await getFlatCategoryObjects();
   const swiperWrapper = document.querySelector(".title-wrapper");
 
-  // Очищаем содержимое всех слайдов, кроме первого
-  const slides = document.querySelectorAll(
-    ".title-slide:not(.title-slide-mov)"
-  );
-  slides.forEach((slide) => {
-    slide.remove();
-  });
-
-  // Убедимся, что title-slide-mov на первом месте
   const firstSlide = document.querySelector(".title-slide-mov");
+
   if (firstSlide) {
-    swiperWrapper.prepend(firstSlide);
+    firstSlide.remove();
   }
 
   const titlesWithObjects = [];
@@ -909,11 +1048,10 @@ const titleSlides = async () => {
   if (swiperWrapper) {
     categoriesObjects.forEach((obj) => {
       if (obj.title) {
-        titlesWithObjects.push(obj); // Если title существует, добавляем объект в массив
+        titlesWithObjects.push(obj);
       }
     });
 
-    // Создаем и добавляем новые слайды для каждого объекта с title
     titlesWithObjects.forEach((obj) => {
       const newSlide = document.createElement("div");
       newSlide.classList.add("swiper-slide", "title-slide");
@@ -928,10 +1066,8 @@ const titleSlides = async () => {
       <img src="${obj.photo[0]}" />
     `;
 
-      // Добавляем новый слайд в swiper-wrapper
-      swiperWrapper.appendChild(newSlide);
+      swiperWrapper.appendChild(newSlide); // Добавляем новый слайд в swiper-wrapper
 
-      // Сохраняем ссылку на объект obj для обработки события
       const titleBtnObj = newSlide.querySelector(".title-btn-obj");
 
       titleBtnObj.addEventListener("click", async () => {
@@ -943,14 +1079,22 @@ const titleSlides = async () => {
           return;
         }
 
-        objAnimated(); // если нужно до отрисовки
+        objAnimated();
         await selectAndDisplayObject(objectName);
         ActiveLeftMenuItem(objectName);
       });
     });
-  }
 
-  //////////////////////////////////////////////////////////////////////////////////
+    // Добавляем title-slide-mov только один раз в конце swiper-wrapper
+    const titleMov = document.createElement("div");
+    titleMov.classList.add("swiper-slide", "title-slide", "title-slide-mov");
+    titleMov.innerHTML = `
+      <img class="logo-mov" src="/assets/svg/logo_gray.svg" alt="">
+      <video src="/assets/img/mech/prev/1.mp4" autoplay muted loop playsinline alt=""></video>
+    `;
+
+    swiperWrapper.appendChild(titleMov);
+  }
 
   const progressCircle = document.querySelector(".autoplay-progress svg");
   const progressContent = document.querySelector(".autoplay-progress span");
@@ -962,7 +1106,7 @@ const titleSlides = async () => {
     spaceBetween: 30,
     centeredSlides: true,
     autoplay: {
-      delay: 18000,
+      delay: 10000,
       disableOnInteraction: false,
     },
     pagination: {
@@ -979,13 +1123,18 @@ const titleSlides = async () => {
         progressContent.textContent = `${Math.ceil(time / 1000)}`;
       },
       slideChange() {
-        // Перезапускаем автопроигрывание
-        this.autoplay.start();
-        // Сбрасываем время и прогресс
+        this.autoplay.start(); // Перезапускаем автопроигрывание на смене слайда
+
+        // Настройка времени задержки для автопроигрывания в зависимости от активного слайда
+        const activeSlide = this.slides[this.activeIndex];
+        const isMovSlide = activeSlide.classList.contains("title-slide-mov");
+
+        // Устанавливаем задержку в зависимости от типа слайда
+        this.params.autoplay.delay = isMovSlide ? 18000 : 10000;
+
         const remainingTime = this.params.autoplay.delay;
-        // Обновляем прогресс
-        progressCircle.style.setProperty("--progress", 0); // Сбрасываем прогресс
-        progressContent.textContent = `${Math.ceil(remainingTime / 1000)}`; // Обновляем прогресс по времени
+        progressCircle.style.setProperty("--progress", 0);
+        progressContent.textContent = `${Math.ceil(remainingTime / 1000)}`;
       },
     },
   });
@@ -993,25 +1142,22 @@ const titleSlides = async () => {
   var isAutoplaying = true;
 
   if (progress) {
-    // Проверяем, существует ли titleSwiper
     progress.addEventListener("click", function () {
       if (isAutoplaying) {
-        titleSwiper.autoplay.stop(); // Останавливаем автопроигрывание
+        titleSwiper.autoplay.stop();
         progressContent.innerHTML = `<svg class="title-play" width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M0.966797 5.24512V0.713867L5.07987 2.85717C5.15107 2.89427 5.15172 2.99592 5.081 3.03393L0.966797 5.24512Z" fill="#58C88A"/>
-  </svg>`; // Меняем иконку на кнопке при остановке
+          <path d="M0.966797 5.24512V0.713867L5.07987 2.85717C5.15107 2.89427 5.15172 2.99592 5.081 3.03393L0.966797 5.24512Z" fill="#58C88A"/>
+          </svg>`;
       } else {
-        titleSwiper.autoplay.start(); // Запускаем автопроигрывание
+        titleSwiper.autoplay.start();
         progressContent.innerHTML = `<svg class="title-pause" width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="2" height="6" fill="#58C88A"/>
-  <rect x="4" width="2" height="6" fill="#58C88A"/>
-  </svg>`; // Меняем иконку на кнопке при запуске
+          <rect width="2" height="6" fill="#58C88A"/>
+          <rect x="4" width="2" height="6" fill="#58C88A"/>
+          </svg>`;
       }
-      isAutoplaying = !isAutoplaying; // Переключаем состояние
+      isAutoplaying = !isAutoplaying;
     });
   }
-
-  ////////////////////////////////////////////////////////////////////////
 };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -1027,8 +1173,8 @@ const mainMobMenu = document.querySelector(".main-mob-menu");
 const openCatMenu = document.querySelector(".open-cat-menu");
 const closeCatMenu = document.querySelector(".close-cat-menu");
 const catalogMobMenu = document.querySelector(".categories-con");
-//const objectItem = document.querySelectorAll(".obj-btn");
-//const button = document.querySelector(".btn-modal");
+const sparePartsBtn = document.querySelector(".spare-parts-btn");
+const buttonCall = document.querySelector(".btn-modal-mob-call");
 
 openMenu.addEventListener("click", () => {
   mainMobMenu.classList.add("active");
@@ -1040,6 +1186,15 @@ document.addEventListener("click", (event) => {
     mainMobMenu.classList.remove("active");
     closeMenu.classList.add("hide");
   }
+});
+closeMenu.addEventListener("click", () => {
+  mainMobMenu.classList.remove("active");
+  closeMenu.classList.add("hide");
+});
+
+buttonCall.addEventListener("click", () => {
+  mainMobMenu.classList.remove("active");
+  closeMenu.classList.add("hide");
 });
 
 openCatMenu.addEventListener("click", () => {
@@ -1058,6 +1213,12 @@ document.addEventListener("click", (event) => {
     openCatMenu.classList.remove("hide");
     closeCatMenu.classList.add("hide");
   }
+});
+
+sparePartsBtn.addEventListener("click", () => {
+  catalogMobMenu.classList.remove("active");
+  openCatMenu.classList.remove("hide");
+  closeCatMenu.classList.add("hide");
 });
 
 // closeMenu.addEventListener("click", () => {

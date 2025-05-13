@@ -36,6 +36,14 @@
 .spare-parts-con {
   animation: fadeOutCarts 0.1s forwards;
 }
+.filter-btn-menu h2 {
+  color: #ffffff !important;
+  font-weight: 400;
+}
+.filter-btn-menu.active h2 {
+  color: #ffffff !important;
+  font-weight: 600;
+}
 .SPlistCart {
   display: flex;
   flex-direction: column;
@@ -52,7 +60,8 @@
 }
 .SPlist-photo {
   width: 100%;
-  height: fit-content;
+  height: 40px;
+  object-fit: contain;
 }
 .SPlistCart.active {
   animation: fadeInCarts 0.5s forwards;

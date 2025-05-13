@@ -21,12 +21,23 @@
 		<?php include "../components/categories.php"?>
 			<div class="object-con">
 				<?php include "../components/s-part.php"?>
-				<div class="object active">
+				<div class="object-all-prevue active">
+					<!-- <div class="obj-all-card">
+						<img src="${obj.photo}" alt="">
+						<h1>${obj.name}</h1>
+						<h2>${obj.cod}</h2>
+						<h3>${obj.filter}</h3>
+					</div>
+					<div class="obj-all-card"></div>
+					<div class="obj-all-card"></div> -->
+				</div>
+				<div class="object">
+
 					<div class="object-prevue">
 						<div class="swiper-con">
 							<div class="swiper object-swiper">
 								<div class="swiper-wrapper object-swiper-wrapper">
-									<div class="swiper-slide object-slide-prev object-slide">
+									<!-- <div class="swiper-slide object-slide-prev object-slide">
 										<img src="/assets/img/mech/prev/1.jpg" alt="">
 									</div>
 									<div class="swiper-slide object-slide-prev object-slide">
@@ -37,7 +48,7 @@
 									</div>
 									<div class="swiper-slide object-slide-prev object-slide">
 										<img src="/assets/img/mech/prev/4.jpg" alt="">
-									</div>
+									</div> -->
 								</div>
 								<div class="swiper-button-next"></div>
 								<div class="swiper-button-prev"></div>
@@ -67,10 +78,10 @@
 						<div class="green-line"></div>
 						<div class="object-descripcion">
 							<div class="object-categoty_main">
-								<h2 class="object-categoty_main-text">Категория: </h2>
+								<h2 class="object-categoty_main-text"> </h2>
 							</div>
 							<div class="object-name_main">
-								<h1 class="object-name_main-text">ООО «МЕКАГРО ГРУП» - официальный дилер компаний MECAGRO, TIERRE, BERTOLINI и ARAG на территории России и стран СНГ</h1>
+								<h1 class="object-name_main-text"></h1>
 							</div>
 							<div class="object-descripcion_main">
 								<h3 class="object-descripcion_main-text" id="description">

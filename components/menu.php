@@ -29,17 +29,17 @@
 				<div class="link-con">
 					<button data-lang="Связаться" data-lang_en="proposal"  class="btn form-data btn-modal-call">Связаться</button>
 					<div class="link">
-						<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
-						<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
+						<a href="https://wa.me/78122373949" target="_blank"><img src="/assets/svg/link/wt.svg" alt=""></a>
+						<a href="https://t.me/+d3cgc17mj8piNjJi" target="_blank"><img src="/assets/svg/link/tg.svg" alt=""></a>
 						<a class="mail-btn"><img src="/assets/svg/link/ml.svg" alt="">
 							<div class="mail-drop-btn">
-									<h2 class="copy">mekagrogrup@mail.ru</h2>
+									<h2 class="copy">info@mekagro.pro</h2>
 							</div>
 						</a>
-						<a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
+						<a href="https://vk.ru/club230395511" target="_blank"><img src="/assets/svg/link/vk.svg" alt=""></a>
 						<a class="mail-btn"><img src="/assets/svg/link/tel.svg" alt="">
 							<div class="mail-drop-btn">
-									<h2 class="copy">+7 (989) 807-00-15</h2>
+									<h2 class="copy">+7 812 237-39-49</h2>
 							</div>
 						</a>
 					</div>
@@ -53,8 +53,10 @@
 							<a data-lang="Каталог" data-lang_en="Catalog" class="catalog-btn" href="/pages/catalog.php">Каталог</a>
 						</li>
 						<li>|</li>
-						<li><a data-lang="Новинки" data-lang_en="New products" href="/pages/catalog.php">Новинки</a></li>
+						<!-- <li><a data-lang="Новинки" data-lang_en="New products" class="new-obj-btn">Новинки</a></li> -->
+						<li class="filter filter-btn-menu filter-plus"><h2 data-lang="Новинка" data-lang_en="New">Новинка</h2></li>
 						<li>|</li>
+
 						<li  class="download-cat pdf-down arrow"><a data-lang="Скачать каталог" data-lang_en="Download the catalog" href="">Скачать каталог</a>
 							<ul>
 								<li><a target="_blanc" href="/assets/img/brend/Mecagro.pdf"><h2>MECARGO PDF</h2></a></li>
@@ -125,20 +127,13 @@
 			</ul>
 
 			<div class="mob-link-con">
-				<button class="btn btn-modal-call form-data">Получить консультацию</button>
+				<button class="btn btn-modal-call btn-modal-mob-call form-data">Получить консультацию</button>
 				<div class="link">
-					<a href="#"><img src="/assets/svg/link/wt.svg" alt=""></a>
-					<a href="#"><img src="/assets/svg/link/tg.svg" alt=""></a>
-					<a class="mail-btn"><img src="/assets/svg/link/ml.svg" alt="">
-						<div class="mail-drop-btn">
-								<h2 class="copy">mekagrogrup@mail.ru</h2>
-						</div>
-					</a>
-					<a href="#"><img src="/assets/svg/link/vk.svg" alt=""></a>
-					<a class="mail-btn"><img src="/assets/svg/link/tel.svg" alt="">
-						<div class="mail-drop-btn">
-								<h2 class="copy">+7 (989) 807-00-15</h2>
-						</div>
+					<a href="https://wa.me/78122373949" target="_blank"><img src="/assets/svg/link/wt.svg" alt=""></a>
+					<a href="https://t.me/+d3cgc17mj8piNjJi" target="_blank"><img src="/assets/svg/link/tg.svg" alt=""></a>
+					<a href="mailto:info@mekagro.pro" target="_blank"><img src="/assets/svg/link/ml.svg" alt=""></a>
+					<a href="https://vk.ru/club230395511" target="_blank"><img src="/assets/svg/link/vk.svg" alt=""></a>
+					<a href="tel:+78122373949"><img src="/assets/svg/link/tel.svg" alt=""></a>
 					</a>
 				</div>
 			</div>
@@ -156,33 +151,5 @@
 
 
 	</div>
-
-
-
-	<!-- <div class="catalog-mob-menu">
-		
-		<div class="mob-cat-btn-con">
-			<img class="open-cat-menu" src="/assets/svg/catalog-open-mob.svg" alt="">
-			<img class="close-cat-menu hide" src="/assets/svg/catalog-close-mob.svg" alt="">
-		</div>
-		
-
-		<ul class="main-categories"></ul>
-		<div class="download-cat-mob">
-			<button class="btn-light download-cat">Скачать каталог
-				<ul>
-					<li><a target="_blanc" href="/assets/img/brend/Mecagro.pdf"><h2>MECARGO PDF</h2></a></li>
-					<li><a target="_blanc" href="/assets/img/brend/BARGAM.pdf"><h2>BARGAM PDF</h2></a></li>
-					<li><a target="_blanc" href="/assets/img/brend/Mosh.pdf"><h2>MOSH PDF</h2></a></li>
-				</ul>
-			</button>
-		</div>
-
-
-
-	</div> -->
-
-
-
 
 

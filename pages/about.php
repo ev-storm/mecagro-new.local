@@ -32,15 +32,17 @@
 			<a href="/pages/about.php#policy"><h2 data-lang="Политика конфидециальности" data-lang_en="Privacy Policy">Политика конфидециальности</h2></a>
 		</div>
 
-		<div id="about-description" class="anim-left about-description">
+		<!-- <div id="about-description" class="anim-left about-description">
 			<h1 data-lang="МЕКАГРО ГРУП" data-lang_en="MECAGRO GROUP">МЕКАГРО ГРУП</h1>
 			<h2 data-lang="Российская компания ООО «Мекагро Груп» — ведущий поставщик инновационных агротехнологий и официальный дилер мировых брендов <span> MECAGRO, TIERRE, BERTOLINI и ARAG" data-lang_en="The Russian company Mecagro Group LLC is a leading supplier of innovative agricultural technologies and an official dealer of the global brands<span> MECAGRO, TIERRE, BERTOLINI and ARAG</span>">
 				Российская компания ООО «Мекагро Груп» — ведущий поставщик инновационных агротехнологий и официальный дилер мировых брендов <span> MECAGRO, TIERRE, BERTOLINI и ARAG </span> на территории России и стран СНГ. На протяжении всей деятельности компании мы обеспечиваем сельскохозяйственный сектор передовой техникой, комплексным сервисом и решениями, которые помогают достигать выдающихся результатов. 
 			</h2>
-		</div>
+		</div> -->
+
+		<?php include "../components/serty.php"?>
 
 		<div id="progress" class="progress-con">
-			<div class="title-heading-con">
+			<div class="title-heading-con title-heading-progress">
 				<h1 data-lang="Наши достижения:" data-lang_en="Our achievements:" class="anim-left title-heading">Наши достижения:</h1>
 			</div>
 			<div class="progress-item anim-left btn-svg-2">
@@ -105,23 +107,27 @@
 				<div class="cont-item-con">
 					<div class="cont-item">
 						<h2 class="copy" data-lang="Телефон" data-lang_en="Telephone">Телефон</h2>
-						<h3>+7 (989) 807-00-15</h3>
+						<h3>+7 812 237-39-49</h3>
 					</div>
 					<div class="cont-item">
 						<h2 class="copy">E-mail</h2>
-						<h3>mekagrogrup@mail.ru</h3>
+						<h3>info@mekagro.pro</h3>
 					</div>
 					<div class="cont-item">
-						<a href="#"><h2 class="tg-btn">Telegram</h2></a>
-						<h3 class="copy">mekagrogrup@mail.ru</h3>
+						<a href="https://t.me/+d3cgc17mj8piNjJi" target="_blank"><h2 class="tg-btn">Telegram</h2></a>
+						<h3 class="copy">t.me/+d3cgc17mj8piNjJi</h3>
+					</div>
+					<div class="cont-item">
+						<a href="https://vk.ru/club230395511" target="_blank"><h2 class="tg-btn">VK</h2></a>
+						<h3 class="copy">vk.ru/club230395511</h3>
 					</div>
 				</div>
 
 				<div class="adres-con">
 					<h2 class="copy" data-lang="Адрес" data-lang_en="Address">Адрес</h2>
 					<h3 data-lang="г. Краснодар, посёлок Белозёрный,<br>Елизаветинское шоссе, ул. Полевая<br>
-					<span>Mon-Fri 8:00 -17:00</span>" data-lang_en="Krasnodar, Belozerny settlement,<br>Elizavetinskoe highway, Polevaya St.<br>
-					<span>пн-пт 8:00 -17:00</span>">г. Краснодар, посёлок Белозёрный,<br>Елизаветинское шоссе, ул. Полевая<br>
+					<span>пн-пт 8:00 -17:00</span>" data-lang_en="Krasnodar, Belozerny settlement,<br>Elizavetinskoe highway, Polevaya St.<br>
+					<span>Mon-Fri 8:00 -17:00</span>">г. Краснодар, посёлок Белозёрный,<br>Елизаветинское шоссе, ул. Полевая<br>
 					<span>пн-пт 8:00 -17:00</span>
 					</h3>
 				</div>
@@ -233,7 +239,7 @@
 				<button class="btn btn-download">Сертификаты</button>
 			</div>
 		</div> -->
-			<?php include "../components/serty.php"?>
+	
 
 			<?php include "../components/policy.php"?>
 

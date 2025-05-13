@@ -264,3 +264,14 @@ document.addEventListener("DOMContentLoaded", function () {
   updateLogo();
   window.addEventListener("resize", updateLogo);
 });
+
+const filterBtnMenu = document.querySelector(".filter-btn-menu");
+const filterNewBtn = document.querySelector(".filter-new-btn");
+
+filterBtnMenu.addEventListener("click", () => {
+  filterNewBtn.classList.toggle("active");
+});
+
+filterNewBtn.addEventListener("click", () => {
+  filterBtnMenu.classList.toggle("active");
+});

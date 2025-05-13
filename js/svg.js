@@ -22,38 +22,38 @@ function totalSvg() {
     animate.beginElement();
   });
 
-  btns.forEach((btn) => {
-    let isAnimating = false;
+  // btns.forEach((btn) => {
+  //   let isAnimating = false;
 
-    btn.addEventListener("mouseenter", function () {
-      if (isAnimating) return;
+  //   btn.addEventListener("mouseenter", function () {
+  //     if (isAnimating) return;
 
-      const path = this.querySelector("svg > path");
+  //     const path = this.querySelector("svg > path");
 
-      let len = Math.round(path.getTotalLength());
+  //     let len = Math.round(path.getTotalLength());
 
-      const animate = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "animate"
-      );
-      animate.setAttribute("attributeName", "stroke-dashoffset");
-      animate.setAttribute("values", `${len}; 0`);
-      animate.setAttribute("dur", `${len / 80}`);
-      animate.setAttribute("fill", "freeze");
+  //     const animate = document.createElementNS(
+  //       "http://www.w3.org/2000/svg",
+  //       "animate"
+  //     );
+  //     animate.setAttribute("attributeName", "stroke-dashoffset");
+  //     animate.setAttribute("values", `${len}; 0`);
+  //     animate.setAttribute("dur", `${len / 80}`);
+  //     animate.setAttribute("fill", "freeze");
 
-      path.appendChild(animate);
-      animate.beginElement();
-      isAnimating = true; // Устанавливаем флаг в состояние "занято"
+  //     path.appendChild(animate);
+  //     animate.beginElement();
+  //     isAnimating = true; // Устанавливаем флаг в состояние "занято"
 
-      setTimeout(() => {
-        isAnimating = false;
-      }, 5000);
-    });
+  //     setTimeout(() => {
+  //       isAnimating = false;
+  //     }, 5000);
+  //   });
 
-    btn.addEventListener("mouseleave", function () {
-      const path = this.querySelector("svg > path");
-    });
-  });
+  //   btn.addEventListener("mouseleave", function () {
+  //     const path = this.querySelector("svg > path");
+  //   });
+  // });
 }
 
 if (document.querySelector(".btn-svg")) {

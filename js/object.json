@@ -27,7 +27,7 @@
                     "Масса машины сухая, не более": "600 кг",
                     "Габаритные размеры (Д×Ш×В) SLV 1000, не более:": "3,0×1,45×2,2 м"
                   },
-                  "filter": ["MECARGO", "Новинка"],
+                  "filter": ["MECARGO"],
                   "photo": [
                     "/assets/img/mech/SLV_1000/1.jpg",
                     "/assets/img/mech/SLV_1000/2.jpg"
@@ -663,7 +663,7 @@
                     "Кол-во рабочих органов": "7",
                     "Кол-во корпусов": "4"
                   },
-                  "filter": ["MECARGO", "Новинка"],
+                  "filter": ["MECARGO"],
                   "photo": [
                     "/assets/img/mech/ПРВН-2.5/1.jpg",
                     "/assets/img/mech/ПРВН-2.5/2.jpg",
@@ -687,7 +687,7 @@
                     "Ширина обратной полосы": "м 5 - 10",
                     "Минимальная мощность для агрегации": "kw 55"
                   },
-                  "filter": ["MECARGO", "Новинка"],
+                  "filter": ["MECARGO"],
                   "photo": [
                     "/assets/img/mech/VUC-3/1.jpg",
                     "/assets/img/mech/VUC-3/2.jpg",
