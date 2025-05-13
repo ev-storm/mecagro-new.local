@@ -1,3 +1,7 @@
+// /////////////////////////----JSON------////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////
+
 // const VALID_USERNAME = "user";
 // const VALID_PASSWORD = "123";
 
@@ -45,296 +49,177 @@
 //   messageDiv.className = "";
 // }
 
-// // Функция для отрисовки контента при успешном входе
-// function renderContent() {
-//   const contentDiv = document.querySelector(".content-con");
-//   contentDiv.innerHTML = "";
-//   contentDiv.innerHTML = `
-//     <div class="admin-bar">
-// 				<h2 class="open-all">Расскрыть все</h2>
-// 				<h2 class="close-all">Закрыть все</h2>
-// 				<div class="cart-margin"></div>
-// 				<ul>
-// 					<li><a href="/pages/admin.php#"><h2>объект 1</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 2</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 3</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 4</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 5</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 6</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 7</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 8</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 9</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 10</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 11</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 12</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 13</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 1</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 2</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 3</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 4</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 5</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 6</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 7</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 8</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 9</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 10</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 11</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 12</h2></a></li>
-// 					<li><a href="/pages/admin.php#"><h2>объект 13</h2></a></li>
-// 				</ul>
-// 			</div>
-// 			<div class="obj-cart-con">
-// 				<div class="obj-cart">
-// 					<div class="obj-cart-main">
-// 						<div class="mini-photo-con">
-// 							<img src="/assets/img/avto/1.png" alt="">
-// 						</div>
-// 						<div class="obj-cart-title">
-// 							<h1>Название</h1>
-// 							<h2>Подкатегория</h2>
-// 						</div>
-// 						<div class="trash">
-// 							<span class="trash-tip">удалить объект</span>
-// 							<img src="/assets/svg/trash.svg" alt="">
-// 						</div>
-// 					</div>
-// 					<div class="obj-cart-down">
-// 						<img src="/assets/svg/arrow-green.svg" alt="">
-// 					</div>
-
-// 					<div class="obj-cart-dop">
-// 						<div class="cart-photo">
-// 							<img src="/assets/img/avto/1.png" alt="">
-// 						</div>
-// 						<div class="cart-descript-con">
-// 							<h2 class="cart-descript">Описание Описание  Описание</h2>
-// 							<h3 class="cart-specifications">Характиристики Хаиристиар актиристики Характиристики Характиристики</h3>
-// 							<span class="cart-brend">MECARGO | BARGAM | MOSH</span>
-// 							<span class="cart-filter">Новинка | Популярное</span>
-// 						</div>
-// 					</div>
-// 				</div>
-// 				<div class="obj-cart">
-// 					<div class="obj-cart-main">
-// 						<div class="mini-photo-con">
-// 							<img src="/assets/img/avto/1.png" alt="">
-// 						</div>
-// 						<div class="obj-cart-title">
-// 							<h1>Название</h1>
-// 							<h2>Подкатегория</h2>
-// 						</div>
-// 						<div class="trash">
-// 							<span class="trash-tip">удалить объект</span>
-// 							<img src="/assets/svg/trash.svg" alt="">
-// 						</div>
-// 					</div>
-// 					<div class="obj-cart-down">
-// 						<img src="/assets/svg/arrow-green.svg" alt="">
-// 					</div>
-
-// 					<div class="obj-cart-dop">
-// 						<div class="cart-photo">
-// 							<img src="/assets/img/avto/1.png" alt="">
-// 						</div>
-// 						<div class="cart-descript-con">
-// 							<h2 class="cart-descript">Описание Описание  Описание</h2>
-// 							<h3 class="cart-specifications">Характиристики Хаиристиар актиристики Характиристики Характиристики</h3>
-// 							<span class="cart-brend">MECARGO | BARGAM | MOSH</span>
-// 							<span class="cart-filter">Новинка | Популярное</span>
-// 						</div>
-// 					</div>
-// 				</div>
-// 				<div class="obj-cart">
-// 					<div class="obj-cart-main">
-// 						<div class="mini-photo-con">
-// 							<img src="/assets/img/avto/1.png" alt="">
-// 						</div>
-// 						<div class="obj-cart-title">
-// 							<h1>Название</h1>
-// 							<h2>Подкатегория</h2>
-// 						</div>
-// 						<div class="trash">
-// 							<span class="trash-tip">удалить объект</span>
-// 							<img src="/assets/svg/trash.svg" alt="">
-// 						</div>
-// 					</div>
-// 					<div class="obj-cart-down">
-// 						<img src="/assets/svg/arrow-green.svg" alt="">
-// 					</div>
-
-// 					<div class="obj-cart-dop">
-// 						<div class="cart-photo">
-// 							<img src="/assets/img/avto/1.png" alt="">
-// 						</div>
-// 						<div class="cart-descript-con">
-// 							<h2 class="cart-descript">Описание Описание  Описание</h2>
-// 							<h3 class="cart-specifications">Характиристики Хаиристиар актиристики Характиристики Характиристики</h3>
-// 							<span class="cart-brend">MECARGO | BARGAM | MOSH</span>
-// 							<span class="cart-filter">Новинка | Популярное</span>
-// 						</div>
-// 					</div>
-// 				</div>
-// 				<div class="obj-cart">
-// 					<div class="obj-cart-main">
-// 						<div class="mini-photo-con">
-// 							<img src="/assets/img/avto/1.png" alt="">
-// 						</div>
-// 						<div class="obj-cart-title">
-// 							<h1>Название</h1>
-// 							<h2>Подкатегория</h2>
-// 						</div>
-// 						<div class="trash">
-// 							<span class="trash-tip">удалить объект</span>
-// 							<img src="/assets/svg/trash.svg" alt="">
-// 						</div>
-// 					</div>
-// 					<div class="obj-cart-down">
-// 						<img src="/assets/svg/arrow-green.svg" alt="">
-// 					</div>
-
-// 					<div class="obj-cart-dop">
-// 						<div class="cart-photo">
-// 							<img src="/assets/img/avto/1.png" alt="">
-// 						</div>
-// 						<div class="cart-descript-con">
-// 							<h2 class="cart-descript">Описание Описание  Описание</h2>
-// 							<h3 class="cart-specifications">Характиристики Хаиристиар актиристики Характиристики Характиристики</h3>
-// 							<span class="cart-brend">MECARGO | BARGAM | MOSH</span>
-// 							<span class="cart-filter">Новинка | Популярное</span>
-// 						</div>
-// 					</div>
-// 				</div>
-// 				<div class="obj-cart">
-// 					<div class="obj-cart-main">
-// 						<div class="mini-photo-con">
-// 							<img src="/assets/img/avto/1.png" alt="">
-// 						</div>
-// 						<div class="obj-cart-title">
-// 							<h1>Название</h1>
-// 							<h2>Подкатегория</h2>
-// 						</div>
-// 						<div class="trash">
-// 							<span class="trash-tip">удалить объект</span>
-// 							<img src="/assets/svg/trash.svg" alt="">
-// 						</div>
-// 					</div>
-// 					<div class="obj-cart-down">
-// 						<img src="/assets/svg/arrow-green.svg" alt="">
-// 					</div>
-
-// 					<div class="obj-cart-dop">
-// 						<div class="cart-photo">
-// 							<img src="/assets/img/avto/1.png" alt="">
-// 						</div>
-// 						<div class="cart-descript-con">
-// 							<h2 class="cart-descript">Описание Описание  Описание</h2>
-// 							<h3 class="cart-specifications">Характиристики Хаиристиар актиристики Характиристики Характиристики</h3>
-// 							<span class="cart-brend">MECARGO | BARGAM | MOSH</span>
-// 							<span class="cart-filter">Новинка | Популярное</span>
-// 						</div>
-// 					</div>
-// 				</div>
-// 				<div class="obj-cart">
-// 					<div class="obj-cart-main">
-// 						<div class="mini-photo-con">
-// 							<img src="/assets/img/avto/1.png" alt="">
-// 						</div>
-// 						<div class="obj-cart-title">
-// 							<h1>Название</h1>
-// 							<h2>Подкатегория</h2>
-// 						</div>
-// 						<div class="trash">
-// 							<span class="trash-tip">удалить объект</span>
-// 							<img src="/assets/svg/trash.svg" alt="">
-// 						</div>
-// 					</div>
-// 					<div class="obj-cart-down">
-// 						<img src="/assets/svg/arrow-green.svg" alt="">
-// 					</div>
-
-// 					<div class="obj-cart-dop">
-// 						<div class="cart-photo">
-// 							<img src="/assets/img/avto/1.png" alt="">
-// 						</div>
-// 						<div class="cart-descript-con">
-// 							<h2 class="cart-descript">Описание Описание  Описание</h2>
-// 							<h3 class="cart-specifications">Характиристики Хаиристиар актиристики Характиристики Характиристики</h3>
-// 							<span class="cart-brend">MECARGO | BARGAM | MOSH</span>
-// 							<span class="cart-filter">Новинка | Популярное</span>
-// 						</div>
-// 					</div>
-// 				</div>
-
-// 			</div>
-//   `;
+// function adminData(objects) {
+//   renderContent(objects);
 // }
 
-// function dropMenu() {
-//   const cartDown = document.querySelectorAll(".obj-cart-down");
-//   const cartDop = document.querySelectorAll(".obj-cart-dop");
-//   const openAll = document.querySelector(".open-all");
-//   const closeAll = document.querySelector(".close-all");
+const adminData = async (objects) => {
+  renderContent(objects);
+};
 
-//   // Handle individual cart item toggles
-//   cartDown.forEach((item) => {
-//     item.addEventListener("click", () => {
-//       const cartDetail = item.nextElementSibling;
+function renderListItems(objects) {
+  return objects
+    .map((obj) => {
+      return `<li><a href="/pages/admin.php#"><h2>${obj.name} ${obj.cod}</h2></a></li>`;
+    })
+    .join(""); // Собирает строки в единую HTML-разметку
+}
+function renderCardItems(objects) {
+  return objects
+    .map((obj) => {
+      return `
+			<div class="obj-cart-form-adm-con">
+        <form class="obj-cart-form-adm" action="#">
+          <div class="obj-cart">
+            <div class="obj-cart-main">
+              <div class="mini-photo-con">
+                <img src="${obj.photo[0]}" alt="">
+              </div>
+              <div class="obj-cart-title">
+                <input type="text" class="input-adm-main in-title" value="${obj.name}" readonly>
+                <input type="text" class="input-adm-main" value="${obj.cod}" readonly>
+              </div>
+              <div class="trash">
+                <img class="img-adm-main input-adm-change" src="/assets/svg/change.svg" alt="">
+                <img class="img-adm-main" src="/assets/svg/delete.svg" alt="">
+              </div>
+            </div>
+            <div class="obj-cart-down">
+              <img src="/assets/svg/arrow-green.svg" alt="">
+            </div>
 
-//       if (cartDetail) {
-//         cartDetail.classList.toggle("show");
+            <div class="obj-cart-dop">
+              <div class="cart-descript-con">
+                <input class="input-adm-main" type="textarea" rows="4" value="${obj.description}">
+                <input class="input-adm-main" type="text" value="${obj.title}">
+                <input class="input-adm-main" type="text" value="${obj.specifications}">
+                <input class="input-adm-main" type="text" value="${obj.filter}">
+              </div>
+              <input type="submit" class="input-adm-main btn input-adm-submit" value="Изменить">
+            </div>
+          </div>
+        </form>
+      </div>
+			`;
+    })
+    .join(""); // Собирает строки в единую HTML-разметку
+}
 
-//         if (cartDetail.classList.contains("show")) {
-//           item.style.transform = "rotate(180deg)";
-//         } else {
-//           item.style.transform = "rotate(0deg)";
-//         }
-//       }
-//     });
-//   });
+function renderContent(objects) {
+  const contentDiv = document.querySelector(".content-con");
+  contentDiv.innerHTML = "";
 
-//   openAll.addEventListener("click", () => {
-//     cartDop.forEach((dopItem) => {
-//       dopItem.classList.add("show");
-//       const index = Array.from(cartDop).indexOf(dopItem);
-//       if (index >= 0) {
-//         const toggleButton = cartDown[index];
-//         if (dopItem.classList.contains("show")) {
-//           toggleButton.style.transform = "rotate(180deg)";
-//         } else {
-//           toggleButton.style.transform = "rotate(0deg)";
-//         }
-//       }
-//     });
-//   });
-//   closeAll.addEventListener("click", () => {
-//     cartDop.forEach((dopItem) => {
-//       dopItem.classList.remove("show");
-//       const index = Array.from(cartDop).indexOf(dopItem);
-//       if (index >= 0) {
-//         const toggleButton = cartDown[index];
-//         if (dopItem.classList.contains("show")) {
-//           toggleButton.style.transform = "rotate(180deg)";
-//         } else {
-//           toggleButton.style.transform = "rotate(0deg)";
-//         }
-//       }
-//     });
-//   });
-// }
-// dropMenu();
+  // const firstObject = objects[0];
 
-// // /////////////////////////----JSON------////////////////////////////////
-// // const jsonCategories = "../js/object.json";
+  contentDiv.innerHTML = `
+    <div class="admin-bar">
+      <h2 class="open-all">Расскрыть все</h2>
+      <h2 class="close-all">Закрыть все</h2>
+      <div class="cart-margin"></div>
+      <ul>
+        ${renderListItems(objects)}
+      </ul>
+    </div>
+    <div class="obj-cart-con">
+			${renderCardItems(objects)}
+    </div>
+  `;
 
-// // const fetchDataCategories = async () => {
-// //   try {
-// //     const response = await fetch(jsonCategories);
-// //     if (!response.ok) {
-// //       throw new Error("Network response was not ok " + response.statusText);
-// //     }
-// //     return await response.json();
-// //   } catch (error) {
-// //     console.error("Ошибка загрузки данных: ", error);
-// //   }
-// // };
-// // /////////////////////////----JSON------////////////////////////////////
+  toggleInputFields();
+}
+
+function toggleInputFields() {
+  const objCart = document.querySelectorAll(".obj-cart");
+  const cartDown = document.querySelectorAll(".obj-cart-down");
+  const cartDop = document.querySelectorAll(".obj-cart-dop");
+  const openAll = document.querySelector(".open-all");
+  const closeAll = document.querySelector(".close-all");
+  //const inputFields = document.querySelectorAll(".input-adm-main");
+  const changeButtons = document.querySelectorAll(".input-adm-change");
+  const changeSubmit = document.querySelector(".input-adm-submit");
+
+  const trash = document.querySelector(".trash");
+
+  objCart.forEach((item) => {
+    const cartDop = item.querySelector(".obj-cart-dop");
+    const cartDown = item.querySelector(".obj-cart-down");
+    const changeSubmit = item.querySelector(".input-adm-submit");
+
+    changeSubmit.addEventListener("click", () => {
+      cartDown.classList.toggle("up");
+      cartDop.classList.toggle("show");
+    });
+  });
+
+  // objCart.forEach((item) => {
+  //   const cartDop = item.querySelector(".obj-cart-dop");
+  //   const cartDown = item.querySelector(".obj-cart-down");
+
+  //   cartDown.addEventListener("click", () => {
+  //     cartDown.classList.toggle("up");
+  //     cartDop.classList.toggle("show");
+  //   });
+  // });
+
+  // objCart.forEach((item) => {
+  //   item.removeAttribute("readonly");
+
+  //   item.addEventListener("click", () => {
+  //     const cartDop = item.querySelector(".obj-cart-dop");
+  //     const cartDown = item.querySelector(".obj-cart-down");
+  //     cartDown.classList.add("up");
+  //     cartDop.classList.add("show");
+  //   });
+  // });
+
+  // openAll.addEventListener("click", () => {
+  //   cartDop.forEach((dopItem, index) => {
+  //     dopItem.classList.add("show");
+  //     cartDown[index].style.transform = "rotate(180deg)";
+  //   });
+  // });
+
+  // closeAll.addEventListener("click", () => {
+  //   cartDop.forEach((dopItem, index) => {
+  //     dopItem.classList.remove("show");
+  //     cartDown[index].style.transform = "rotate(0deg)";
+  //   });
+  // });
+
+  // changeButtons.forEach((button) => {
+  //   button.addEventListener("click", function () {
+  //     const form = button.closest("form");
+  //     const currentInputs = form.querySelectorAll(".input-adm-main");
+
+  //     button.classList.toggle("active");
+
+  //     currentInputs.forEach((input) => {
+  //       if (button.classList.contains("active")) {
+  //         input.removeAttribute("readonly");
+  //         input.classList.add("focus");
+  //         input.style.background = "#f5f5f5";
+  //         button.src = "/assets/svg/change_2.svg";
+  //         changeSubmit.style.display = "block";
+  //         objCart.forEach((item) => {
+  //           const cartDop = item.querySelector(".obj-cart-dop");
+  //           const cartDown = item.querySelector(".obj-cart-down");
+  //           cartDown.classList.add("up");
+  //           cartDop.classList.add("show");
+  //         });
+  //       } else {
+  //         input.setAttribute("readonly", "readonly");
+  //         input.style.background = "#fff";
+  //         input.style.borderStyle = "none";
+  //         button.src = "/assets/svg/change.svg";
+  //         changeSubmit.style.display = "none";
+  //         objCart.forEach((item) => {
+  //           const cartDop = item.querySelector(".obj-cart-dop");
+  //           const cartDown = item.querySelector(".obj-cart-down");
+  //           cartDown.classList.remove("up");
+  //           cartDop.classList.remove("show");
+  //         });
+  //       }
+  //     });
+  //   });
+  // });
+}

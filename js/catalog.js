@@ -129,6 +129,8 @@ async function getFlatCategoryObjects(lang = langToggle) {
       });
     }
   }
+
+  adminData(flatList);
   return flatList;
 }
 
