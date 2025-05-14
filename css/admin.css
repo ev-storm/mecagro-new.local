@@ -68,11 +68,12 @@
   height: 100%;
   overflow: scroll;
 }
+
 .admin-bar ul {
   display: flex;
   flex-direction: column;
 }
-.admin-bar ul li {
+.admin-bar-item {
   display: flex;
   align-items: start;
   width: 100%;
@@ -81,28 +82,35 @@
   border-radius: 5px;
   margin: 1px 0;
 }
-.admin-bar ul li:hover {
+.admin-bar-item:hover {
   background: #00000008;
   transition: var(--tran-03);
 }
-.admin-bar ul li a h2 {
+.admin-bar-item h2 {
   font-size: 14px;
   transition: var(--tran-03);
 }
-.admin-bar ul li:hover a h2 {
+.admin-bar-item:hover h2 {
   transform: translateX(5%);
   color: var(--main);
   transition: var(--tran-03);
 }
+.admin-bar-item.active h2 {
+  transform: translateX(5%);
+  color: var(--main);
+  transition: var(--tran-03);
+}
+
 .obj-cart-con {
   display: flex;
   flex-wrap: wrap;
   align-items: start;
   justify-content: flex-start;
-  align-content: flex-start;
   width: 80%;
   height: 100vh;
   padding: 100px 20px;
+  overflow: scroll;
+  align-content: flex-start;
 }
 .obj-cart {
   display: flex;
@@ -278,4 +286,44 @@
   background: var(--main) !important;
   font-weight: 600;
   margin: 15px 0 !important;
+}
+.adm-bar-btn {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  padding: 2px 20px !important;
+  margin: 10px 0px !important;
+}
+.adm-bar-btn-con {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 30px !important;
+}
+
+.adm-btn-close {
+  width: 25px;
+  scale: 1;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: var(--tran-03);
+}
+.adm-btn-close:active {
+  scale: 0.8;
+}
+.search-adm {
+  background: #ffffff33;
+  width: 100%;
+  border: none;
+  border-radius: 2px;
+  color: var(--black);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 2px 20px;
+  margin: 4px;
+  transition: var(--tran-03);
+}
+.actept {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }

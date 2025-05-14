@@ -1,225 +1,241 @@
 // /////////////////////////----JSON------////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////
-
-// const VALID_USERNAME = "user";
-// const VALID_PASSWORD = "123";
-
-// document
-//   .getElementById("loginForm")
-//   .addEventListener("submit", function (event) {
-//     event.preventDefault();
-
-//     const username = document.getElementById("username").value.trim();
-//     const password = document.getElementById("password").value.trim();
-//     const messageDiv = document.getElementById("message");
-//     const loginContainer = document.getElementById("login-container-con");
-
-//     clearMessage(messageDiv);
-
-//     if (isValidInput(username, password)) {
-//       if (username === VALID_USERNAME && password === VALID_PASSWORD) {
-//         displayMessage(messageDiv, "Успешный вход!", "success");
-//         renderContent();
-//         loginContainer.classList.add("hide");
-//       } else {
-//         displayMessage(
-//           messageDiv,
-//           "Неправильное имя пользователя или пароль.",
-//           "error"
-//         );
-//       }
-//     } else {
-//       // Поля ввода не заполнены
-//       displayMessage(messageDiv, "Пожалуйста, заполните все поля.", "error");
-//     }
-//   });
-
-// function isValidInput(username, password) {
-//   return username !== "" && password !== "";
-// }
-
-// function displayMessage(messageDiv, text, className) {
-//   messageDiv.textContent = text;
-//   messageDiv.className = className;
-// }
-
-// function clearMessage(messageDiv) {
-//   messageDiv.textContent = "";
-//   messageDiv.className = "";
-// }
-
-// function adminData(objects) {
-//   renderContent(objects);
-// }
-
 const adminData = async (objects) => {
-  renderContent(objects);
+  const VALID_USERNAME = "user";
+  const VALID_PASSWORD = "123";
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+  const messageDiv = document.getElementById("message");
+  const loginContainer = document.getElementById("login-container-con");
+  const tip = document.querySelector(".tip");
+
+  if (isLoggedIn === "true") {
+    renderContent(objects);
+    loginContainer.classList.add("hide");
+    tip.classList.add("active");
+    tip.innerHTML = `<h3>Добро пожаловать</h3>`;
+  }
+
+  document
+    .getElementById("loginForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      clearMessage(messageDiv);
+
+      if (isValidInput(username, password)) {
+        if (username === VALID_USERNAME && password === VALID_PASSWORD) {
+          displayMessage(messageDiv, "Успешный вход!", "success");
+          renderContent(objects);
+          loginContainer.classList.add("hide");
+          localStorage.setItem("isLoggedIn", "true");
+          tip.classList.add("active");
+          tip.innerHTML = `<h3>Добро пожаловать</h3>`;
+        } else {
+          displayMessage(
+            messageDiv,
+            "Неправильное имя пользователя или пароль.",
+            "error"
+          );
+        }
+      } else {
+        displayMessage(messageDiv, "Пожалуйста, заполните все поля.", "error");
+      }
+    });
+
+  const btnExit = document.querySelector(".adm-btn-close");
+
+  btnExit.addEventListener("click", function () {
+    const modal = document.querySelector(".modal");
+    const modalCan = document.querySelector(".modal-con");
+
+    // Изменяем содержимое модального окна
+    modal.innerHTML = `
+        <div class="actept">
+            <button class="btn exit-btn">Выйти</button>
+            <button class="btn-light out-btn">Отмена</button>
+        </div>
+    `;
+
+    // Показываем модальное окно
+    modalCan.classList.add("show");
+    modalCan.classList.remove("hide-prev");
+
+    // После обновления содержимого модала, находим кнопки
+    const exitBtn = modal.querySelector(".exit-btn");
+    const outBtn = modal.querySelector(".out-btn");
+
+    // Добавляем обработчик для кнопки "Выйти"
+    exitBtn.addEventListener("click", () => {
+      localStorage.removeItem("isLoggedIn");
+      loginContainer.classList.remove("hide");
+      clearMessage(messageDiv);
+      modalCan.classList.remove("show"); // Закрыть модальное окно
+      modalCan.classList.add("hide-prev"); // Добавить класс скрытия
+    });
+
+    // Добавляем обработчик для кнопки "Отмена"
+    outBtn.addEventListener("click", () => {
+      modalCan.classList.remove("show");
+      modalCan.classList.add("hide-prev");
+    });
+  });
+
+  function isValidInput(username, password) {
+    return username !== "" && password !== "";
+  }
+
+  function displayMessage(messageDiv, text, className) {
+    messageDiv.textContent = text;
+    messageDiv.className = className;
+  }
+
+  function clearMessage(messageDiv) {
+    messageDiv.textContent = "";
+    messageDiv.className = "";
+  }
 };
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function renderListItems(objects) {
   return objects
     .map((obj) => {
-      return `<li><a href="/pages/admin.php#"><h2>${obj.name} ${obj.cod}</h2></a></li>`;
+      return `<li class="admin-bar-item"><h2>${obj.name} ${obj.cod}</h2></li>`;
     })
-    .join(""); // Собирает строки в единую HTML-разметку
+    .join("");
 }
 function renderCardItems(objects) {
   return objects
     .map((obj) => {
       return `
-			<div class="obj-cart-form-adm-con">
-        <form class="obj-cart-form-adm" action="#">
-          <div class="obj-cart">
-            <div class="obj-cart-main">
-              <div class="mini-photo-con">
-                <img src="${obj.photo[0]}" alt="">
-              </div>
-              <div class="obj-cart-title">
-                <input type="text" class="input-adm-main in-title" value="${obj.name}" readonly>
-                <input type="text" class="input-adm-main" value="${obj.cod}" readonly>
-              </div>
-              <div class="trash">
-                <img class="img-adm-main input-adm-change" src="/assets/svg/change.svg" alt="">
-                <img class="img-adm-main" src="/assets/svg/delete.svg" alt="">
-              </div>
-            </div>
-            <div class="obj-cart-down">
-              <img src="/assets/svg/arrow-green.svg" alt="">
-            </div>
-
-            <div class="obj-cart-dop">
-              <div class="cart-descript-con">
-                <input class="input-adm-main" type="textarea" rows="4" value="${obj.description}">
-                <input class="input-adm-main" type="text" value="${obj.title}">
-                <input class="input-adm-main" type="text" value="${obj.specifications}">
-                <input class="input-adm-main" type="text" value="${obj.filter}">
-              </div>
-              <input type="submit" class="input-adm-main btn input-adm-submit" value="Изменить">
-            </div>
-          </div>
-        </form>
-      </div>
-			`;
+				<div class="obj-cart-form-adm-con">
+					<form class="obj-cart-form-adm" action="#">
+						<div class="obj-cart">
+							<div class="obj-cart-main">
+								<div class="mini-photo-con">
+									<img src="${obj.photo[0]}" alt="">
+								</div>
+								<div class="obj-cart-title">
+									<input type="text" class="input-adm-main in-title" value="${obj.name}" readonly>
+									<input type="text" class="input-adm-main" value="${obj.cod}" readonly>
+								</div>
+								<div class="trash">
+									<img class="img-adm-main input-adm-change" src="/assets/svg/change.svg" alt="">
+									<img class="img-adm-main" src="/assets/svg/delete.svg" alt="">
+								</div>
+							</div>
+	
+	
+							<div class="obj-cart-dop">
+								<div class="cart-descript-con">
+									<input class="input-adm-main" type="textarea" rows="4" value="${obj.description}" readonly>
+									<input class="input-adm-main" type="text" value="${obj.title}" readonly>
+									<input class="input-adm-main" type="text" value="${obj.specifications}" readonly>
+									<input class="input-adm-main" type="text" value="${obj.filter}" readonly>
+								</div>
+								<input type="submit" class="input-adm-main btn input-adm-submit" value="Изменить">
+							</div>
+						</div>
+					</form>
+				</div>
+				`;
     })
-    .join(""); // Собирает строки в единую HTML-разметку
+    .join("");
 }
 
 function renderContent(objects) {
   const contentDiv = document.querySelector(".content-con");
   contentDiv.innerHTML = "";
 
-  // const firstObject = objects[0];
-
   contentDiv.innerHTML = `
-    <div class="admin-bar">
-      <h2 class="open-all">Расскрыть все</h2>
-      <h2 class="close-all">Закрыть все</h2>
-      <div class="cart-margin"></div>
-      <ul>
-        ${renderListItems(objects)}
-      </ul>
-    </div>
-    <div class="obj-cart-con">
-			${renderCardItems(objects)}
-    </div>
-  `;
+			<div class="admin-bar">
+				<div class="adm-bar-btn-con"> 
+					<img class="adm-btn-close btn-modal-call" src="/assets/svg/exit.svg" alt="">
+					<button class="btn-light adm-bar-btn vue-card">Показать всё</button>
+					<input class="search-adm" type="search" placeholder="поиск" style="background: rgb(245, 245, 245);">
+				</div>
+				<div class="cart-margin"></div>
+				<ul>
+					${renderListItems(objects)}
+				</ul>
+			</div>
+			<div class="obj-cart-con">
+	
+				${renderCardItems(objects)}
+			</div>
+		`;
 
   toggleInputFields();
 }
 
 function toggleInputFields() {
   const objCart = document.querySelectorAll(".obj-cart");
-  const cartDown = document.querySelectorAll(".obj-cart-down");
+  const barItem = document.querySelectorAll(".admin-bar-item");
   const cartDop = document.querySelectorAll(".obj-cart-dop");
-  const openAll = document.querySelector(".open-all");
-  const closeAll = document.querySelector(".close-all");
-  //const inputFields = document.querySelectorAll(".input-adm-main");
-  const changeButtons = document.querySelectorAll(".input-adm-change");
-  const changeSubmit = document.querySelector(".input-adm-submit");
+  const vueCard = document.querySelectorAll(".vue-card");
 
-  const trash = document.querySelector(".trash");
+  vueCard.forEach((vueCard) => {
+    let isActive = false;
 
-  objCart.forEach((item) => {
-    const cartDop = item.querySelector(".obj-cart-dop");
-    const cartDown = item.querySelector(".obj-cart-down");
-    const changeSubmit = item.querySelector(".input-adm-submit");
-
-    changeSubmit.addEventListener("click", () => {
-      cartDown.classList.toggle("up");
-      cartDop.classList.toggle("show");
+    vueCard.addEventListener("click", () => {
+      isActive = !isActive;
+      vueCard.classList[isActive ? "add" : "remove"]("active");
+      if (isActive) {
+        vueCard.innerText = "Скрыть всё";
+        cartDop.forEach((item) => item.classList.add("show"));
+      } else {
+        vueCard.innerText = "Показать всё";
+        cartDop.forEach((item) => item.classList.remove("show"));
+      }
     });
   });
 
-  // objCart.forEach((item) => {
-  //   const cartDop = item.querySelector(".obj-cart-dop");
-  //   const cartDown = item.querySelector(".obj-cart-down");
+  barItem.forEach((barI, index) => {
+    barI.addEventListener("click", () => {
+      if (cartDop[index]) {
+        cartDop[index].classList.add("show");
+        cartDop[index].scrollIntoView({
+          behavior: "smooth", // позволяет сделать прокрутку плавной
+          block: "center", // определяет, где элемент окажется в области просмотра
+        });
+      }
+      barItem.forEach((item) => item.classList.remove("active"));
+      barI.classList.add("active");
+    });
+  });
 
-  //   cartDown.addEventListener("click", () => {
-  //     cartDown.classList.toggle("up");
-  //     cartDop.classList.toggle("show");
-  //   });
-  // });
+  objCart.forEach((item) => {
+    const cartDop = item.querySelector(".obj-cart-dop");
+    const changeButtons = item.querySelector(".input-adm-change");
+    const Inputs = item.querySelectorAll(".input-adm-main");
+    const changeSubmit = item.querySelector(".input-adm-submit");
 
-  // objCart.forEach((item) => {
-  //   item.removeAttribute("readonly");
+    let isActive = false;
 
-  //   item.addEventListener("click", () => {
-  //     const cartDop = item.querySelector(".obj-cart-dop");
-  //     const cartDown = item.querySelector(".obj-cart-down");
-  //     cartDown.classList.add("up");
-  //     cartDop.classList.add("show");
-  //   });
-  // });
+    changeButtons.addEventListener("click", () => {
+      isActive = !isActive;
+      cartDop.classList[isActive ? "add" : "remove"]("show");
 
-  // openAll.addEventListener("click", () => {
-  //   cartDop.forEach((dopItem, index) => {
-  //     dopItem.classList.add("show");
-  //     cartDown[index].style.transform = "rotate(180deg)";
-  //   });
-  // });
+      Inputs.forEach((e) => {
+        changeButtons.classList[isActive ? "add" : "remove"]("active");
 
-  // closeAll.addEventListener("click", () => {
-  //   cartDop.forEach((dopItem, index) => {
-  //     dopItem.classList.remove("show");
-  //     cartDown[index].style.transform = "rotate(0deg)";
-  //   });
-  // });
-
-  // changeButtons.forEach((button) => {
-  //   button.addEventListener("click", function () {
-  //     const form = button.closest("form");
-  //     const currentInputs = form.querySelectorAll(".input-adm-main");
-
-  //     button.classList.toggle("active");
-
-  //     currentInputs.forEach((input) => {
-  //       if (button.classList.contains("active")) {
-  //         input.removeAttribute("readonly");
-  //         input.classList.add("focus");
-  //         input.style.background = "#f5f5f5";
-  //         button.src = "/assets/svg/change_2.svg";
-  //         changeSubmit.style.display = "block";
-  //         objCart.forEach((item) => {
-  //           const cartDop = item.querySelector(".obj-cart-dop");
-  //           const cartDown = item.querySelector(".obj-cart-down");
-  //           cartDown.classList.add("up");
-  //           cartDop.classList.add("show");
-  //         });
-  //       } else {
-  //         input.setAttribute("readonly", "readonly");
-  //         input.style.background = "#fff";
-  //         input.style.borderStyle = "none";
-  //         button.src = "/assets/svg/change.svg";
-  //         changeSubmit.style.display = "none";
-  //         objCart.forEach((item) => {
-  //           const cartDop = item.querySelector(".obj-cart-dop");
-  //           const cartDown = item.querySelector(".obj-cart-down");
-  //           cartDown.classList.remove("up");
-  //           cartDop.classList.remove("show");
-  //         });
-  //       }
-  //     });
-  //   });
-  // });
+        if (isActive) {
+          e.removeAttribute("readonly");
+          e.style.background = "#f5f5f5";
+          changeButtons.src = "/assets/svg/change_2.svg";
+          changeSubmit.style.display = "block";
+        } else {
+          e.setAttribute("readonly", true);
+          e.style.background = "#fff";
+          e.style.borderStyle = "none";
+          changeButtons.src = "/assets/svg/change.svg";
+          changeSubmit.style.display = "none";
+        }
+      });
+    });
+  });
 }

@@ -1,7 +1,7 @@
 const copyElements = document.querySelectorAll(".copy");
 if (copyElements) {
   copyElements.forEach((element) => {
-    ["click", "touchstart"].forEach((evt) => {
+    ["click"].forEach((evt) => {
       element.addEventListener(evt, function (event) {
         // Если это ссылка, отменяем действие по умолчанию
         if (element.tagName.toLowerCase() === "a") {
