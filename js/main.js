@@ -110,7 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
       !subAboutBtn.contains(relatedTarget)
     ) {
       aboutBtn.classList.remove("active");
+      subAboutBtn.classList.remove("hide-prev");
       subAboutBtn.classList.remove("show");
+
       isMenuVisible = false;
     }
   };
@@ -226,11 +228,11 @@ document.addEventListener("DOMContentLoaded", function () {
   var currentUrl = window.location.pathname;
 
   // Проверяем, находится ли URL на странице catalog.php
-  if (!currentUrl.endsWith("/pages/catalog.php")) {
+  if (currentUrl.endsWith("/pages/catalog.php")) {
     // Если это не нужная страница, скрываем компонент
     var categoriesCon = document.querySelector(".categories-con");
     if (categoriesCon) {
-      categoriesCon.style.display = "none";
+      categoriesCon.style.display = "flex";
     }
   }
 });
@@ -273,5 +275,99 @@ filterBtnMenu.addEventListener("click", () => {
 if (filterNewBtn) {
   filterNewBtn.addEventListener("click", () => {
     filterBtnMenu.classList.toggle("active");
+  });
+}
+
+function validateI() {
+  const form = document.querySelector(".form-i");
+
+  const telSelector = form.querySelector(".input-tel-i");
+  const inputmask = new Inputmask("+7 (999) 999-99-99");
+
+  inputmask.mask(telSelector);
+
+  const validation = new JustValidate(".form-i");
+
+  validation
+    .addField(".input-name-i", [
+      {
+        rule: "minLength",
+        value: 3,
+        errorMessage: "Введите более 3 символов",
+      },
+      {
+        rule: "maxLength",
+        value: 30,
+        errorMessage: "Введите менее 30 символов",
+      },
+      {
+        rule: "required",
+        value: true,
+        errorMessage: "Введите имя",
+      },
+    ])
+    .addField(".input-tel-i", [
+      {
+        rule: "required",
+        value: true,
+        errorMessage: "Телефон обязателен",
+      },
+      {
+        rule: "function",
+        validator: function () {
+          const phone = telSelector.inputmask.unmaskedvalue();
+          return phone.length === 10;
+        },
+        errorMessage: "Введите корректный телефон",
+      },
+    ])
+    .onSuccess((event) => {
+      console.log("Validation passes and form submitted", event);
+
+      let formData = new FormData(event.target);
+
+      let xhr = new XMLHttpRequest();
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            console.log("Отправлено");
+            document.querySelector(".modal-con").classList.add("hide");
+            const tip = document.querySelector(".tip");
+            tip.classList.add("active");
+            if (langToggle === "ru") {
+              tip.innerHTML = `<h3>Даннык отправлены</h3>`;
+            } else {
+              tip.innerHTML = `<h3>The data has been sent</h3>`;
+            }
+          } else {
+            console.error("Ошибка при отправке: " + xhr.status);
+          }
+        }
+      };
+
+      xhr.open("POST", "../mail.php", true);
+      xhr.send(formData);
+
+      event.target.reset();
+    });
+}
+
+const mainFormI = document.querySelector(".main-form-i");
+
+if (mainFormI) {
+  validateI();
+  const check = document.getElementById("check-form-id-i");
+  const btnForm = document.querySelector(".btn-form-main-i");
+  btnForm.disabled = true;
+  btnForm.style.opacity = 0.5;
+  check.addEventListener("click", () => {
+    if (check.checked) {
+      btnForm.disabled = false;
+      btnForm.style.opacity = 1;
+    } else {
+      btnForm.disabled = true;
+      btnForm.style.opacity = 0.5;
+    }
   });
 }

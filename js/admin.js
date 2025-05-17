@@ -82,6 +82,7 @@ const adminData = async (objects) => {
     outBtn.addEventListener("click", () => {
       modalCan.classList.remove("show");
       modalCan.classList.add("hide-prev");
+      modal.innerHTML = ``;
     });
   });
 
@@ -108,6 +109,7 @@ function renderListItems(objects) {
     })
     .join("");
 }
+
 function renderCardItems(objects) {
   return objects
     .map((obj) => {
@@ -120,22 +122,22 @@ function renderCardItems(objects) {
 									<img src="${obj.photo[0]}" alt="">
 								</div>
 								<div class="obj-cart-title">
-									<input type="text" class="input-adm-main in-title" value="${obj.name}" readonly>
-									<input type="text" class="input-adm-main" value="${obj.cod}" readonly>
+									<input type="text" class="input-adm-main input-adm-main-name in-title" value="${obj.name}" readonly>
+									<input type="text" class="input-adm-main input-adm-main-cod" value="${obj.cod}" readonly>
 								</div>
 								<div class="trash">
 									<img class="img-adm-main input-adm-change" src="/assets/svg/change.svg" alt="">
-									<img class="img-adm-main" src="/assets/svg/delete.svg" alt="">
+									<img class="img-adm-main input-adm-delite" src="/assets/svg/delete.svg" alt="">
 								</div>
 							</div>
 	
 	
 							<div class="obj-cart-dop">
 								<div class="cart-descript-con">
-									<input class="input-adm-main" type="textarea" rows="4" value="${obj.description}" readonly>
-									<input class="input-adm-main" type="text" value="${obj.title}" readonly>
-									<input class="input-adm-main" type="text" value="${obj.specifications}" readonly>
-									<input class="input-adm-main" type="text" value="${obj.filter}" readonly>
+									<input class="input-adm-main input-adm-main-description" type="textarea" rows="4" value="${obj.description}" readonly>
+									<input class="input-adm-main input-adm-main-title" type="text" value="${obj.title}" readonly>
+									<input class="input-adm-main input-adm-main-specifications" type="text" value="${obj.specifications}" readonly>
+									<input class="input-adm-main input-adm-main-filter" type="text" value="${obj.filter}" readonly>
 								</div>
 								<input type="submit" class="input-adm-main btn input-adm-submit" value="Изменить">
 							</div>
@@ -151,25 +153,204 @@ function renderContent(objects) {
   const contentDiv = document.querySelector(".content-con");
   contentDiv.innerHTML = "";
 
-  contentDiv.innerHTML = `
-			<div class="admin-bar">
-				<div class="adm-bar-btn-con"> 
-					<img class="adm-btn-close btn-modal-call" src="/assets/svg/exit.svg" alt="">
-					<button class="btn-light adm-bar-btn vue-card">Показать всё</button>
-					<input class="search-adm" type="search" placeholder="поиск" style="background: rgb(245, 245, 245);">
-				</div>
-				<div class="cart-margin"></div>
-				<ul>
-					${renderListItems(objects)}
-				</ul>
-			</div>
-			<div class="obj-cart-con">
-	
-				${renderCardItems(objects)}
-			</div>
-		`;
+  // Вынести renderItems здесь, чтобы можно было передавать любые значения, всегда после отрисовки input вешаем обработчик.
+  const renderItems = (filteredObjects, searchValue = "") => {
+    contentDiv.innerHTML = `
+      <div class="admin-bar fade-in">
+        <div class="adm-bar-btn-con">
+          <img class="adm-btn-close btn-modal-call" src="/assets/svg/exit.svg" alt="">
+          <button class="btn-light adm-bar-btn vue-card">Показать всё</button>
+          <input class="search-adm" type="search" placeholder="поиск" style="background: rgb(245, 245, 245);" value="${searchValue}">
+        </div>
+        <div class="cart-margin"></div>
+        <ul>
+          ${renderListItems(filteredObjects)}
+        </ul>
+      </div>
+      <div class="obj-cart-con fade-in">
+        ${renderCardItems(filteredObjects)}
+      </div>
+    `;
+    toggleInputFields(objects);
 
-  toggleInputFields();
+    setTimeout(() => {
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => el.classList.add("show"));
+    }, 20);
+
+    // === Навешиваем обработчик ЗАНОВО после каждой отрисовки input ===
+    const searchInput = document.querySelector(".search-adm");
+    if (searchInput) {
+      searchInput.addEventListener("input", function () {
+        const searchTerm = this.value.toLowerCase();
+        let filteredObjects;
+        if (searchTerm === "") {
+          filteredObjects = objects; // Показываем все объекты
+        } else {
+          filteredObjects = objects.filter(
+            (obj) =>
+              obj.name.toLowerCase().includes(searchTerm) ||
+              obj.cod.toLowerCase().includes(searchTerm)
+          );
+        }
+        // ВАЖНО: После перерендера новый input, так что слушатель повесим заново
+        renderItems(filteredObjects, this.value);
+      });
+      searchInput.focus();
+      searchInput.setSelectionRange(
+        searchInput.value.length,
+        searchInput.value.length
+      );
+    }
+  };
+
+  contentDiv.addEventListener("click", (e) => {
+    const delBtn = e.target.closest(".input-adm-delite");
+    if (delBtn) {
+      const modal = document.querySelector(".modal");
+      const modalCan = document.querySelector(".modal-con");
+
+      // Изменяем содержимое модального окна
+      modal.innerHTML = `
+  			<div class="actept">
+  					<button class="btn delite-btn">Удалить</button>
+  					<button class="btn-light out-btn">Отмена</button>
+  			</div>
+  	`;
+
+      // Показываем модальное окно
+      modalCan.classList.add("show");
+      modalCan.classList.remove("hide-prev");
+
+      // После обновления содержимого модала, находим кнопки
+      const deliteBtn = modal.querySelector(".delite-btn");
+      const outBtn = modal.querySelector(".out-btn");
+
+      // Добавляем обработчик для кнопки "Выйти"
+      deliteBtn.addEventListener("click", () => {
+        e.preventDefault();
+        const cart = delBtn.closest(".obj-cart-form-adm");
+        if (cart) {
+          const input = cart.querySelector(".input-adm-main-cod");
+          const inputName = cart.querySelector(".input-adm-main-name");
+          const inputTitle = cart.querySelector(".input-adm-main-title");
+          const inputSpecifications = cart.querySelector(
+            ".input-adm-main-specifications"
+          );
+          const inputFilter = cart.querySelector(".input-adm-main-filter");
+          const inputSubmit = cart.querySelector(".input-adm-submit");
+
+          // Добавляем обработчик клика на inputSubmit
+          inputSubmit.addEventListener("click", (event) => {
+            event.preventDefault(); // Предотвращаем стандартное поведение кнопки отправки
+
+            // Получаем данные из полей ввода
+            const cod = input.value; // Получаем код товара
+            const name = inputName.value;
+            const title = inputTitle.value;
+            const specifications = inputSpecifications.value;
+            const filter = inputFilter.value;
+
+            console.log(cod);
+            console.log(name);
+            console.log(title);
+            console.log(specifications);
+            console.log(filter);
+
+            // Отправляем данные на сервер
+            fetch("update-object.php", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                cod: cod,
+                name: name,
+                title: title,
+                specifications: specifications,
+                filter: filter,
+              }),
+            })
+              .then((response) => {
+                if (!response.ok) throw new Error("Сервер ответил ошибкой");
+                return response.json();
+              })
+              .then((data) => {
+                if (data.success) {
+                  console.log("Объект обновлен успешно");
+                  // Здесь можно обновить интерфейс, если необходимо
+                } else {
+                  console.error("Ошибка обновления: " + data.message);
+                }
+              })
+              .catch((error) => {
+                console.error("Ошибка сети: " + error.message);
+              });
+          });
+
+          if (!input) return; // Если не нашли код, ничего не делаем
+
+          const cod = input.value; // Получаем код товара
+          const name = inputName.value;
+          const title = inputTitle.value;
+          const specifications = inputSpecifications.value;
+          const filter = inputFilter.value;
+
+          // Отправляем запрос на удаление объекта
+          fetch("delete-object.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              cod: cod,
+              name: name,
+              title: title,
+              specifications: specifications,
+              filter: filter,
+            }),
+          })
+            .then((response) => {
+              console.log("Response:", response); // Добавлено для отладки
+              if (!response.ok) throw new Error("Сервер ответил ошибкой");
+              return response.json();
+            })
+            .then((data) => {
+              if (data.success) {
+                console.log("Data received from server:", data); // Добавлено для отладки
+                // Удаляем объект из массива
+                const objIndex = objects.findIndex((obj) => obj.cod === cod);
+                if (objIndex !== -1) {
+                  objects.splice(objIndex, 1); // Удаляем 1 элемент по индексу
+                }
+                renderContent(objects); // Заново отрисовываем контент
+              } else {
+                console.error("Ошибка удаления: " + data.message);
+              }
+            })
+            .catch((error) => {
+              console.error(
+                "Серверная ошибка. Попробуйте позже.\n" + error.message
+              );
+            });
+        }
+
+        modalCan.classList.remove("show");
+        modalCan.classList.add("hide-prev");
+      });
+
+      // Добавляем обработчик для кнопки "Отмена"
+      outBtn.addEventListener("click", () => {
+        modalCan.classList.remove("show");
+        modalCan.classList.add("hide-prev");
+        modal.innerHTML = ``;
+      });
+    }
+  });
+
+  // Первая отрисовка
+  renderItems(objects);
 }
 
 function toggleInputFields() {

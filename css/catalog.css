@@ -309,7 +309,7 @@
 
 /* -------------categories------------ */
 .categories-con {
-  display: flex;
+  display: none;
   flex-direction: column;
   width: 27%;
   height: 100%;

@@ -8,7 +8,7 @@
 					<li><a  data-lang="Главная" data-lang_en="Home" href="/" class="home-btn">Главная</a></li>
 					<li>|</li>
 					<li  class="about-btn-li"><a data-lang="О компании" data-lang_en="About the company" 	href="/pages/about.php" class="about-btn">О компании</a>
-						<ul class="sub-about-btn">
+						<ul class="sub-about-btn hide-prev">
 							<li><a data-lang="Контакты" data-lang_en="Contacts" class="icon-menu icon-menu_1" href="/pages/about.php#contact">Контакты</a></li>
 							<li><a data-lang="Реквизиты" data-lang_en="Requisites" class="icon-menu icon-menu_2" href="/pages/about.php#recvisit">Реквизиты</a></li>
 							<li><a data-lang="Доставка" data-lang_en="Delivery" class="icon-menu icon-menu_3" href="/pages/about.php#delivry">Доставка</a></li>
@@ -146,6 +146,7 @@
 					<button id="languageEn" value="en" class="lang-switch btn">EN</button>
 				</div>
 			</div>
+			
 			<img class="close-menu hide" src="/assets/svg/close-mob-menu.svg" alt="">
 
 

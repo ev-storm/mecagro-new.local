@@ -117,6 +117,7 @@
   align-items: end !important;
   justify-content: end !important;
   width: 20% !important;
+  min-width: 200px !important;
   height: 150px;
   cursor: pointer;
   border-radius: 5px;

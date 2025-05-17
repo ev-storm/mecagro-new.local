@@ -1771,6 +1771,7 @@ function validate() {
 }
 
 const mainForm = document.querySelector(".main-form");
+
 if (mainForm) {
   validate();
   const check = document.getElementById("check-form-id");

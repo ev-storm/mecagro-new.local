@@ -138,7 +138,7 @@ var brendMainSwiper = new Swiper(".brendMainSwiper", {
 // var newsSwiperMini = new Swiper(".news-swiper-mini", {
 //   loop: true,
 //   spaceBetween: 20,
-//   slidesPerView: 6,
+//   slidesPerView: 2,
 
 //   navigation: {
 //     nextEl: ".mini-news-arrow_R",

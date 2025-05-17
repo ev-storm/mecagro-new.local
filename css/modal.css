@@ -29,6 +29,9 @@
   padding: 30px;
   box-shadow: #00000050 0 0 20px;
 }
+/* .filter-categories li {
+  display: flex !important;
+} */
 
 .modal-con.hide-prev {
   visibility: hidden;

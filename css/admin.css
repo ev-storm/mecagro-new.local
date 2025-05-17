@@ -278,7 +278,7 @@
   transition: var(--tran-03);
 }
 .input-adm-change:active {
-  scale: 0.8;
+  scale: 0.9;
 }
 .input-adm-submit {
   display: none;
@@ -326,4 +326,19 @@
   display: flex;
   width: 100%;
   justify-content: space-around;
+}
+.fade-in {
+  opacity: 0;
+  transition: var(--tran-01);
+}
+.fade-in.show {
+  opacity: 1;
+  transition: var(--tran-01);
+}
+.input-adm-delite {
+  scale: 1;
+  transition: var(--tran-03);
+}
+.input-adm-delite:active {
+  scale: 0.9;
 }
